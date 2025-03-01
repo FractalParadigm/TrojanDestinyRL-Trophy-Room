@@ -90,3 +90,13 @@ function verifyInput() {
         return false;
     }
 }
+
+function displayPassword() {
+    // This will check to see if we want the password visible, and sets it as such
+    console.log("loaded usermanagement");
+    if (document.getElementById("showPassword").checked) {
+        document.getElementById("password").type = "text";
+    } else if (!(document.getElementById("showPassword").checked)) {
+        document.getElementById("password").type = "password";
+    }
+}

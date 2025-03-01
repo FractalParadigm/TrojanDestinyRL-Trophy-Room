@@ -1,9 +1,14 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 
 <html>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../styles/primary.css" />
         <link rel="stylesheet" href="../styles/admin.css" />
         <link rel="stylesheet" href="../styles/admin_nav.css" />
         <script src="../scripts/trojan.js"></script>
@@ -11,6 +16,7 @@
     </head>
 
     <body id="body">
+    <script>getURL();</script>
         <div id="contentFrame">
             <h1>Trojan's Trophy Room</h1>
             <h2 id="adminHeader">ADMIN PANEL</h2>
@@ -49,15 +55,26 @@
             if ($count == 0) { // If no safe admins are found, we'll force creation of one
                 echo "<iframe src=\"user_management/create_safe_admin.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
             } else { // Otherwise we'll show the nav page
-                echo "<iframe src=\"admin_nav.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
+                if (!isset($_SESSION["userID"])){
+                    echo "<iframe src=\"../login_page.php?redirect=admin\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
+                } else if (isset($_SESSION["userID"]) && $_SESSION["isAdmin"] == 1) {
+                    echo "<iframe src=\"admin_nav.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
+                } else {
+                    echo "<iframe src=\"error.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
+                }
             }
-
             ?>
 
             
             <div id="subNav">
                 <a href="./" class="navLink" id="adminHomeButton">ADMIN HOME</a>
                 <a href="../" class="navLink" id="mainHomeButton">MAIN HOME</a>
+                <p class="newLine"></p>
+                <?php 
+                if (isset($_SESSION["userID"])){
+                    echo "<a href=\"../logout.php?redirect=admin\" class=\"navLink\" id=\"logoutButton\">LOGOUT</a>";
+                }
+                ?>
             </div>
         </div>
     </body>

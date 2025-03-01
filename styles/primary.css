@@ -26,7 +26,7 @@
     padding-bottom: 20px;
 }
 
-#contentFrame h3 {
+#contentFrame h2,h3 {
     margin: auto;
     padding-bottom: 30px;
 }
@@ -68,12 +68,47 @@
     margin: auto;
     padding: 0;
     border: none;
-    border-radius: 5px;
+    /*border-radius: 5px;
     box-shadow: 0px 10px 15px;
-    background-color: rgba(183, 183, 255, 0.6);
+    background-color: rgba(183, 183, 255, 0.6);*/
     max-width: 90%;
 }
 
 .newLine {
     width: 100%;
+}
+
+
+#subNav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+}
+
+#logoutButton {
+    box-shadow: 0px 2px 4px;
+    font-weight: bold;
+}
+#logoutButton:hover {
+    color: black;
+    background-color: rgba(255, 165, 0, .6);
+}
+#logoutButton:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
+}
+
+#loginButton {
+    box-shadow: 0px 2px 4px;
+    font-weight: bold;
+}
+#loginButton:hover {
+    color: black;
+    background-color: rgba(255, 165, 0, .6);
+}
+#loginButton:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
 }

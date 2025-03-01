@@ -26,7 +26,7 @@
   // Variables for the various input fields
   $username = $_POST["username"];
   $password = password_hash($_POST["password"], PASSWORD_DEFAULT);  // Hash the password for security
-  $discord = "";
+  $discord = $_POST["discord"];
   $twitch = $_POST["twitch"];
   $youtube = $_POST["youtube"];
 
@@ -36,11 +36,6 @@
     $isAdmin = 1;
   }
 
-  echo "<p>Is Admin? " . $isAdmin . "</p>";
-
-  if (isset($_POST["discord"])) {
-    $discord = $_POST["discord"];
-  }
 
   echo "<br>";
   echo $username . "<br>";
