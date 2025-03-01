@@ -1,0 +1,149 @@
+#confirmButton {
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    border: 1px solid blue;
+    border-radius: 3px;
+    box-shadow: 0px 2px 4px;
+    text-decoration: none;
+    color: black;
+    width: 100px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: auto;
+}
+
+#confirmButton:hover {
+    color: black;
+    background-color: rgba(255, 165, 0, .6);
+}
+
+#confirmButton:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
+}
+
+.sqlOutput {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 400px;
+    padding: 5px;
+}
+
+#userFormPanel {
+    width: 500px;
+}
+
+#userFormPanel {
+    margin: auto;
+    text-align: center;
+}
+
+
+#inputArea {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: auto;
+}
+
+#userForm input {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-style: 1px solid blue;
+}
+
+#userForm label {
+    text-align: left;
+    font-weight: bold;
+}
+
+#userForm input[type="submit"] {
+    margin: auto;
+    padding: 8px 25px;
+    font-size: 150%;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 6px;
+    border: 1px solid blue;
+    box-shadow: 0px 2px 4px;
+}
+
+#userForm input[type="submit"]:hover {
+    color: black;
+    background-color: rgba(255, 165, 0, .6);
+}
+
+#userForm input[type="submit"]:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
+}
+
+#userForm input[type="text"] {
+    border-radius: 2px;
+    width: 150px;
+    padding: 7px 10px;
+    margin: 1% 6%;
+}
+
+#userForm input[type="password"] {
+    border-radius: 2px;
+    width: 150px;
+    padding: 7px 10px;
+    margin: 1% 6%;
+}
+
+#passwordOptions {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+}
+#passwordOptions h4 {
+    text-align: center;
+    margin: auto;
+}
+#extraOptions {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+}
+#extraOptions h4 {
+    text-align: center;
+    margin: auto;
+}
+#extraOptions p {
+    text-align: left;
+    margin: auto;
+}
+
+.passwordOptions {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-direction: row;
+    font-size: 100%;
+    font-weight: normal;
+    padding: 0 20px;
+}
+
+
+.extraOptions {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-direction: row;
+    font-size: 100%;
+    font-weight: normal;
+    padding: 0 20px;
+}
+
+
+
+.newLine {
+    width: 100%;
+}
