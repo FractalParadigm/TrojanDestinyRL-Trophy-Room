@@ -41,3 +41,8 @@
     box-shadow: 0px 0px 2px;
     transform: translateY(2px);
 }
+
+#notAnAdmin {
+    width: 300px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

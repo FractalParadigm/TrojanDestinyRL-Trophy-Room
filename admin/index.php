@@ -60,14 +60,18 @@ session_start();
                 } else if (isset($_SESSION["userID"]) && $_SESSION["isAdmin"] == 1) {
                     echo "<iframe src=\"admin_nav.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
                 } else {
-                    echo "<iframe src=\"error.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
+                    echo "<iframe src=\"not_admin.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
                 }
             }
             ?>
 
             
             <div id="subNav">
-                <a href="./" class="navLink" id="adminHomeButton">ADMIN HOME</a>
+                <?php
+                if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                    echo "<a href=\"./\" class=\"navLink\" id=\"adminHomeButton\">ADMIN HOME</a>";
+                }
+                ?>
                 <a href="../" class="navLink" id="mainHomeButton">MAIN HOME</a>
                 <p class="newLine"></p>
                 <?php 

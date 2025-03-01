@@ -36,34 +36,24 @@
     $isAdmin = 1;
   }
 
-
-  echo "<br>";
-  echo $username . "<br>";
-  echo $password . "<br>";
-  echo $discord . "<br>";
-  echo $twitch . "<br>";
-  echo $youtube . "<br>";
-
-  echo $isAdmin . "<br>";
-  echo "lock 0";
-
   $insert = $conn->prepare("INSERT INTO " . $userTableName . " (username, password, discord, twitch, youtube, isAdmin) VALUES (:username, :password, :discord, :twitch, :youtube, :isAdmin)");
 
-  echo "lock 1";
 
   $insert->bindParam(":username", $username);
   $insert->bindParam(":password", $password);
   $insert->bindParam(":discord", $discord);
   $insert->bindParam(":twitch", $twitch);
   $insert->bindParam(":youtube", $youtube);
-  echo "lock 2";
 
   $insert->bindParam(":isAdmin", $isAdmin);
 
-  echo "lock 3";
 
   $insert->execute();
-  echo "New records created successfully?";
+  if ($isAdmin == 1) {
+    echo "New admin user \"" . $username . "\" created successfully";
+  } else {
+    echo "New user \"" . $username . "\" created successfully";
+  }
 
 
 
