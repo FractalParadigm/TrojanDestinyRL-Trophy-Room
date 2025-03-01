@@ -16,7 +16,8 @@
             <div class="navPanel" id="userManagementPanel">
                 <a href="user_management/user_form.php" target="dataFrame" class="navLink">CREATE USER</a>
                 <a href="#" target="dataFrame" class="navLink">MODIFY USER</a>
-                <a href="#" target="dataFrame" class="navLink">DISPLAY ALL USERS</a>
+                <a href="#" target="dataFrame" class="navLink">SHOW ALL USERS</a>
+                <a href="user_management/create_safe_admin.php" target="dataFrame" class="navLink">CREATE SAFE ADMIN</a>
             </div>
             <p>&nbsp;</p>
             <h3>TOURNEY MANAGEMENT</h3>
@@ -31,7 +32,6 @@
                 <a href="db_management/conn_check.php" target="dataFrame" class="navLink">CHECK DB CONNECTION</a>
                 <a href="db_management/reinitialize.php" target="dataFrame" class="navLink">RE-INITIALIZE DB</a>
                 <a href="#" target="dataFrame" class="navLink">SHOW RAW DB</a>
-                <a href="#" target="dataFrame" class="navLink">FOUR</a>
             </div>
             <p>&nbsp;</p>
         </div>

@@ -13,7 +13,7 @@
 <body class="sqlOutput">
   <?php
   // USER-DEFINED VARIABLES
-  include("../dev_db_config.php"); // Include database stuff
+  include("../db_config.php"); // Include database stuff
 
 
   try {  // Try opening the SQL database connection
@@ -25,6 +25,9 @@
     echo "Connection failed: " . $e->getMessage();
   }
 
+  //////////  USER DATA  ///////////
+
+  echo "<p>Creating user data table...</p>";
   // Check if the users table exists already
   $sqlCheckUserTable = $conn->prepare("SHOW TABLES LIKE '" . $userTableName . "'");
 
@@ -55,7 +58,19 @@
     }
   }
 
-  // Check if the users table exists already
+  // Next we're going to copy any safe admins into the users table.
+  // This will make userlists easier to work with
+  echo "<p>Copying users from safe admins...</p>";
+  $copyAdmins = $conn->prepare("INSERT INTO " . $userTableName . " SELECT * FROM " . $adminUserTableName);
+
+  $copyAdmins->execute();
+  echo "<p>Copied!</p>";
+
+
+  ////////  REPLAY DATA  ////////
+  echo "<p>Creating replay data table...</p>";
+  
+  // Check if the replay data table exists already
   $sqlCheckDataTable = $conn->prepare("SHOW TABLES LIKE '" . $dataTableName . "'");
 
   // Run the query
@@ -82,6 +97,39 @@
       echo "<p>Table '" . $dataTableName . "' successfully created (replay data)</p>";
     } catch (PDOException $e) {
       echo $sqlCreateDataTable . "<br>" . $e->getMessage();
+    }
+  }
+
+  ////////  TROPHY DATA  ////////
+  echo "<p>Creating trophy data table...</p>";
+  
+  // Check if the replay data table exists already
+  $sqlCheckTrophyTable = $conn->prepare("SHOW TABLES LIKE '" . $trophyTableName . "'");
+
+  // Run the query
+  $sqlCheckTrophyTable->execute();
+
+  //Check if any rows exist - if not, create the table, if yes, destroy it first, then create it
+  $count = $sqlCheckTrophyTable->rowCount();
+
+  if ($count != 0) {
+    echo "<p>Deleting exsiting table '" . $trophyTableName . "'...</p>";
+    // Create the query to drop the table
+    $sqlDropDataTable = "DROP TABLE " . $trophyTableName;
+    $conn->exec($sqlDropDataTable); // drop the table
+    echo "<p>Deleted!</p><p>Creating new table '" . $trophyTableName . "'...</p>";
+    try { // Create the new table
+      $conn->query($sqlCreateTrophyTable);
+      echo "<p>Table '" . $trophyTableName . "' successfully created (trophy data)</p>";
+    } catch (PDOException $e) {
+      echo $sqlCreateTrophyTable . "<br>" . $e->getMessage();
+    }
+  } else { // If the table doesn't already exist, we'll just create it
+    try {
+      $conn->query($sqlCreateTrophyTable);
+      echo "<p>Table '" . $trophyTableName . "' successfully created (trophy data)</p>";
+    } catch (PDOException $e) {
+      echo $sqlCreateTrophyTable . "<br>" . $e->getMessage();
     }
   }
 

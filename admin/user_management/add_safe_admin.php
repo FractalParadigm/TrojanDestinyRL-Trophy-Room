@@ -23,10 +23,29 @@
     echo "<p>Connected successfully</p>";
 
 
+    // Check if the users table exists already
+    $sqlCheckUserTable = $conn->prepare("SHOW TABLES LIKE '" . $adminUserTableName . "'");
+  
+    // Run the query
+    $sqlCheckUserTable->execute();
+  
+    //Check if any rows exist - if not, create the table
+    $count = $sqlCheckUserTable->rowCount();
+
+    if ($count == 0) {
+        try {
+          $conn->query($sqlCreateAdminTable);
+          echo "<p>Table '" . $adminUserTableName . "' successfully created (user data)</p>";
+        } catch (PDOException $e) {
+          echo $sqlCreateUserTable . "<br>" . $e->getMessage();
+        }
+    }
+    
+
   // Variables for the various input fields
   $username = $_POST["username"];
   $password = password_hash($_POST["password"], PASSWORD_DEFAULT);  // Hash the password for security
-  $discord = "";
+  $discord = $_POST["discord"];
   $twitch = $_POST["twitch"];
   $youtube = $_POST["youtube"];
 
@@ -34,12 +53,6 @@
 
   if (filter_has_var(INPUT_POST, "isAdmin")) {
     $isAdmin = 1;
-  }
-
-  echo "<p>Is Admin? " . $isAdmin . "</p>";
-
-  if (isset($_POST["discord"])) {
-    $discord = $_POST["discord"];
   }
 
   echo "<br>";
@@ -50,22 +63,17 @@
   echo $youtube . "<br>";
 
   echo $isAdmin . "<br>";
-  echo "lock 0";
 
-  $insert = $conn->prepare("INSERT INTO " . $userTableName . " (username, password, discord, twitch, youtube, isAdmin) VALUES (:username, :password, :discord, :twitch, :youtube, :isAdmin)");
+  $insert = $conn->prepare("INSERT INTO " . $adminUserTableName . " (username, password, discord, twitch, youtube, isAdmin) VALUES (:username, :password, :discord, :twitch, :youtube, :isAdmin)");
 
-  echo "lock 1";
 
   $insert->bindParam(":username", $username);
   $insert->bindParam(":password", $password);
   $insert->bindParam(":discord", $discord);
   $insert->bindParam(":twitch", $twitch);
   $insert->bindParam(":youtube", $youtube);
-  echo "lock 2";
 
   $insert->bindParam(":isAdmin", $isAdmin);
-
-  echo "lock 3";
 
   $insert->execute();
   echo "New records created successfully?";

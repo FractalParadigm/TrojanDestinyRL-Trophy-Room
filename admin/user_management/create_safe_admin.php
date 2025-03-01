@@ -9,20 +9,20 @@
         <link rel="stylesheet" href="user_management.css" />
         <?php include ("../db_config.php");?> <!-- Our password-length variable is stored here -->
         <script src="user_management.js"></script>
-        <title>USER CREATION FORM</title>
+        <title>ADMIN CREATION FORM</title>
     </head>
 
     <body id="generalBody">
         <div id="userFormPanel">
-            <h2>USER CREATION</h2>
-            <p>This form is used to manually add new users to the system</p>
+            <h2>SAFE ADMIN CREATION</h2>
+            <p>This form is used to create safe administrators - users who won't be deleted by a (re)initilization of the database</p>
             <hr>
             <p></p>
-            <form id="userForm" action="add_user.php" onsubmit="return verifyInput()" method="POST" target="dataFrame">
+            <form id="userForm" action="add_safe_admin.php" onsubmit="return verifyInput()" method="POST" target="dataFrame">
                 <!-- THIS DIV IS FOR INPUT -->
                 <div id="inputArea">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" />
+                    <input type="text" id="username" name="username" onchange="forcePassword()"/>
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" />
                     <label for="discord">Discord:</label>
@@ -45,18 +45,17 @@
                     <label for="passwordLength">Length of password:&nbsp;</label>
                     <input type="number" id="passwordLength" value="<?php echo $passwordLength ?>" min="6" max="20" onchange="randomPassword();togglePassword();">
                     <p class="newLine"></p>
-                    <input type="checkbox" id="none" name="none" class="passwordOptions" onclick="togglePassword()"/>
-                    <label for="none" class="passwordOptions">None (can be set later)</label>
-                    <p class="newLine"></p>
+                    <input type="checkbox" id="none" name="none" class="passwordOptions" onclick="togglePassword()" style="visibility:hidden;"/>
+                    <label for="none"  class="passwordOptions" style="visibility:hidden;">None (can be set later)</label>
                 </div>
                 <hr>
                 <!-- THIS DIV IS FOR EXTRA SETTINGS -->
                 <div id="extraOptions">
                     <h4>EXTRA OPTIONS</h4>
                     <p class="newLine">&nbsp;</p>
-                    <input type="checkbox" id="isAdmin" name="isAdmin" class="extraOptions" onclick="forcePassword()">
+                    <input type="checkbox" id="isAdmin" name="isAdmin" value="isAdmin" class="extraOptions" checked  onclick="return false;">
                     <label for="isAdmin" class="extraOptions">Make administrator?</label>
-                    <p class="newLine">An administrator will have FULL access to the administrator panel. In the hands of the wrong user, THIS COULD CAUSE SERIOUS DAMAGE AND IRREPARABLE HARM TO YOUR SERVER! Proceed with caution, and only with those you trust.</p>
+                    <p class="newLine">This is a safe admin. You are forced to provide a password.</p>
                     <p class="newLine"></p>
                 </div>
                 <p>&nbsp;</p>
