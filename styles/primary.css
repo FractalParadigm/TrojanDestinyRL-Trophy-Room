@@ -1,9 +1,23 @@
+/* Line break for flex layout */
+.newLine {
+    width: 100%;
+}
+
 #body {
     background-image: linear-gradient(to right, rgba(0, 0, 255, .8), rgba(255, 165, 0, .8));
     padding-top: 2%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height:100%
+    flex-grow: 1;
+    flex-shrink: 1;
 }
+
+/*
+
+    CONTENT FRAME
+
+Modifies and defines the iFrame that's holding the content shown to the user
+
+*/
 
 #contentFrame {
     display: flex;
@@ -19,6 +33,7 @@
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 40px;
+    box-shadow: 0px 0px 2px;
 }
 
 #contentFrame h1 {
@@ -31,7 +46,15 @@
     padding-bottom: 30px;
 }
 
-#navPanel {
+
+/*
+    STANDARD NAVIGATION
+
+For upper/primary controls
+
+*/
+
+.navPanel {
     position: relative;
     flex-wrap: wrap;
     display: flex;
@@ -40,26 +63,26 @@
     font-weight: bold;
 }
 
-
-#navPanel a:hover {
+.navPanel a:hover {
     color: black;
     background-color: rgba(255, 165, 0, .6);
 }
 
-#navPanel a:active {
-    box-shadow: 0px 2px 3px;
-    transform: translateY(4px) translateX(2px);
+.navPanel a:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
 }
 
 .navLink {
     border: 1px solid blue;
     border-radius: 3px;
-    box-shadow: 2px 6px 6px;
+    box-shadow: 0px 2px 4px;
     text-decoration: none;
     color: black;
     padding: 10px;
     padding-left: 30px;
     padding-right: 30px;
+    margin-bottom: 8px;
 }
 
 .dataFrame {
@@ -68,47 +91,74 @@
     margin: auto;
     padding: 0;
     border: none;
-    /*border-radius: 5px;
-    box-shadow: 0px 10px 15px;
-    background-color: rgba(183, 183, 255, 0.6);*/
     max-width: 90%;
 }
 
-.newLine {
-    width: 100%;
-}
+
+/*
+    SUB-NAVIGATION
+
+For all the things at the bottom of the page; log in/out, 'my account', etc.
+
+*/
 
 
-#subNav {
+.subNav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2%;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: small;
 }
 
-#logoutButton {
+.subNavLink {
+    border: 1px solid blue;
+    border-radius: 3px;
     box-shadow: 0px 2px 4px;
-    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
-#logoutButton:hover {
+
+.subNav a {
+    box-shadow: 0px 2px 4px;
+}
+.subNav a:hover {
     color: black;
     background-color: rgba(255, 165, 0, .6);
 }
-#logoutButton:active {
+.subNav a:active {
     box-shadow: 0px 0px 2px;
     transform: translateY(2px);
 }
 
-#loginButton {
-    box-shadow: 0px 2px 4px;
-    font-weight: bold;
+
+
+
+
+
+
+/*
+TEMPORARY
+*/
+#contentFrame h4 {
+    margin: auto;
+    padding-bottom: 15px;
+    font-size: 250%;
 }
-#loginButton:hover {
-    color: black;
-    background-color: rgba(255, 165, 0, .6);
+
+#giveawayLink {
+    text-decoration:none;
+    color:blue;
+    -webkit-text-stroke: 1px white;
 }
-#loginButton:active {
-    box-shadow: 0px 0px 2px;
-    transform: translateY(2px);
+#giveawayLink:hover {
+    color:orange;
+    -webkit-text-stroke: 1px black;
 }

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 
 <html>
@@ -22,15 +25,15 @@
                 </thead>
                 <tr>
                     <td class="divTableLeftColumn">Open</td>
-                    <td class="divTableRightColumn"><img src="assets/plat3.webp" title="Plat 3" alt="plat 3" width="30px"></td>
+                    <td class="divTableRightColumn"><img src="assets/plat3.webp" title="Plat 3" alt="plat 3" width="40px"></td>
                 </tr>
                 <tr>
                     <td class="divTableLeftColumn">Intermediate</td>
-                    <td class="divTableRightColumn"><img src="assets/champ3.webp" title="Champ 3" alt="champ 3" width="30px"></td>
+                    <td class="divTableRightColumn"><img src="assets/champ3.webp" title="Champ 3" alt="champ 3" width="40px"></td>
                 </tr>
                 <tr>
                     <td class="divTableLeftColumn">Main</td>
-                    <td class="divTableRightColumn"><img src="assets/SSL.webp" title="SSL" alt="Supersonic Legend" width="30px"></td>
+                    <td class="divTableRightColumn"><img src="assets/SSL.webp" title="SSL" alt="Supersonic Legend" width="40px"></td>
                 </tr>
             </table>
 

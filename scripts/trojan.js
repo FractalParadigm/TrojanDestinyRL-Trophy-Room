@@ -9,6 +9,5 @@ function getURL(path) {
     if (path == undefined) {
         path = "";
     }
-    console.log(window.location.href + path);
     return window.location.href + path;
 }

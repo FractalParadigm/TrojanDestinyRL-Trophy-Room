@@ -1,0 +1,197 @@
+#gameFormPanel {
+    width: 500px;
+    min-height: 1000px;
+}
+
+#gameFormPanel {
+    margin: auto;
+    text-align: center;
+}
+
+
+#textInputArea {
+    padding-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+    text-align: center;
+}
+
+.optionsArea {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+#userForm input {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-style: 1px solid blue;
+}
+
+#userForm label {
+    text-align: left;
+    font-weight: bold;
+}
+
+#userForm input[type="submit"] {
+    margin: auto;
+    padding: 8px 25px;
+    font-size: 150%;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 6px;
+    border: 1px solid blue;
+    box-shadow: 0px 2px 4px;
+}
+
+#userForm input[type="submit"]:hover {
+    color: black;
+    background-color: rgba(255, 165, 0, .6);
+}
+
+#userForm input[type="submit"]:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
+}
+
+#userForm input[type="text"] {
+    flex: 1;
+    align-items: flex-end;
+    border-radius: 2px;
+    padding: 3px 10px;
+    margin: 0 6%;
+}
+
+#userForm input[type="date"] {
+    flex: 1;
+    border-radius: 2px;
+    width: 100px;
+    padding: 3px 10px;
+    margin: 0 6%;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#userForm select {
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 3px 10px;
+    margin: 0 3%;
+}
+.playerInput input[type="text"]{
+    flex: 1;
+    width: 150px;
+}
+.teamInput input[type="text"]{
+    flex: 1;
+    width: 175px;
+}
+
+#playerDataInputArea {
+    height: 370px;
+    width: 85%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: auto;
+}
+
+#playerData {
+    margin: auto;
+}
+
+#playerData input[type="text"]{
+    width: 90%;
+    border-radius: 2px;
+    padding: 3px 0;
+    margin: 0 0;
+    text-align: center;
+}
+
+#playerTableMiddleSpacer {
+    width: 15%;
+}
+
+.tableSubHeader {
+    font-size: 70%;
+}
+#teamNameHeader {
+    font-size: 85%;
+}
+#scoreHeader {
+    font-size: 85%;
+}
+#scoreRow {
+    font-size: 120%;
+    font-weight: bold;
+}
+
+#scoreRow input[type="text"] {
+    width: 50px;
+    border-radius: 6px;
+    padding: 6px 6px;
+    margin: 0 0;
+    text-align: center;
+    font-size: 130%;
+}
+
+.tableHeader {
+    font-weight: bold;
+    font-size: 125%;
+}
+
+#submitButtonDiv {
+    display: flex;
+    flex-direction: column;
+    bottom: 10px;
+}
+
+#submitButton {
+    margin: auto;
+}
+
+#tourneyName {
+    width:100%;
+    padding: 3px 0;
+    margin: 0 0;
+    text-align: center;
+}
+
+#ballchasingID {
+    width:100%;
+    padding: 3px 0;
+    margin: 0 0;
+    text-align: center;
+}
+
+#notes {
+    width: 80%;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.6);
+    resize: none;
+}
+
+.showTeamSelector {
+    visibility: hidden;
+}
+
+/*
+    This section affects the auto-complete menu for player names
+*/
+.ui-menu {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.ui-autocomplete { 
+    max-height: 200px; 
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    width: 120px;
+}

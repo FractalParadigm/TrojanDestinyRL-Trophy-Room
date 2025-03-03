@@ -15,8 +15,9 @@ session_start();
     <body id="body">
         <div id="contentFrame">
             <h1>Trojan's Trophy Room</h1>
+            <h4><a href="/giveaway" id="giveawayLink">Giveaway Disclaimer</a></h4>
             <h3>Choose a division to see results!</h3>
-            <div id="navPanel">
+            <div class="navPanel">
                 <a href="open.html" target="dataFrame" class="navLink">OPEN</a>
                 <a href="intermediate.html" target="dataFrame" class="navLink">INTERMEDIATE</a>
                 <a href="main.html" target="dataFrame" class="navLink">MAIN</a>
@@ -27,18 +28,21 @@ session_start();
             <iframe src="open.html" name="dataFrame" class="dataFrame" id="dataFrame" onload="resizeIframe(this);"></iframe>
             <p class="newLine"></p>
             <p class="newLine"></p>
-            <div id="subNav">
+            <div class="subNav">
                 <?php 
+                // Is the user is logged in we'll show them a navigation bar with some fancier options
                 if (isset($_SESSION["userID"])){
-                    echo "<a href=\"logout.php \" class=\"navLink\" id=\"logoutButton\">LOGOUT</a>";
+                    echo "<a href=\"logout.php \" class=\"subNavLink\">LOGOUT</a>";
+                    echo "<a href=\"admin/data_management/game_form.php \" target=\"dataFrame\" class=\"subNavLink\">ADD GAME DETAILS</a>";
+                    // Anything we need to show to logged in admins will be below
+                    if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1){
+                        echo "<a href=\"admin \" class=\"subNavLink\">ADMIN PANEL</a>";
+                    }
                 } else {
-                    echo "<a href=\"login_page.php \" target=\"dataFrame\" class=\"navLink\" id=\"loginButton\">SIGN IN</a>";
+                    echo "<a href=\"login_page.php \" target=\"dataFrame\" class=\"subNavLink\">SIGN IN</a>";
                 }
                 ?>
             </div>
-        
-        
         </div>
-        
     </body>
 </html>

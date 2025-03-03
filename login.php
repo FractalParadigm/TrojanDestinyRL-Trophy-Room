@@ -30,26 +30,23 @@ session_start();
     $password = $_POST["password"];
 
 
-
     // THIS SHOULD BE MADE MORE EFFICIENT WITH ONLY ONE QUERY IF POSSIBLE
     // Grab the password hash for the username (if available)
-    $sqlGetPasswordHash = $conn->prepare("SELECT password FROM " . $userTableName . " WHERE username=\"" . $username . "\"");
-    $sqlGetUserID = $conn->prepare("SELECT userID FROM " . $userTableName . " WHERE username=\"" . $username . "\"");
-    $sqlGetisAdmin = $conn->prepare("SELECT isAdmin FROM " . $userTableName . " WHERE username=\"" . $username . "\"");
+    $sqlGetData = $conn->prepare("SELECT userID,password,isAdmin FROM " . $userTableName . " WHERE username=\"" . $username . "\"");
 
-    $sqlGetPasswordHash->execute();
-    $sqlGetUserID->execute();
-    $sqlGetisAdmin->execute();
+    $sqlGetData->execute();
     
 
   } catch (PDOException $e) { // failed connection
     echo "Connection failed: " . $e->getMessage();
   }
 
+$result = $sqlGetData->fetch(PDO::FETCH_ASSOC);
+
   // Grab the hash from the fetched SQL data
-$passwordHash = $sqlGetPasswordHash->fetchColumn();
-$userID = $sqlGetUserID->fetchColumn();
-$isAdmin = $sqlGetisAdmin->fetchColumn();
+$passwordHash = $result["password"];
+$userID = $result["userID"];
+$isAdmin = $result["isAdmin"];
 
 
 // Verify that the entered password matches the hashed one
@@ -58,6 +55,7 @@ if (password_verify($password, $passwordHash)) {
     $_SESSION["userID"] = $userID;
     $_SESSION["username"] = $username;
     $_SESSION["isAdmin"] = $isAdmin;
+
     // Function from StackOverflow used to get the base URL, to which we append
     // the redirect (where the user came from)
     function url(){
@@ -70,7 +68,7 @@ if (password_verify($password, $passwordHash)) {
       }
 
       $address = url();
-      echo "<p>$address</p>";
+      echo "<p>Redirecting to <a href=\"$address\">$address</a>...</p>";
     
       echo "<script>window.top.location.href = \"" . $address . "\";</script>";
       

@@ -6,7 +6,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="db_management.css" />
-  <!-- <script src="trojan.js"></script>-->
   <title>no title</title>
 </head>
 
@@ -20,8 +19,6 @@
     $conn = new PDO("mysql:host=$servername; dbname=$dbName", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<p>Connected successfully</p>";
-
 
   // Variables for the various input fields
   $username = $_POST["username"];

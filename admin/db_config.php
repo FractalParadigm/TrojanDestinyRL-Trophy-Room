@@ -25,7 +25,8 @@ include ("dev_db_config.php");
 
 
 $userTableName = "users";  // name of the table containing user data
-$dataTableName = "replays"; // table containing replay data
+$gameDataTableName = "games"; // table containing replay data
+$tournamentDataTableName = "tournaments"; // tournament data table
 $trophyTableName = "trophies"; // trophy data table
 $adminUserTableName = "safeadmins";
 
@@ -75,23 +76,53 @@ userUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
 
-// REPLAYS DATA TABLE
+// GAME DATA TABLE
 $sqlCreateDataTable = "
-CREATE TABLE " . $dataTableName . " (
-replayID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-ballchasingID VARCHAR(100),
-replayName VARCHAR(150),
+CREATE TABLE " . $gameDataTableName . " (
+gameID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+gameName VARCHAR(100),
+gameDate DATE,
 uploadedBy VARCHAR(30),
+uploadedByID INT(8) UNSIGNED,
 numPlayers TINYINT UNSIGNED,
-player1 VARCHAR(30),
-player2 VARCHAR(30),
-player3 VARCHAR(30),
-player4 VARCHAR(30),
-player5 VARCHAR(30),
-player6 VARCHAR(30),
-player7 VARCHAR(30),
-player8 VARCHAR(30),
-notes VARCHAR(1000)
+winningTeam VARCHAR(6),
+blueTeamName VARCHAR(35),
+blueScore INT(3),
+orangeTeamName VARCHAR(35),
+orangeScore INT(3),
+bluePlayer1 VARCHAR(30),
+bluePlayer2 VARCHAR(30),
+bluePlayer3 VARCHAR(30),
+bluePlayer4 VARCHAR(30),
+orangePlayer1 VARCHAR(30),
+orangePlayer2 VARCHAR(30),
+orangePlayer3 VARCHAR(30),
+orangePlayer4 VARCHAR(30),
+tournamentName VARCHAR(150),
+ballchasingID VARCHAR(50),
+notes VARCHAR(1000),
+created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)";
+
+
+// TOURNAMENT DATA TABLE
+$sqlCreateTournamentTable = "
+CREATE TABLE " . $tournamentDataTableName . " (
+tournamentID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+tournamentName VARCHAR(150),
+tournamentDate DATE,
+tournamentDivision VARCHAR(20),
+numPlayers TINYINT UNSIGNED,
+bestOf TINYINT UNSIGNED,
+winningTeamName VARCHAR(35),
+winner1 VARCHAR(30),
+winner2 VARCHAR(30),
+winner3 VARCHAR(30),
+winner4 VARCHAR(30),
+notes VARCHAR(1000),
+created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
 

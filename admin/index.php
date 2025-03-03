@@ -10,7 +10,6 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../styles/primary.css" />
         <link rel="stylesheet" href="../styles/admin.css" />
-        <link rel="stylesheet" href="../styles/admin_nav.css" />
         <script src="../scripts/trojan.js"></script>
         <title>ADMIN PANEL - Trojan's Trophy Room</title>
     </head>
@@ -47,10 +46,21 @@ session_start();
             //Check if any rows exist
             $count = $sqlCheckAdminTable->rowCount();
 
-            $count = 1;
-
-            // EVENTUALLY WE NEED TO MAKE SURE THE PERSON LOGGED IN IS AN ADMIN
-
+            
+            /* This if-statement controls the display of the admin page
+            //  First we check if there's actually gonna be an admin user
+            //   - we do this by checking the safe-admin database, because
+            //     if there's at least one user there, they would have been
+            //     copied into the primary user database upon initialization
+            //
+            //  Then we check if the person is logged in or not - if not,
+            //    we re-direct them to the login page, where we'll be 
+            //    brought back after logging in
+            //
+            //  We are also checking if the person is an admin user -
+            //    if they are NOT, then we show the 'not_admin' page, 
+            //    telling the user they're not allowed to view the content
+            */
 
             if ($count == 0) { // If no safe admins are found, we'll force creation of one
                 echo "<iframe src=\"user_management/create_safe_admin.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
@@ -66,17 +76,17 @@ session_start();
             ?>
 
             
-            <div id="subNav">
+            <div class="subNav">
                 <?php
                 if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
-                    echo "<a href=\"./\" class=\"navLink\" id=\"adminHomeButton\">ADMIN HOME</a>";
+                    echo "<a href=\"./\" class=\"subNavLink\" id=\"adminHomeButton\">ADMIN HOME</a>";
                 }
                 ?>
-                <a href="../" class="navLink" id="mainHomeButton">MAIN HOME</a>
+                <a href="../" class="subNavLink" id="mainHomeButton">MAIN HOME</a>
                 <p class="newLine"></p>
                 <?php 
                 if (isset($_SESSION["userID"])){
-                    echo "<a href=\"../logout.php?redirect=admin\" class=\"navLink\" id=\"logoutButton\">LOGOUT</a>";
+                    echo "<a href=\"../logout.php?redirect=admin\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
                 }
                 ?>
             </div>

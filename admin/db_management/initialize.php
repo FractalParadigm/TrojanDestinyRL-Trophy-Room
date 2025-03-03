@@ -27,7 +27,6 @@
 
   //////////  USER DATA  ///////////
 
-  echo "<p>Creating user data table...</p>";
   // Check if the users table exists already
   $sqlCheckUserTable = $conn->prepare("SHOW TABLES LIKE '" . $userTableName . "'");
 
@@ -67,11 +66,10 @@
   echo "<p>Copied!</p>";
 
 
-  ////////  REPLAY DATA  ////////
-  echo "<p>Creating replay data table...</p>";
-  
+  ////////  GAME DATA  ////////  
+
   // Check if the replay data table exists already
-  $sqlCheckDataTable = $conn->prepare("SHOW TABLES LIKE '" . $dataTableName . "'");
+  $sqlCheckDataTable = $conn->prepare("SHOW TABLES LIKE '" . $gameDataTableName . "'");
 
   // Run the query
   $sqlCheckDataTable->execute();
@@ -80,26 +78,61 @@
   $count = $sqlCheckDataTable->rowCount();
 
   if ($count != 0) {
-    echo "<p>Deleting exsiting table '" . $dataTableName . "'...</p>";
+    echo "<p>Deleting exsiting table '" . $gameDataTableName . "'...</p>";
     // Create the query to drop the table
-    $sqlDropDataTable = "DROP TABLE " . $dataTableName;
+    $sqlDropDataTable = "DROP TABLE " . $gameDataTableName;
     $conn->exec($sqlDropDataTable); // drop the table
-    echo "<p>Deleted!</p><p>Creating new table '" . $dataTableName . "'...</p>";
+    echo "<p>Deleted!</p><p>Creating new table '" . $gameDataTableName . "'...</p>";
     try { // Create the new table
       $conn->query($sqlCreateDataTable);
-      echo "<p>Table '" . $dataTableName . "' successfully created (replay data)</p>";
+      echo "<p>Table '" . $gameDataTableName . "' successfully created (saved game data)</p>";
     } catch (PDOException $e) {
       echo $sqlCreateDataTable . "<br>" . $e->getMessage();
     }
   } else { // If the table doesn't already exist, we'll just create it
     try {
       $conn->query($sqlCreateDataTable);
-      echo "<p>Table '" . $dataTableName . "' successfully created (replay data)</p>";
+      echo "<p>Table '" . $gameDataTableName . "' successfully created (saved game data)</p>";
     } catch (PDOException $e) {
       echo $sqlCreateDataTable . "<br>" . $e->getMessage();
     }
   }
 
+  ////////  TOURNAMENT DATA  ////////
+  
+  
+  // Check if the replay data table exists already
+  $sqlCheckTournamentTable = $conn->prepare("SHOW TABLES LIKE '" . $tournamentDataTableName . "'");
+
+  // Run the query
+  $sqlCheckTournamentTable->execute();
+
+  //Check if any rows exist - if not, create the table, if yes, destroy it first, then create it
+  $count = $sqlCheckTournamentTable->rowCount();
+
+  if ($count != 0) {
+    echo "<p>Deleting exsiting table '" . $tournamentDataTableName . "'...</p>";
+    // Create the query to drop the table
+    $sqlDropTournamentTable = "DROP TABLE " . $tournamentDataTableName;
+    $conn->exec($sqlDropTournamentTable); // drop the table
+    echo "<p>Deleted!</p><p>Creating new table '" . $tournamentDataTableName . "'...</p>";
+    try { // Create the new table
+      $conn->query($sqlCreateTournamentTable);
+      echo "<p>Table '" . $tournamentDataTableName . "' successfully created (tournament data)</p>";
+    } catch (PDOException $e) {
+      echo $sqlCreateTournamentTable . "<br>" . $e->getMessage();
+    }
+  } else { // If the table doesn't already exist, we'll just create it
+    try {
+      $conn->query($sqlCreateTournamentTable);
+      echo "<p>Table '" . $tournamentDataTableName . "' successfully created (tournament data)</p>";
+    } catch (PDOException $e) {
+      echo $sqlCreateTournamentTable . "<br>" . $e->getMessage();
+    }
+  }
+
+
+/*
   ////////  TROPHY DATA  ////////
   echo "<p>Creating trophy data table...</p>";
   
@@ -132,7 +165,7 @@
       echo $sqlCreateTrophyTable . "<br>" . $e->getMessage();
     }
   }
-
+*/
   $conn = null; // Close the connection
 
   // Tell the use we're done

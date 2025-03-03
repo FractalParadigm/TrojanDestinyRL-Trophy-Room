@@ -20,17 +20,17 @@
             <p></p>
             <form id="userForm" action="add_user.php" onsubmit="return verifyInput()" method="POST" target="dataFrame">
                 <!-- THIS DIV IS FOR INPUT -->
-                <div id="inputArea">
+                <div id="textInputArea">
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" />
+                    <input type="text" id="username" name="username"  maxlength="30" />
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" />
                     <label for="discord">Discord:</label>
-                    <input type="text" id="discord" name="discord" />
+                    <input type="text" id="discord" name="discord"  maxlength="50"/>
                     <label for="twitch">Twitch:</label>
-                    <input type="text" id="twitch" name="twitch" />
+                    <input type="text" id="twitch" name="twitch" maxlength="50" />
                     <label for="youtube">Youtube:</label>
-                    <input type="text" id="youtube" name="youtube" />
+                    <input type="text" id="youtube" name="youtube" maxlength="50" />
                 </div>
                 <hr>
                 <!-- THIS DIV IS FOR PASSWORD SETTINGS -->

@@ -32,6 +32,8 @@
     padding-right: 10px;
     padding-bottom: 30px;
     text-align: center;
+    vertical-align: middle;
+    font-size: 130%;
 }
 
 #divisionsTable th {
@@ -45,10 +47,20 @@
     padding-top: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    vertical-align: middle;
+    font-size: 130%;
 }
 
 #informationTable tr {
     border-bottom: 1px solid black;
+}
+
+#informationTable td {
+    vertical-align: middle;
+}
+
+#informationTable img {
+    vertical-align: middle;
 }
 
 

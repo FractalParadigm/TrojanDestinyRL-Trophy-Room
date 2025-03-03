@@ -12,7 +12,7 @@ session_start();
         <link rel="stylesheet" href="../styles/admin.css" />
         <link rel="stylesheet" href="../styles/admin_nav.css" />
         <script src="../scripts/trojan.js"></script>
-        <title>NOT AN ADMIN</title>
+        <title>NOT ALLOWED</title>
     </head>
 
     <body id="notAnAdmin">
