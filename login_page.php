@@ -8,9 +8,9 @@ $redirect = $_GET["redirect"];
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="styles/primary.css" />
-        <link rel="stylesheet" href="styles/login.css" />
-        <script src="admin/user_management/user_management.js"></script>
+        <link rel="stylesheet" href="/styles/primary.css" />
+        <link rel="stylesheet" href="/styles/login.css" />
+        <script src="/scripts/user_management.js"></script>
         <title>ADMIN PANEL - Trojan's Trophy Room</title>
     </head>
 

@@ -37,9 +37,9 @@ function addPlayers(){
     awayteamName = teamNames.insertCell(2);
 
     
-    hometeamName.innerHTML = "<input type=\"text\" name=\"blueTeamName\" class=\"teamInput\" maxlength=\"35\" tabindex=\"1\">";
+    hometeamName.innerHTML = "<input type=\"text\" name=\"blueTeamName\" class=\"teamInput\" maxlength=\"35\" placeholder=\"Blue\" tabindex=\"1\">";
     teamNameHeader.innerHTML = "<p id=\"teamNameHeader\"><pre>TEAM\nNAME</pre></p>";
-    awayteamName.innerHTML = "<input type=\"text\" name=\"orangeTeamName\" class=\"teamInput\" maxlength=\"35\" tabindex=\"1\">";
+    awayteamName.innerHTML = "<input type=\"text\" name=\"orangeTeamName\" class=\"teamInput\" maxlength=\"35\" placeholder=\"Orange\" tabindex=\"1\">";
 
 
     // Create the subheader
@@ -59,7 +59,7 @@ function addPlayers(){
         var bluePlayer = row.insertCell(0);
         var playerNum = row.insertCell(1);
         var orangePlayer = row.insertCell(2);
-        bluePlayer.innerHTML = "<input type=\"text\" name=\"bluePlayer" + i + "\" id=\"" + i + "\" class=\"playerInput\"  maxlength=\"30\" tabindex=\"2\">";
+        bluePlayer.innerHTML = "<input type=\"text\" name=\"bluePlayer" + i + "\" id=\"" + i + "\" class=\"playerInput\" maxlength=\"30\" tabindex=\"2\">";
         playerNum.innerHTML = "- " + i + " -";
         orangePlayer.innerHTML = "<input type=\"text\" name=\"orangePlayer" + i + "\" id=\"" + i + "\" class=\"playerInput\" maxlength=\"30\" tabindex=\"3\">";
     }

@@ -7,8 +7,8 @@ session_start();
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="styles/primary.css" />
-        <script src="scripts/trojan.js"></script>
+        <link rel="stylesheet" href="/styles/primary.css" />
+        <script src="scripts/tools.js"></script>
         <title>Trojan's Trophy Room</title>
     </head>
 
@@ -36,6 +36,7 @@ session_start();
                     echo "<a href=\"admin/data_management/game_form.php \" target=\"dataFrame\" class=\"subNavLink\">ADD GAME DETAILS</a>";
                     // Anything we need to show to logged in admins will be below
                     if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1){
+                        echo "<a href=\"admin/data_management/tourney_form.php \" target=\"dataFrame\" class=\"subNavLink\">ADD A TOURNEY</a>";
                         echo "<a href=\"admin \" class=\"subNavLink\">ADMIN PANEL</a>";
                     }
                 } else {

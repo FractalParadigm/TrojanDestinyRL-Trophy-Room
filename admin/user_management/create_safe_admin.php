@@ -4,11 +4,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="../../styles/admin.css" />
-        <link rel="stylesheet" href="../../styles/admin_nav.css" />
-        <link rel="stylesheet" href="../../styles/user_management.css" />
+        <link rel="stylesheet" href="/styles/admin.css" />
+        <link rel="stylesheet" href="/styles/admin_nav.css" />
+        <link rel="stylesheet" href="/styles/user_management.css" />
         <?php include ("../db_config.php");?> <!-- Our password-length variable is stored here -->
-        <script src="../../scripts/user_management.js"></script>
+        <script src="/scripts/user_management.js"></script>
         <title>ADMIN CREATION FORM</title>
     </head>
 

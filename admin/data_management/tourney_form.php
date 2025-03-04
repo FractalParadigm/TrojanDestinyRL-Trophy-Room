@@ -56,14 +56,13 @@ try {  // Try opening the SQL database connection
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <?php include ("../db_config.php");?> <!-- Our password-length variable is stored here -->
-        <link rel="stylesheet" href="../../styles/primary.css" />
-        <link rel="stylesheet" href="../../styles/admin.css" />
-        <link rel="stylesheet" href="../../styles/admin_nav.css" />
-        <link rel="stylesheet" href="../../styles/tourney_management.css" />
+        <link rel="stylesheet" href="/styles/primary.css" />
+        <link rel="stylesheet" href="/styles/admin.css" />
+        <link rel="stylesheet" href="/styles/admin_nav.css" />
+        <link rel="stylesheet" href="/styles/tourney_management.css" />
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
-        <script src="../../scripts/tourney_management.js"></script>
-        <script src="../../scripts/trojan.js"></script>
+        <script src="/scripts/tourney_management.js"></script>
+        <script src="/scripts/tools.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
         <title>TOURNAMENT ADDING FORM</title>

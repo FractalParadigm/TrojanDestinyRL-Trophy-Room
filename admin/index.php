@@ -8,9 +8,9 @@ session_start();
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="../styles/primary.css" />
-        <link rel="stylesheet" href="../styles/admin.css" />
-        <script src="../scripts/trojan.js"></script>
+        <link rel="stylesheet" href="/styles/primary.css" />
+        <link rel="stylesheet" href="/styles/admin.css" />
+        <script src="/scripts/tools.js"></script>
         <title>ADMIN PANEL - Trojan's Trophy Room</title>
     </head>
 

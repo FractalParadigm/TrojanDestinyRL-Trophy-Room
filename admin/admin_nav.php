@@ -4,10 +4,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="../styles/primary.css" />
-        <link rel="stylesheet" href="../styles/admin.css" />
-        <link rel="stylesheet" href="../styles/admin_nav.css" />
-        <!-- <script src="trojan.js"></script>-->
+        <link rel="stylesheet" href="/styles/primary.css" />
+        <link rel="stylesheet" href="/styles/admin.css" />
+        <link rel="stylesheet" href="/styles/admin_nav.css" />
         <title>TROJAN'S GENERAL DATA SHIT</title>
     </head>
 
