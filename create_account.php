@@ -52,11 +52,11 @@ try {  // Try opening the SQL database connection
             <p>Get started on your trophy-winning journey with your very own TrojanDestinyRL account!</p>
             <hr>
             <p></p>
-            <form id="userForm" action="admin/user_management/add_user.php" onsubmit="return verifyInput()" method="POST" target="dataFrame">
+            <form id="userForm" action="admin/user_management/add_user.php" onsubmit="return verifyInput()" method="POST" target="dataFrame" >
                 <!-- THIS DIV IS FOR INPUT -->
                 <div id="textInputArea">
                     <label for="username" class="inputLabel">Username:</label>
-                    <input type="text" id="username" name="username" class="newLine" maxlength="30" onchange="usernameConfirm()" tabindex="1">
+                    <input type="text" id="username" name="username" class="newLine" maxlength="30" onchange="usernameConfirm()" tabindex="1" pattern="[a-zA-Z0-9]*" required>
                     <p id="confirmUsername"></p>
                     <label for="password" class="inputLabel">Password:</label>
                     <input type="password" id="password" name="password" required tabindex="1">
@@ -68,7 +68,7 @@ try {  // Try opening the SQL database connection
                     <p id="matchingPasswordsText"></p>
                 </div>
                 <p>&nbsp;</p>
-                <input type="submit" value="CREATE"  tabindex="1">
+                <input type="submit" value="CREATE" tabindex="1">
             </form>
             <p>&nbsp;</p>
         </div>

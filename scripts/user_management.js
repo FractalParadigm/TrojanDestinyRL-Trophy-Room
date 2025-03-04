@@ -21,9 +21,14 @@ function verifyInput() {
 
     // Check if the username is filled out
     var username = document.forms["userForm"]["username"].value;
-
+    // Alert if not
     if (username == "") {
         alert ("Must enter a username!");
+        return false;
+    }
+    // Check if the name is already taken
+    if (!usernameConfirm()) {
+        alert ("Username already taken!");
         return false;
     }
 
@@ -46,10 +51,6 @@ function verifyInput() {
         return false;
     }
 
-    if (!usernameConfirm()) {
-        alert ("Username already taken!");
-        return false;
-    }
 }
 
 function displayPassword() {
