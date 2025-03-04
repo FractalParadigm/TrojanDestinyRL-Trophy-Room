@@ -60,7 +60,7 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="../../styles/primary.css" />
         <link rel="stylesheet" href="../../styles/admin.css" />
         <link rel="stylesheet" href="../../styles/admin_nav.css" />
-        <link rel="stylesheet" href="tourney_management.css" />
+        <link rel="stylesheet" href="../../styles/tourney_management.css" />
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="../../scripts/tourney_management.js"></script>
         <script src="../../scripts/trojan.js"></script>

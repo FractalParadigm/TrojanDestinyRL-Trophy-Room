@@ -29,9 +29,7 @@ session_start();
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-
-    // THIS SHOULD BE MADE MORE EFFICIENT WITH ONLY ONE QUERY IF POSSIBLE
-    // Grab the password hash for the username (if available)
+    // Get SQL data
     $sqlGetData = $conn->prepare("SELECT userID,password,isAdmin FROM " . $userTableName . " WHERE username=\"" . $username . "\"");
 
     $sqlGetData->execute();

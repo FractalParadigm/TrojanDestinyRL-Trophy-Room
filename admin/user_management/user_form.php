@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../../styles/admin.css" />
         <link rel="stylesheet" href="../../styles/admin_nav.css" />
-        <link rel="stylesheet" href="user_management.css" />
+        <link rel="stylesheet" href="../../styles/user_management.css" />
         <?php include ("../db_config.php");?> <!-- Our password-length variable is stored here -->
-        <script src="user_management.js"></script>
+        <script src="../../scripts/user_management.js"></script>
         <title>USER CREATION FORM</title>
     </head>
 
@@ -21,40 +21,25 @@
             <form id="userForm" action="add_user.php" onsubmit="return verifyInput()" method="POST" target="dataFrame">
                 <!-- THIS DIV IS FOR INPUT -->
                 <div id="textInputArea">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username"  maxlength="30" />
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" />
-                    <label for="discord">Discord:</label>
-                    <input type="text" id="discord" name="discord"  maxlength="50"/>
-                    <label for="twitch">Twitch:</label>
-                    <input type="text" id="twitch" name="twitch" maxlength="50" />
-                    <label for="youtube">Youtube:</label>
-                    <input type="text" id="youtube" name="youtube" maxlength="50" />
-                </div>
-                <hr>
-                <!-- THIS DIV IS FOR PASSWORD SETTINGS -->
-                <div id="passwordOptions">
-                    <h4>PASSWORD OPTIONS</h4>
-                    <p class="newLine"></p>
-                    <input type="checkbox" id="showPassword" name="showPassword" class="passwordOptions" onclick="togglePassword()"/>
-                    <label for="showPassword" class="passwordOptions">Show Password</label>
-                    <p class="newLine"></p>
-                    <input type="checkbox" id="random" name="random" class="passwordOptions" onclick="randomPassword();togglePassword();"/>
-                    <label for="random" class="passwordOptions">Random</label>
-                    <label for="passwordLength">Length of password:&nbsp;</label>
-                    <input type="number" id="passwordLength" value="<?php echo $passwordLength ?>" min="6" max="20" onchange="randomPassword();togglePassword();">
-                    <p class="newLine"></p>
-                    <input type="checkbox" id="none" name="none" class="passwordOptions" onclick="togglePassword()"/>
-                    <label for="none" class="passwordOptions">None (can be set later)</label>
-                    <p class="newLine"></p>
+                    <label for="username" class="inputLabel" >Username:</label>
+                    <input type="text" id="username" name="username" maxlength="30" required/>
+                    <label for="password" class="inputLabel newLine">Password:</label>
+                    <input type="password" id="password" name="password" required/>
+                    <input type="checkbox" id="showPassword" name="showPassword" class="passwordOptions" onclick="displayPassword()"/>
+                    <label for="showPassword" class="passwordOptions" id="displayPassword" class="newLine">(show)</label>
+                    <label for="discord" class="newLine">Discord:</label>
+                    <input type="text" id="discord" name="discord" class="newLine"  maxlength="50"/>
+                    <label for="twitch" class="newLine">Twitch:</label>
+                    <input type="text" id="twitch" name="twitch" class="newLine" maxlength="50" />
+                    <label for="youtube" class="newLine">Youtube:</label>
+                    <input type="text" id="youtube" name="youtube" class="newLine" maxlength="50" />
                 </div>
                 <hr>
                 <!-- THIS DIV IS FOR EXTRA SETTINGS -->
                 <div id="extraOptions">
                     <h4>EXTRA OPTIONS</h4>
                     <p class="newLine">&nbsp;</p>
-                    <input type="checkbox" id="isAdmin" name="isAdmin" class="extraOptions" onclick="forcePassword()">
+                    <input type="checkbox" id="isAdmin" name="isAdmin" class="extraOptions">
                     <label for="isAdmin" class="extraOptions">Make administrator?</label>
                     <p class="newLine">An administrator will have FULL access to the administrator panel. In the hands of the wrong user, THIS COULD CAUSE SERIOUS DAMAGE AND IRREPARABLE HARM TO YOUR SERVER! Proceed with caution, and only with those you trust.</p>
                     <p class="newLine"></p>

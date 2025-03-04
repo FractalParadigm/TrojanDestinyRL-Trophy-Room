@@ -42,11 +42,20 @@
     text-align: center;
 }
 
+#createAccountPanel {
+    width: 375px;
+}
+
+#createAccountPanel {
+    margin: auto;
+    text-align: center;
+}
+
 
 #textInputArea {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     margin: auto;
 }
 
@@ -95,17 +104,10 @@
     padding: 7px 10px;
     margin: 1% 6%;
 }
+.inputLabel {
+    width:100%;
+}
 
-#passwordOptions {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin: auto;
-}
-#passwordOptions h4 {
-    text-align: center;
-    margin: auto;
-}
 #extraOptions {
     display: flex;
     flex-wrap: wrap;
@@ -131,6 +133,19 @@
     padding: 0 20px;
 }
 
+#displayPassword {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto 0;
+    font-size: 80%;
+    font-weight: normal !important;
+    padding: 0 20px 0 10px;
+}
+#displayPassword label {
+    font-weight: normal;
+}
+
 
 .extraOptions {
     display: flex;
@@ -142,6 +157,23 @@
     padding: 0 20px;
 }
 
+
+#matchingPasswords  {
+    visibility: hidden;
+    height: 0px;
+}
+
+#matchingPasswordsText  {
+    visibility: hidden;
+    height: 0px;
+    font-size: 90%;
+}
+
+#confirmUsername {
+    visibility: hidden;
+    height: 0px;
+    font-size: 90%;
+}
 
 
 .newLine {

@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="db_management.css" />
+  <link rel="stylesheet" href="../../styles/db_management.css" />
   <!-- <script src="trojan.js"></script>-->
   <title>no title</title>
 </head>
@@ -131,44 +131,9 @@
     }
   }
 
-
-/*
-  ////////  TROPHY DATA  ////////
-  echo "<p>Creating trophy data table...</p>";
-  
-  // Check if the replay data table exists already
-  $sqlCheckTrophyTable = $conn->prepare("SHOW TABLES LIKE '" . $trophyTableName . "'");
-
-  // Run the query
-  $sqlCheckTrophyTable->execute();
-
-  //Check if any rows exist - if not, create the table, if yes, destroy it first, then create it
-  $count = $sqlCheckTrophyTable->rowCount();
-
-  if ($count != 0) {
-    echo "<p>Deleting exsiting table '" . $trophyTableName . "'...</p>";
-    // Create the query to drop the table
-    $sqlDropDataTable = "DROP TABLE " . $trophyTableName;
-    $conn->exec($sqlDropDataTable); // drop the table
-    echo "<p>Deleted!</p><p>Creating new table '" . $trophyTableName . "'...</p>";
-    try { // Create the new table
-      $conn->query($sqlCreateTrophyTable);
-      echo "<p>Table '" . $trophyTableName . "' successfully created (trophy data)</p>";
-    } catch (PDOException $e) {
-      echo $sqlCreateTrophyTable . "<br>" . $e->getMessage();
-    }
-  } else { // If the table doesn't already exist, we'll just create it
-    try {
-      $conn->query($sqlCreateTrophyTable);
-      echo "<p>Table '" . $trophyTableName . "' successfully created (trophy data)</p>";
-    } catch (PDOException $e) {
-      echo $sqlCreateTrophyTable . "<br>" . $e->getMessage();
-    }
-  }
-*/
   $conn = null; // Close the connection
 
-  // Tell the use we're done
+  // Tell the user we're done
   echo "<p style=\"font-weight:bold\">DONE!</p>";
 
   ?>

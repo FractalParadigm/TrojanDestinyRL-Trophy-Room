@@ -27,7 +27,6 @@ include ("dev_db_config.php");
 $userTableName = "users";  // name of the table containing user data
 $gameDataTableName = "games"; // table containing replay data
 $tournamentDataTableName = "tournaments"; // tournament data table
-$trophyTableName = "trophies"; // trophy data table
 $adminUserTableName = "safeadmins";
 
 $passwordLength = 8;  // default minimum random password length  
@@ -126,16 +125,4 @@ updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
 
 
-// TROPHY DATA TABLE
-$sqlCreateTrophyTable = "
-CREATE TABLE " . $trophyTableName . " (
-trophyID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-replayID INT UNSIGNED,
-trophyType VARCHAR(25),
-winner1 VARCHAR(30),
-winner2 VARCHAR(30),
-winner3 VARCHAR(30),
-numPlayers TINYINT UNSIGNED,
-notes VARCHAR(1000)
-)";
 ?>

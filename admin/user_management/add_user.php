@@ -44,17 +44,12 @@
 
   $insert->bindParam(":isAdmin", $isAdmin);
 
-
   $insert->execute();
   if ($isAdmin == 1) {
     echo "New admin user \"" . $username . "\" created successfully";
   } else {
     echo "New user \"" . $username . "\" created successfully";
   }
-
-
-
-
 
   } catch (PDOException $e) { // failed connection
     echo "Connection failed: " . $e->getMessage();

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="../../styles/admin.css" />
         <link rel="stylesheet" href="../../styles/admin_nav.css" />
-        <link rel="stylesheet" href="db_management.css" />
+        <link rel="stylesheet" href="../../styles/db_management.css" />
         <!-- <script src="trojan.js"></script>-->
         <title>TROJAN'S GENERAL DATA SHIT</title>
     </head>
@@ -25,7 +25,7 @@
             <p></p>
             <hr>
             <h2>ARE YOU ABSOLUTELY SURE?!</h2>
-            <a href="initialize.php" target="dataFrame" class="navLink" id="confirmButton">YES</a>
+            <a href="initialise.php" target="dataFrame" class="navLink" id="confirmButton">YES</a>
             <p>&nbsp;</p>
         </div>
     </body>

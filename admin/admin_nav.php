@@ -24,14 +24,14 @@
             <h3>DATA MANAGEMENT</h3>
             <div class="navPanel" id="tourneyManagementPanel">
                 <a href="data_management/game_form.php" target="dataFrame" class="navLink">ADD GAME</a>
-                <a href="data_management/tourney_form.php" target="dataFrame" class="navLink">CREATE TOURNAMENT</a>
+                <a href="data_management/tourney_form.php" target="dataFrame" class="navLink">ADD TOURNAMENT</a>
                 <a href="#" target="dataFrame" class="navLink">THREE</a>
             </div>
             <p>&nbsp;</p>
             <h3>!!!!! DANGER ZONE !!!!!</h3>
             <div class="navPanel" id="dbManagementPanel">
                 <a href="db_management/conn_check.php" target="dataFrame" class="navLink">CHECK DB CONNECTION</a>
-                <a href="db_management/reinitialize.php" target="dataFrame" class="navLink">RE-INITIALIZE DB</a>
+                <a href="db_management/reinitialise.php" target="dataFrame" class="navLink">REINITIALISE DB</a>
                 <a href="#" target="dataFrame" class="navLink" >SHOW RAW DB</a>
             </div>
             <p>&nbsp;</p>
