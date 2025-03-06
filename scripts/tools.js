@@ -6,8 +6,21 @@ function resizeIframe(obj) {
 }
 
 function getURL(path) {
+    // Gets the URL so we can re-direct the user back to where they came from
     if (path == undefined) {
         path = "";
     }
     return window.location.href + path;
+}
+
+function verifyPageInFrame() {
+    // Verify that the page was loaded in an iFrame
+    // Otherwise back to the homepage they go!
+    var mainURL = window.location.origin;
+    console.log(mainURL);
+
+    if (window.self !== window.top) {
+    } else {
+        window.location = mainURL;
+    }
 }
