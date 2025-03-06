@@ -33,9 +33,8 @@ function verifyInput() {
     }
 
     var password = document.forms["userForm"]["password"].value;
-
-    // Ensure the password (if enabled) is at least 6 characters in length
-    if (!(document.getElementById("none").checked) && password.length < 6) {
+    // Ensure the password is at least 6 characters in length
+    if (password.length < 6) {
         alert ("Password must have a minimum length of 6 characters.");
         return false;
     }
