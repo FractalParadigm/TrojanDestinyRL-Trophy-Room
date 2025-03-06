@@ -32,12 +32,7 @@ function verifyInput() {
         return false;
     }
 
-    // Check if a password is required, if so, make sure one is entered
     var password = document.forms["userForm"]["password"].value;
-    if (!(document.getElementById("none").checked) && password == "") {
-        alert ("Must enter a password! Or select \"None\" for no password (not available for administrator accounts).");
-        return false;
-    }
 
     // Ensure the password (if enabled) is at least 6 characters in length
     if (!(document.getElementById("none").checked) && password.length < 6) {

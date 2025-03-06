@@ -1,38 +1,3 @@
-#confirmButton {
-    position: relative;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    border: 1px solid blue;
-    border-radius: 3px;
-    box-shadow: 0px 2px 4px;
-    text-decoration: none;
-    color: black;
-    width: 100px;
-    padding: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin: auto;
-}
-
-#confirmButton:hover {
-    color: black;
-    background-color: rgba(255, 165, 0, .6);
-}
-
-#confirmButton:active {
-    box-shadow: 0px 0px 2px;
-    transform: translateY(2px);
-}
-
-.sqlOutput {
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 400px;
-    padding: 5px;
-}
-
 #userFormPanel {
     width: 500px;
 }
@@ -50,6 +15,128 @@
     margin: auto;
     text-align: center;
 }
+
+#accountDetailsBody {
+    width: 750px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+
+#accountDetailsPanel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 45%;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 2%;
+    padding: 5px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+}
+
+#accountSocialsPanel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 45%;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 2%;
+    padding: 5px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+}
+
+#accountSocialsPanel p {
+    height: 25px;
+}
+#accountDetailsPanel p {
+    height: 25px;
+}
+
+#accountDetailsPanel h3 {
+    text-align: center;
+}
+#accountSocialsPanel h3 {
+    text-align: center;
+}
+
+.accountDetailsLeftSide {
+    width: 40%;
+    text-align: left;
+    padding-left: 10%;
+}
+
+.accountDetailsRightSide {
+    width: 40%;
+    text-align: right;
+    padding-right: 10%;
+    justify-content: right;
+}
+
+.detailsBold {
+    font-weight: bold;
+}
+
+#editUserDetails input[type="text"] {
+    text-align: right;
+}
+
+#editUserDetails input[type="text"]::placeholder {
+    text-align: right;
+}
+
+
+.accountUpdateButton input[type="submit"] {
+    margin: auto;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 3px;
+    border: 1px solid blue;
+    box-shadow: 0px 2px 4px;
+}
+
+.accountUpdateButton input[type="submit"]:hover {
+    color: black;
+    background-color: rgba(255, 165, 0, .6);
+}
+
+.accountUpdateButton input[type="submit"]:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
+}
+
+#changePasswordButton {
+    margin: auto;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 75%;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 3px;
+    border: 1px solid blue;
+    box-shadow: 0px 2px 4px;
+    color: black;
+}
+
+#changePasswordButton:hover {
+    color: black;
+    background-color: rgba(255, 165, 0, .6);
+}
+
+#changePasswordButton:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
+}
+
 
 
 #textInputArea {
@@ -175,7 +262,3 @@
     font-size: 90%;
 }
 
-
-.newLine {
-    width: 100%;
-}

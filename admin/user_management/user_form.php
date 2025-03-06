@@ -4,10 +4,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/styles/primary.css" />
         <link rel="stylesheet" href="/styles/admin.css" />
         <link rel="stylesheet" href="/styles/admin_nav.css" />
         <link rel="stylesheet" href="/styles/user_management.css" />
-        <?php include ("../db_config.php");?> <!-- Our password-length variable is stored here -->
         <script src="/scripts/user_management.js"></script>
         <title>USER CREATION FORM</title>
     </head>
@@ -24,15 +24,19 @@
                     <label for="username" class="inputLabel" >Username:</label>
                     <input type="text" id="username" name="username" maxlength="30" required/>
                     <label for="password" class="inputLabel newLine">Password:</label>
-                    <input type="password" id="password" name="password" required/>
+                    <input type="password" id="password" name="password" minlength="6" required/>
                     <input type="checkbox" id="showPassword" name="showPassword" class="passwordOptions" onclick="displayPassword()"/>
                     <label for="showPassword" class="passwordOptions" id="displayPassword" class="newLine">(show)</label>
                     <label for="discord" class="newLine">Discord:</label>
                     <input type="text" id="discord" name="discord" class="newLine"  maxlength="50"/>
+                    <label for="discord" class="newLine">Discord Link:</label>
+                    <input type="text" id="discordLink" name="discordLink" class="newLine"  maxlength="50"/>
                     <label for="twitch" class="newLine">Twitch:</label>
                     <input type="text" id="twitch" name="twitch" class="newLine" maxlength="50" />
                     <label for="youtube" class="newLine">Youtube:</label>
                     <input type="text" id="youtube" name="youtube" class="newLine" maxlength="50" />
+                    <label for="youtube" class="newLine">Youtube Link:</label>
+                    <input type="text" id="youtubeLink" name="youtubeLink" class="newLine" maxlength="50" />
                 </div>
                 <hr>
                 <!-- THIS DIV IS FOR EXTRA SETTINGS -->

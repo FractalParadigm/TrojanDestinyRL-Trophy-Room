@@ -12,12 +12,13 @@
 
 <body class="sqlOutput">
   <?php
+  function initialiseDatabase() {
   // USER-DEFINED VARIABLES
   include("../db_config.php"); // Include database stuff
 
 
   try {  // Try opening the SQL database connection
-    $conn = new PDO("mysql:host=$servername; dbname=$dbName", $username, $password);
+    $conn = new PDO("mysql:host=$servername; dbname=$dbName", $dbUsername, $dbPassword);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "<p>Connected successfully</p>";
@@ -135,6 +136,7 @@
 
   // Tell the user we're done
   echo "<p style=\"font-weight:bold\">DONE!</p>";
+}
 
   ?>
 

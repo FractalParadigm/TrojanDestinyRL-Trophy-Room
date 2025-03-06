@@ -2,8 +2,8 @@
 // DB LOGIN DETAILS HERE
 
 $servername = "127.0.0.1";
-$username = "USERNAME";
-$password = "PASSWORD";
+$dbUsername = "USERNAME";
+$dbPassword = "PASSWORD";
 $dbName = "DBNAME";
 
 ////////////////////////////  DEVELOPER  ///////////////////////////////
@@ -29,9 +29,6 @@ $gameDataTableName = "games"; // table containing replay data
 $tournamentDataTableName = "tournaments"; // tournament data table
 $adminUserTableName = "safeadmins";
 
-$passwordLength = 8;  // default minimum random password length  
-
-
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -53,8 +50,10 @@ isAdmin BOOL,
 username VARCHAR(30) NOT NULL,
 password VARCHAR(255),
 discord VARCHAR(50),
+discordLink VARCHAR(150),
 twitch VARCHAR(50),
 youtube VARCHAR(50),
+youtubeLink VARCHAR(150),
 userCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 userUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";
@@ -68,8 +67,10 @@ isAdmin BOOL,
 username VARCHAR(30) NOT NULL,
 password VARCHAR(255),
 discord VARCHAR(50),
+discordLink VARCHAR(150),
 twitch VARCHAR(50),
 youtube VARCHAR(50),
+youtubeLink VARCHAR(150),
 userCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 userUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )";

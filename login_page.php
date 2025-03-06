@@ -17,13 +17,13 @@ $redirect = $_GET["redirect"];
     <body id="loginBody">
         <h3 id="loginNotice">Sign in to continue</h3>
         <div id="loginPanel">
-            <form id="loginForm" onsubmit="return verifyInput()" action="login.php?redirect=<?php echo $redirect; ?>" method="POST">
+            <form id="loginForm" onsubmit="return verifyInput()" action="/login.php?redirect=<?php echo $redirect; ?>" method="POST">
                 <div id="inputArea">
                     <label for="username">Username:</label>
                     <input type="text" name="username" id="username" required>
                     <p class="newLine"></p>
                     <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="password" id="password" minlength="6" required>
                     <p class="newLine"></p>
                     <label for="showPassword" id="showPasswordLabel">Show Password: &nbsp;</label>
                     <input type="checkbox" name="showPassword" id="showPassword"  onchange="displayPassword();">

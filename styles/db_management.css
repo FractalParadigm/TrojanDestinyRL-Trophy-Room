@@ -36,3 +36,16 @@
     width: 400px;
     padding: 5px;
 }
+
+.userMessage {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.userMessage a{
+    margin: 10px;
+}
+
+.subNavLink a {
+    margin: 10px !important;
+}

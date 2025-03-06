@@ -4,7 +4,7 @@ include("admin/db_config.php"); // Include database
 // This grabs the list of users to check and make sure we aren't creating duplicates
 
 try {  // Try opening the SQL database connection
-  $conn = new PDO("mysql:host=$servername; dbname=$dbName", $username, $password);
+  $conn = new PDO("mysql:host=$servername; dbname=$dbName", $dbUsername, $dbPassword);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -37,11 +37,11 @@ try {  // Try opening the SQL database connection
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="styles/admin.css" />
-        <link rel="stylesheet" href="styles/admin_nav.css" />
-        <link rel="stylesheet" href="styles/user_management.css" />
+        <link rel="stylesheet" href="/styles/admin.css" />
+        <link rel="stylesheet" href="/styles/admin_nav.css" />
+        <link rel="stylesheet" href="/styles/user_management.css" />
         <?php include ("admin/db_config.php");?> <!-- Our password-length variable is stored here -->
-        <script src="scripts/user_management.js"></script>
+        <script src="/scripts/user_management.js"></script>
         <title>USER CREATION FORM</title>
         <script>var userList = <?php echo json_encode($userList); ?>; // Convert array from PHP to JS</script>
     </head>
@@ -52,7 +52,7 @@ try {  // Try opening the SQL database connection
             <p>Get started on your trophy-winning journey with your very own TrojanDestinyRL account!</p>
             <hr>
             <p></p>
-            <form id="userForm" action="admin/user_management/add_user.php" onsubmit="return verifyInput()" method="POST" target="dataFrame" >
+            <form id="userForm" action="/admin/user_management/add_user.php" onsubmit="return verifyInput()" method="POST" target="dataFrame" >
                 <!-- THIS DIV IS FOR INPUT -->
                 <div id="textInputArea">
                     <label for="username" class="inputLabel">Username:</label>

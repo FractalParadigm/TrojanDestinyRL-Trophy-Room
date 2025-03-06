@@ -30,19 +30,19 @@ session_start();
             include ("db_config.php");
             
             try {  // Try opening the SQL database connection
-                $conn = new PDO("mysql:host=$servername; dbname=$dbName", $username, $password);
+                $conn = new PDO("mysql:host=$servername; dbname=$dbName", $dbUsername, $dbPassword);
                 // set the PDO error mode to exception
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                // Check if the admin table exists
+                $sqlCheckAdminTable = $conn->prepare("SHOW TABLES LIKE '" . $adminUserTableName . "'");
+                
+                // Run the query
+                $sqlCheckAdminTable->execute();
+          
             } catch (PDOException $e) { // failed connection
                 echo "SQL connection failed: " . $e->getMessage();
             }
 
-            // Check if the admin table exists
-            $sqlCheckAdminTable = $conn->prepare("SHOW TABLES LIKE '" . $adminUserTableName . "'");
-          
-            // Run the query
-            $sqlCheckAdminTable->execute();
-          
             //Check if any rows exist
             $count = $sqlCheckAdminTable->rowCount();
 
