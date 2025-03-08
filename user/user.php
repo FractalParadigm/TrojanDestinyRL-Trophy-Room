@@ -22,7 +22,6 @@ try {  // Try opening the SQL database connection
   if (isset($results)) {
     if (mb_strtolower($_GET["username"]) != mb_strtolower($results["username"])) {
         $userExists = false;
-        echo "NO USER";
     } else {
         $userExists = true;
   }
@@ -73,7 +72,7 @@ try {  // Try opening the SQL database connection
                 echo "<h2>USER NOT FOUND!</h2>";
                 echo "<p>This person may have played some games with us, but hasn't registered an account yet.</p>";
                 echo "<p>Please check back later!</p>";
-                echo "<p></p>";
+                echo "<p>&nbsp;</p>";
                 echo "</div>";
             }
             ?>
@@ -98,6 +97,9 @@ try {  // Try opening the SQL database connection
                 // If someone is logged in, give them the opportunity to log out
                 if (isset($_SESSION["userID"])){
                     echo "<a href=\"../logout.php?redirect=\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
+                } else {
+                    echo "<a href=\"/login_page.php \" target=\"dataFrame\" class=\"subNavLink\">SIGN IN</a>";
+                    echo "<a href=\"/create_account.php \" target=\"dataFrame\" class=\"subNavLink\">CREATE AN ACCOUNT</a>";
                 }
                 ?>
             </div>

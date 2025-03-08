@@ -69,10 +69,12 @@ try {  // Try opening the SQL database connection
     <body>
         <div id="accountDetailsTitlePanel">
             <?php
-            if (mb_strtolower($username) == mb_strtolower($_SESSION["username"])) {
-                echo "<h2 id=\"adminHeader\">My Account</h2>";
-            } else {
-                echo "<h2 id=\"adminHeader\">$username's Account</h2>";
+            if (isset($_SESSION["userID"])) {
+                if (mb_strtolower($username) == mb_strtolower($_SESSION["username"])) {
+                    echo "<h2 id=\"adminHeader\">My Account</h2>";
+                } else {
+                    echo "<h2 id=\"adminHeader\">$username's Account</h2>";
+                }
             }
             ?>
         </div>
@@ -103,36 +105,38 @@ try {  // Try opening the SQL database connection
                 </div>
             </div>
             <?php
-            if (mb_strtolower($username) == mb_strtolower($_SESSION["username"])) {
-                echo ("
-                    <div id=\"accountSocialsPanel\">
-                        <h3>Edit</h3>
-                        <p class=\"newLine\"></p>
-                        <div class=\"accountDetailsLeftSide\">
-                            <p>Twitch (name):</p>
-                            <p>YouTube (name):</p>
-                            <p>YouTube (link):</p>
-                            <p>Discord (name):</p>
-                            <p>Discord (UserID):</p>
-                            <p>&nbsp;</p>
-                            <p><a href=\"/admin/user_management/change_password.php\" id=\"changePasswordButton\" style=\"text-align:center;\" class=\"disabled\">Change Password</a></p>
-                            <p>(coming soon!)</p>
-                        </div>
-                        <div class=\"accountDetailsRightSide\">
-                            <form id=\"editUserDetails\" action=\"/admin/user_management/edit_user.php\" method=\"post\">
-                                <p><input type=\"text\" placeholder=\"" . $userDetails["twitch"] . "\" id=\"twitch\" name=\"twitch\"></p>
-                                <p><input type=\"text\" placeholder=\"" . $userDetails["youtube"] . "\" id=\"youtube\" name=\"youtube\"></p>
-                                <p><input type=\"text\" placeholder=\"" . $userDetails["youtubeLink"] . "\" id=\"youtubeLink\" name=\"youtubeLink\"></p>
-                                <p><input type=\"text\" placeholder=\"" . $userDetails["discord"] . "\" id=\"discord\" name=\"discord\"></p>
-                                <p><input type=\"text\" placeholder=\"" . $userDetails["discordLink"] . "\" id=\"discordLink\" name=\"discordLink\"></p>
+            if (isset($_SESSION["userID"])) {
+                if (mb_strtolower($username) == mb_strtolower($_SESSION["username"])) {
+                    echo ("
+                        <div id=\"accountSocialsPanel\">
+                            <h3>Edit</h3>
+                            <p class=\"newLine\"></p>
+                            <div class=\"accountDetailsLeftSide\">
+                                <p>Twitch (name):</p>
+                                <p>YouTube (name):</p>
+                                <p>YouTube (link):</p>
+                                <p>Discord (name):</p>
+                                <p>Discord (UserID):</p>
                                 <p>&nbsp;</p>
-                                <div class=\"accountUpdateButton\">
-                                    <input type=\"submit\" id=\"submitButton\" value=\"Update\">
-                                </div>
-                            </form>
+                                <p><a href=\"/admin/user_management/change_password.php\" id=\"changePasswordButton\" style=\"text-align:center;\" class=\"disabled\">Change Password</a></p>
+                                <p>(coming soon!)</p>
+                            </div>
+                            <div class=\"accountDetailsRightSide\">
+                                <form id=\"editUserDetails\" action=\"/admin/user_management/edit_user.php\" method=\"post\">
+                                    <p><input type=\"text\" placeholder=\"" . $userDetails["twitch"] . "\" id=\"twitch\" name=\"twitch\"></p>
+                                    <p><input type=\"text\" placeholder=\"" . $userDetails["youtube"] . "\" id=\"youtube\" name=\"youtube\"></p>
+                                    <p><input type=\"text\" placeholder=\"" . $userDetails["youtubeLink"] . "\" id=\"youtubeLink\" name=\"youtubeLink\"></p>
+                                    <p><input type=\"text\" placeholder=\"" . $userDetails["discord"] . "\" id=\"discord\" name=\"discord\"></p>
+                                    <p><input type=\"text\" placeholder=\"" . $userDetails["discordLink"] . "\" id=\"discordLink\" name=\"discordLink\"></p>
+                                    <p>&nbsp;</p>
+                                    <div class=\"accountUpdateButton\">
+                                        <input type=\"submit\" id=\"submitButton\" value=\"Update\">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                ");
+                    ");
+                } 
             } else {
                 echo ("
                     <div id=\"accountSocialsPanel\">
