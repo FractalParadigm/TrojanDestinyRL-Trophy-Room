@@ -195,7 +195,7 @@ session_start();
             </div>
             <div class="dateSelector">
                 <select size="1" name="month" id="month" onchange="refreshDisplay()">
-                    <option value="all">All</option>
+                    <option value="all">All</option> <!-- all option  -->
                     <?php
                     // Automatically write the months using a script
                     // Also automatically selects the current month
@@ -211,7 +211,7 @@ session_start();
                     ?>
                 </select>
                 <select size="1" name="year" id="year" onchange="refreshDisplay()">
-                <option value="all">All</option>
+                <option value="all">All</option> <!-- all option  -->
                     <?php
                     // This uses the years we grabbed earlier and ensures we're only showing
                     // the years we have entries for

@@ -23,3 +23,20 @@ function verifyPageInFrame() {
         window.location = mainURL;
     }
 }
+
+function redirect(location, address) {
+    
+    switch (location) {
+        case "twitch":
+            var link = "https://twitch.tv/" + address;
+        break;
+        case "discord":
+            var link = "https://discordapp.com/users/" + address;
+        break;
+        case "youtube":
+            var link = address;
+        break;
+    }
+        
+    window.open(link).focus();
+}

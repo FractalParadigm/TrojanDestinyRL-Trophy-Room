@@ -65,8 +65,17 @@ try {  // Try opening the SQL database connection
                 }
                 ?>
                 <a href="../" class="subNavLink" id="mainHomeButton">HOME</a>
+
+                <?php
+                // If we're showing someone other than who's logged in, offer a link to their own page
+                if (isset($_SESSION["userID"]) && $_SESSION["username"] != $_GET["username"]){
+                echo "<a href=\"/user/" . $_SESSION["username"] . " \" class=\"subNavLink\">MY ACCOUNT</a>";
+                }
+                ?>
+
                 <p class="newLine"></p>
                 <?php 
+                // If someone is logged in, give them the opportunity to log out
                 if (isset($_SESSION["userID"])){
                     echo "<a href=\"../logout.php?redirect=\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
                 }

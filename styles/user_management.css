@@ -85,6 +85,7 @@
 
 #editUserDetails input[type="text"] {
     text-align: right;
+    width: 100%;
 }
 
 #editUserDetails input[type="text"]::placeholder {
@@ -262,3 +263,11 @@
     font-size: 90%;
 }
 
+.accountDetailsRightSide a {
+    text-decoration: none;
+    color: blue;
+}
+
+.accountDetailsRightSide a:hover {
+    color: rgb(30, 90, 255);;
+}

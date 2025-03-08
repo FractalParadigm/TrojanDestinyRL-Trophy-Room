@@ -61,6 +61,7 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="/styles/data.css" />
         <link rel="stylesheet" href="/styles/user_management.css" />
         <link rel="stylesheet" href="/styles/db_management.css" />
+        <script src="/scripts/tools.js"></script>
         <title>User Account Management</title>
     </head>
 
@@ -72,7 +73,7 @@ try {  // Try opening the SQL database connection
                 <p class="detailsBold">Username:</p>
                 <p class="detailsBold">Date Joined:</p>
                 <p class="detailsBold">Total trophies:</p>
-                <p>&nbsp;By division:</p>
+                <p>&nbsp;By division</p>
                 <p>&nbsp;&nbsp;&nbsp;Open:</p>
                 <p>&nbsp;&nbsp;&nbsp;Intermediate:</p>
                 <p>&nbsp;&nbsp;&nbsp;Main:</p>
@@ -100,9 +101,9 @@ try {  // Try opening the SQL database connection
                         <p>YouTube (name):</p>
                         <p>YouTube (link):</p>
                         <p>Discord (name):</p>
-                        <p>Discord (link):</p>
+                        <p>Discord (UserID):</p>
                         <p>&nbsp;</p>
-                        <p><a href=\"/admin/user_management/change_password.php\" id=\"changePasswordButton\" class=\"disabled\">Change Password</a></p>
+                        <p><a href=\"/admin/user_management/change_password.php\" id=\"changePasswordButton\" style=\"text-align:center;\" class=\"disabled\">Change Password</a></p>
                         <p>(coming soon!)</p>
                     </div>
                     <div class=\"accountDetailsRightSide\">
@@ -138,14 +139,14 @@ try {  // Try opening the SQL database connection
                     <div class=\"accountDetailsRightSide\">
             ");
             if (isset($userDetails["twitch"]) && $userDetails["twitch"] != "") {
-                echo ("<p><a href=\"https://twitch.tv/\"" . $userDetails["twitch"] . "> " . $userDetails["twitch"] . "</a></p>");
+                echo ("<p><a href=\"#\" id=\"twitchURL\" onclick=\"redirect('twitch', '" . $userDetails["twitch"] . "')\">" . $userDetails["twitch"] . "</a></p>");
             } else {
                 echo ("<p>none</p>");
             }
 
             if (isset($userDetails["youtube"]) && $userDetails["youtube"] != "") {
                 if (isset($userDetails["youtubeLink"]) && $userDetails["youtubeLink"] != "") {
-                    echo ("<p><a href=" . $userDetails["youtubeLink"] . "> " . $userDetails["youtube"] . "</a></p>");
+                    echo ("<p><a href=\"#\" id=\"youtubeURL\" onclick=\"redirect('youtube', '" . $userDetails["youtubeLink"] . "')\">" . $userDetails["youtube"] . "</a></p>");
                 } else {
                     echo ("<p>" . $userDetails["youtube"] . "</a></p>");
                 }
@@ -155,7 +156,7 @@ try {  // Try opening the SQL database connection
 
             if (isset($userDetails["discord"]) && $userDetails["discord"] != "") {
                 if (isset($userDetails["discordLink"]) && $userDetails["discordLink"] != "") {
-                    echo ("<p><a href=" . $userDetails["discordLink"] . "> " . $userDetails["discord"] . "</a></p>");
+                    echo ("<a href=\"#\" id=\"discordURL\" onclick=\"redirect('discord', '" . $userDetails["discordLink"] . "')\"> " . $userDetails["discord"] . "</a></p>");
                 } else {
                     echo ("<p>" . $userDetails["discord"] . "</a></p>");
                 }
