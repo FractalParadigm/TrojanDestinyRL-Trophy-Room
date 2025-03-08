@@ -85,6 +85,7 @@
     height: 40px;
     padding: 0;
     cursor: pointer;
+    box-shadow: 0px 1px 3px;
 }
 
 .divisionNavPanel label {
@@ -100,6 +101,7 @@
 
 .divisionNavPanel input[type="radio"]:checked + label {
     background-color: rgba(0, 40, 255, .4);
+    box-shadow: 0 0 2px;
 }
 
 .divisionNavPanel label:hover {
