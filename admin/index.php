@@ -17,6 +17,7 @@ session_start();
     <body id="body">
     <script>getURL();</script>
         <div id="contentFrame">
+        <img src="/assets/rl_logo_background.svg" alt="Rocket League logo for background" class="backgroundImage">
             <div class="header">
                 <div id="headerLeft">
                     <img src="/assets/trojan_image_1.png" alt="Trojan Destiny logo" id="headerImage">

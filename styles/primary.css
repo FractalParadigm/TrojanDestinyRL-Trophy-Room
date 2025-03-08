@@ -23,6 +23,19 @@
     line-height: 0.25em;
 }
 
+
+.backgroundImage {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 15%;
+    text-align: center;
+    z-index: -1;
+    opacity: 0.05;
+}
+
  #body {
     background-image: linear-gradient(to right, rgba(0, 0, 255, .8), rgba(255, 165, 0, .8));
     padding-top: 2%;
@@ -44,7 +57,7 @@ Modifies and defines the iFrame that's holding the content shown to the user
     flex-direction: column;
     margin: auto;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: rgba(255, 255, 255, .2);
     width:100%;
     max-width: 900px;
