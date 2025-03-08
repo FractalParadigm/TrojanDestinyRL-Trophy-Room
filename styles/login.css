@@ -1,6 +1,7 @@
 #loginBody {
     width: 275px;
     margin: 0;
+    overflow: hidden;
 }
 
 #loginNotice {
