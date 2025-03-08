@@ -25,7 +25,7 @@ session_start();
                 <h1 id="headerText"><a href="/" class="plainLinkBlue">TrojanDestinyRL</a></h1>
                     <div id="youtubeImage" onclick="redirect('mainpage', 'https://www.youtube.com/@TrojanDestinyRL')"><img src="/assets/youtube.svg" alt="youtube logo"></div>
                     <div id="twitchImage" onclick="redirect('mainpage', 'https://www.twitch.tv/trojandestinyrl')"><img src="/assets/twitch.svg" alt="twitch logo"></div>
-                    <div id="discordImage" onclick="redirect('mainpage', 'https://discord.com')"><img src="/assets/discord.svg" alt="discord logo"></div>
+                    <div id="discordImage" onclick="redirect('mainpage', 'https://discord.gg/bzU5fVxCZJ')"><img src="/assets/discord.svg" alt="discord logo"></div>
                 </div>
                 <div id="headerRight">
                 <img src="/assets/trojan_image_2.png" alt="Trojan Destiny logo" id="headerImage">
