@@ -34,7 +34,7 @@
 
 #loginForm input {
     background-color: rgba(255, 255, 255, 0.6);
-    border-style: 1px solid rgb(0, 0, 255);
+    border: 1px solid rgb(0, 0, 255);
 }
 
 #loginForm label {
@@ -65,14 +65,14 @@
 }
 
 #loginForm input[type="text"] {
-    border-radius: 2px;
+    border-radius: 5px;
     width: 75%;
     padding: 7px 5%;
     margin: 1% 6%;
 }
 
 #loginForm input[type="password"] {
-    border-radius: 2px;
+    border-radius: 5px;
     width: 75%;
     padding: 7px 5%;
     margin: 1% 6%;
