@@ -18,12 +18,18 @@ try {  // Try opening the SQL database connection
     } else {
         $getMonth = "MONTH(tournamentDate)=\"" . $_GET["month"] . "\" AND ";
     }
-    // Grab year and division
-    $year = $_GET["year"];
+    // Grab year similar to above
+    if ($_GET["year"] == "all") {
+        $getYear = "";
+    } else {
+        $getYear = "YEAR(tournamentDate)=\"" . $_GET["year"] . "\" AND ";
+    }
+
+    // Grab division
     $division = $_GET["division"];
 
     // Select all the winners from the table where the month, year, and division all match
-    $sqlGetTopWinnersList = $conn->prepare("SELECT winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " WHERE $getMonth YEAR(tournamentDate)=\"" . $year . "\" AND tournamentDivision=\"" . $division . "\"");
+    $sqlGetTopWinnersList = $conn->prepare("SELECT winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " WHERE $getMonth $getYear tournamentDivision=\"" . $division . "\"");
     $sqlGetTopWinnersList->execute();
 
     // Fetch the results

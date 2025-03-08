@@ -211,6 +211,7 @@ session_start();
                     ?>
                 </select>
                 <select size="1" name="year" id="year" onchange="refreshDisplay()">
+                <option value="all">All</option>
                     <?php
                     // This uses the years we grabbed earlier and ensures we're only showing
                     // the years we have entries for

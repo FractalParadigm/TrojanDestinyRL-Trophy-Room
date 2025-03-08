@@ -1,19 +1,27 @@
 function refreshDisplay() {
+    // Grab the division buttons by their name
     var divisionButtons = document.getElementsByName("division");
     var currentDivision = "";
 
+    // Loop through the division buttons and see which one is checked
+    // Set the current division to that option
     for (var i = 0; i < divisionButtons.length; i++) {
         if (divisionButtons[i].checked) {
             currentDivision = divisionButtons[i].value;
         }
     }
 
-    var displayDiv = document.getElementById("divisionDisplay");
+    // If we set 'years' to all, then we should show all months too. 
+    // This is effectively a "show all" setting
+    if (document.getElementById("year").value == "all") {
+        document.getElementById("month").value = "all";
+    }
 
+    // Grab the current division from the page
     document.getElementById("divisionDisplay").innerHTML = currentDivision;
-    console.log(currentDivision);
+    
 
-    var html = "";
+    var html = ""; // placeholder for webpage
     var image = ""; //get trophy image
     html += "<div class=\"divisionPanel\">";
 
