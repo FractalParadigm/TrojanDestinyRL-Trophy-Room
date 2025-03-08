@@ -65,15 +65,14 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="/styles/admin_nav.css" />
         <link rel="stylesheet" href="/styles/game_management.css" />
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
-        <script src="/scripts/game_management.js"></script>
-        <script src="/scripts/tools.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+        <script src="/scripts/game_management.js"></script>
+        <script src="/scripts/tools.js"></script>
         <title>GAME ADDING FORM</title>
         <script>
         $( function() {
             var userList = <?php echo json_encode($userList); ?>;
-
             $(".playerInput").autocomplete({
                 source: userList,
             });
@@ -114,7 +113,7 @@ try {  // Try opening the SQL database connection
                 </div>
                 <div class="optionsArea">
                     <label for="numPlayers">Players:</label>
-                    <select id="numPlayers" name="numPlayers" tabindex="1" onchange="addPlayers()">
+                    <select id="numPlayers" name="numPlayers" tabindex="1" onchange="changePlayers()">
                         <option value="1">1v1</option>
                         <option value="2" selected="selected">2v2</option>
                         <option value="3">3v3</option>
@@ -138,7 +137,7 @@ try {  // Try opening the SQL database connection
                     <p class="newLine">If this game was part of a tournament, select it below</p>
                     <input type="text" name="tourneyName" id="tourneyName" maxlength="150" tabindex="4">
                     <p class="newLine">If you have uploaded a replay of this game to <a href="#" onclick="redirect('ballchasing', 'https://ballchasing.com')" class="plainLinkBlue">ballchasing.com</a>, enter the ID code below.</p>
-                    <input type="text" name="ballchasingID" id="ballchasingID" maxlength="50" tabindex="4">
+                    <input type="text" name="ballchasingID" id="ballchasingID" maxlength="100" tabindex="4">
                     <p class="newLine"></p>
                     <p>If you have any notes about the game, leave them below</p>
                     <textarea name="notes" id="notes" tabindex="4"></textarea>

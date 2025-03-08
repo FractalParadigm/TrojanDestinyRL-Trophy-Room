@@ -53,15 +53,37 @@ function addPlayers(){
     playerSubHeader.innerHTML = "<p class=\"tableSubHeader\">PLAYER</p>";
     awaySubHeader.innerHTML = "<p class=\"tableSubHeader\">AWAY</p>";
 
-    // Finally create the appropriate number of rows for players, based on the user input
-    for (var i = 1; i <= numberPlayers; i++) {
+    // Create the number of rows for players
+    for (var i = 1; i <= 4; i++) {
         row = playerDataTable.insertRow(-1);
         var bluePlayer = row.insertCell(0);
         var playerNum = row.insertCell(1);
         var orangePlayer = row.insertCell(2);
-        bluePlayer.innerHTML = "<input type=\"text\" name=\"bluePlayer" + i + "\" id=\"" + i + "\" class=\"playerInput\" maxlength=\"30\" tabindex=\"2\">";
+        bluePlayer.innerHTML = "<input type=\"text\" name=\"bluePlayer" + i + "\" id=\"bluePlayer" + i + "\" class=\"playerInput\" maxlength=\"30\" tabindex=\"2\">";
         playerNum.innerHTML = "- " + i + " -";
-        orangePlayer.innerHTML = "<input type=\"text\" name=\"orangePlayer" + i + "\" id=\"" + i + "\" class=\"playerInput\" maxlength=\"30\" tabindex=\"3\">";
+        orangePlayer.innerHTML = "<input type=\"text\" name=\"orangePlayer" + i + "\" id=\"orangePlayer" + i + "\" class=\"playerInput\" maxlength=\"30\" tabindex=\"3\">";
+        row.id = "row" + i;
+        row.classList.add("hidden");
+    }
+    for (var i = 1; i <= numberPlayers; i++) {
+        document.getElementById("row" + i).classList.remove("hidden");
+    }
+    
+    console.log(userList);
+
+}
+
+function changePlayers() {
+    // Changes the number of players displayed
+
+    var numberPlayers = document.getElementById("numPlayers").value;
+
+    for (var i = 1; i <= 4; i++) {
+        document.getElementById("row" + i).classList.add("hidden");
+    }
+
+    for (var i = 1; i <= numberPlayers; i++) {
+        document.getElementById("row" + i).classList.remove("hidden");
     }
 
 }

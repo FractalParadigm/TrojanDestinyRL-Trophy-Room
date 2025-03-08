@@ -20,7 +20,6 @@
     $conn = new PDO("mysql:host=$servername; dbname=$dbName", $dbUsername, $dbPassword);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<p>Connected successfully</p>";
 
 
     // Need to check if values were sent over POST, otherwise set to N/A
@@ -49,25 +48,23 @@
     } else {
         $orangePlayer1 = "N/A";
     }
-
     if (isset($_POST["orangePlayer2"])) {
         $orangePlayer2 = $_POST["orangePlayer2"];
     } else {
         $orangePlayer2 = "N/A";
     }
-
     if (isset($_POST["orangePlayer3"])) {
         $orangePlayer3 = $_POST["orangePlayer3"];
     } else {
         $orangePlayer3 = "N/A";
     }
-
     if (isset($_POST["orangePlayer4"])) {
         $orangePlayer4 = $_POST["orangePlayer4"];
     } else {
         $orangePlayer4 = "N/A";
     }
 
+    // Grab values from POST
     $gameName = $_POST["gameName"];
     $gameDate = $_POST["gameDate"];
     $numPlayers = $_POST["numPlayers"];
@@ -75,23 +72,15 @@
     $blueTeamName = $_POST["blueTeamName"];
     $orangeScore = $_POST["orangeScore"];
     $orangeTeamName = $_POST["orangeTeamName"];
-    /*
-    $bluePlayer1 = $_POST["bluePlayer1"];
-    $bluePlayer2 = $_POST["bluePlayer2"];
-    $bluePlayer3 = $_POST["bluePlayer3"];
-    $bluePlayer4 = $_POST["bluePlayer4"];
-    $orangePlayer1 = $_POST["orangePlayer1"];
-    $orangePlayer2 = $_POST["orangePlayer2"];
-    $orangePlayer3 = $_POST["orangePlayer3"];
-    $orangePlayer4 = $_POST["orangePlayer4"];
-    */
-    $tourneyName = $_POST["tourneyName"];
     $ballchasingID = $_POST["ballchasingID"];
+    $tourneyName = $_POST["tourneyName"];
     $notes = $_POST["notes"];
 
+    // Get the uploader's information from the SESSION variables
     $uploadedBy = $_SESSION["username"];
     $uploadedByID = $_SESSION["userID"];
 
+    // Get winning team
     if ($blueScore > $orangeScore) {
         $winningTeam = "blue";
     } elseif ($blueScore < $orangeScore) {
@@ -100,7 +89,20 @@
         $winningTeam = $_POST["winners"];
     }
 
+    // Check if we got a ballchasing URL or ID
+    if (!filter_var($ballchasingID, FILTER_VALIDATE_URL)) {
+        // NOT A LINK 
+        // DO NOTHING - KEEP THE ID
+    } else {
+        // IS A LINK
+        // Strip the URL and path to get the raw ID
+        $ballchasingPath = parse_url($ballchasingID, PHP_URL_PATH);
+        list($urlPathBlank, $replaysPath, $ballchasingID) = explode("/", $ballchasingPath);
+    }
 
+
+
+    // SQL Query to insert data
   $insert = $conn->prepare("INSERT INTO " . $gameDataTableName . " (
   gameName, 
   gameDate, 
@@ -148,6 +150,7 @@
  )");
 
 
+ // Assign variables to SQL command/preparation
   $insert->bindValue(":gameName", $gameName);
   $insert->bindValue(":gameDate", $gameDate);
   $insert->bindValue(":uploadedBy", $uploadedBy);
@@ -174,7 +177,9 @@
 
   $insert->execute();
 
-  echo "Successfully uploaded new game record";
+  echo "<div class=\"userMessage\">";
+  echo "<p>Successfully uploaded new game record</p>";
+  echo "</div>";
 
   } catch (PDOException $e) { // failed connection
     echo "Connection failed: " . $e->getMessage();
