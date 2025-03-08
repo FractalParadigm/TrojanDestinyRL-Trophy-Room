@@ -62,6 +62,7 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="/styles/user_management.css" />
         <link rel="stylesheet" href="/styles/db_management.css" />
         <script src="/scripts/tools.js"></script>
+        <script>verifyPageInFrame()</script>
         <title>User Account Management</title>
     </head>
 

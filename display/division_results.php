@@ -87,8 +87,8 @@ try {  // Try opening the SQL database connection
     <link rel="stylesheet" href="/styles/primary.css" />
     <link rel="stylesheet" href="/styles/data.css" />
     <link rel="stylesheet" href="/styles/data_display.css" />
-    <script src="/scripts/tools.js"></script>
     <script src="/scripts/results.js"></script>
+    <script src="/scripts/tools.js"></script>
     <script>verifyPageInFrame()</script>
     <title>GENERAL DATA</title>
 </head>

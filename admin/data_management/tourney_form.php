@@ -63,6 +63,7 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="/scripts/tourney_management.js"></script>
         <script src="/scripts/tools.js"></script>
+        <script>verifyPageInFrame()</script>
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
         <title>TOURNAMENT ADDING FORM</title>

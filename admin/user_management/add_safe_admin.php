@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="/styles/primary.css" />
   <link rel="stylesheet" href="/styles/db_management.css" />
+  <script src="/scripts/tools.js"></script>
+  <script>verifyPageInFrame()</script>
   <title>no title</title>
 </head>
 

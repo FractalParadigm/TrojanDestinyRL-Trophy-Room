@@ -40,6 +40,8 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="/styles/admin.css" />
         <link rel="stylesheet" href="/styles/admin_nav.css" />
         <link rel="stylesheet" href="/styles/user_management.css" />
+        <script src="/scripts/tools.js"></script>
+        <script>verifyPageInFrame()</script>
         <?php include ("admin/db_config.php");?> <!-- Our password-length variable is stored here -->
         <script src="/scripts/user_management.js"></script>
         <title>USER CREATION FORM</title>

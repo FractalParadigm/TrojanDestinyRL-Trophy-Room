@@ -10,6 +10,8 @@ $redirect = $_GET["redirect"];
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="/styles/primary.css" />
         <link rel="stylesheet" href="/styles/login.css" />
+        <script src="/scripts/tools.js"></script>
+        <script>verifyPageInFrame()</script>
         <script src="/scripts/user_management.js"></script>
         <title>ADMIN PANEL - Trojan's Trophy Room</title>
     </head>

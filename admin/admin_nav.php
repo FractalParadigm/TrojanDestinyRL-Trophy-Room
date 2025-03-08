@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="/styles/primary.css" />
         <link rel="stylesheet" href="/styles/admin.css" />
         <link rel="stylesheet" href="/styles/admin_nav.css" />
+        <script src="/scripts/tools.js"></script>
+        <script>verifyPageInFrame()</script>
         <title>TROJAN'S GENERAL DATA SHIT</title>
     </head>
 

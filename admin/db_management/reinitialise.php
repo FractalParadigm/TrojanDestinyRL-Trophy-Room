@@ -7,7 +7,8 @@
         <link rel="stylesheet" href="/styles/admin.css" />
         <link rel="stylesheet" href="/styles/admin_nav.css" />
         <link rel="stylesheet" href="/styles/db_management.css" />
-        <!-- <script src="trojan.js"></script>-->
+        <script src="/scripts/tools.js"></script>
+        <script>verifyPageInFrame()</script>
         <title>TROJAN'S GENERAL DATA SHIT</title>
     </head>
 

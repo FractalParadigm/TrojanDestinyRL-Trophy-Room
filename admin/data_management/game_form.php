@@ -69,6 +69,7 @@ try {  // Try opening the SQL database connection
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
         <script src="/scripts/game_management.js"></script>
         <script src="/scripts/tools.js"></script>
+        <script>verifyPageInFrame()</script>
         <title>GAME ADDING FORM</title>
         <script>
         $( function() {
