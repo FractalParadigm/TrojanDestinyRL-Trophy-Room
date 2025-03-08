@@ -25,17 +25,21 @@ function verifyPageInFrame() {
 }
 
 function redirect(location, address) {
-    
+    // Open a new tab/window with the selected link
+    // Formats the link based on inputted data
     switch (location) {
         case "twitch":
             var link = "https://twitch.tv/" + address;
-        break;
+            window.open(link).focus();
+            break;
         case "discord":
             var link = "https://discordapp.com/users/" + address;
-        break;
+            window.open(link).focus();
+            break;
+        case "this":
+            window.top.location.href = address;
+            break;
         default:
-            var link = address;
+            window.open(address).focus();
     }
-        
-    window.open(link).focus();
 }

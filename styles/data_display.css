@@ -136,6 +136,7 @@
 .divisionResultsTableLeft {
     text-align: left;
     width: 80%;
+    cursor: pointer;
 }
 
 .divisionResultsTableRight {

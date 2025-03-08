@@ -92,6 +92,11 @@
     text-align: right;
 }
 
+#accountDetailsTitlePanel {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1em;
+}
 
 .accountUpdateButton input[type="submit"] {
     margin: auto;
@@ -261,4 +266,8 @@
     visibility: hidden;
     height: 0px;
     font-size: 90%;
+}
+
+.noUser {
+    text-align: center;
 }

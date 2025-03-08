@@ -19,11 +19,13 @@ try {  // Try opening the SQL database connection
   $results = $sqlGetUserList->fetch();
 
   // Check if user exists
-  if (mb_strtolower($_GET["username"]) == mb_strtolower($results["username"])) {
-    $userExists = true;
-  } else {
-    $userExists = false;
-    
+  if (isset($results)) {
+    if (mb_strtolower($_GET["username"]) != mb_strtolower($results["username"])) {
+        $userExists = false;
+        echo "NO USER";
+    } else {
+        $userExists = true;
+  }
   }
 
 
@@ -54,21 +56,25 @@ try {  // Try opening the SQL database connection
                 </div>
                 <div id="headerCentre">
                 <h1 id="headerText"><a href="/" class="plainLinkBlue">TrojanDestinyRL</a></h1>
-                    <div id="youtubeImage" onclick="redirect('mainpage', 'https://www.youtube.com/@TrojanDestinyRL')"><img src="/assets/youtube.svg" alt="youtube logo"></div>
-                    <div id="twitchImage" onclick="redirect('mainpage', 'https://www.twitch.tv/trojandestinyrl')"><img src="/assets/twitch.svg" alt="twitch logo"></div>
-                    <div id="discordImage" onclick="redirect('mainpage', 'https://discord.com')"><img src="/assets/discord.svg" alt="discord logo"></div>
+                    <div id="youtubeImage" onclick="redirect('this', 'https://www.youtube.com/@TrojanDestinyRL')"><img src="/assets/youtube.svg" alt="youtube logo"></div>
+                    <div id="twitchImage" onclick="redirect('this', 'https://www.twitch.tv/trojandestinyrl')"><img src="/assets/twitch.svg" alt="twitch logo"></div>
+                    <div id="discordImage" onclick="redirect('this', 'https://discord.gg/bzU5fVxCZJ')"><img src="/assets/discord.svg" alt="discord logo"></div>
                 </div>
                 <div id="headerRight">
                 <img src="/assets/trojan_image_2.png" alt="Trojan Destiny logo" id="headerImage">
                 </div>
             </div>
             <p></p>
-            <h2 id="adminHeader">My Account</h2>
             <?php
             if ($userExists) {
                 echo ("<iframe src=\"/user/account.php?username=" . $_GET["username"] . "\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>");
             } else {
-                echo "<p>USER NO EXISTS</p>";
+                echo "<div class=\"noUser\">";
+                echo "<h2>USER NOT FOUND!</h2>";
+                echo "<p>This person may have played some games with us, but hasn't registered an account yet.</p>";
+                echo "<p>Please check back later!</p>";
+                echo "<p></p>";
+                echo "</div>";
             }
             ?>
                       

@@ -104,7 +104,7 @@ try {  // Try opening the SQL database connection
             if (isset($names[$i])) {
                 $name = $names[$i];
                 $numWins = $wins[$i];
-                echo "<p class=\"divisionResultsTableLeft\">$name</p>";
+                echo "<p class=\"divisionResultsTableLeft\"><a href=\"/user/" . $name . "\" onclick=\"redirect('this', '/user/" . $name . "')\" class=\"plainLinkBlack\">$name</a></p>";
                 echo "<p class=\"divisionResultsTableRight\">$numWins</p>";
                 $contentLatch = 1;
             }

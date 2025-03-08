@@ -328,6 +328,15 @@ For all the things at the bottom of the page; log in/out, 'my account', etc.
     color: rgb(30, 90, 255);;
 }
 
+.plainLinkBlack {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.plainLinkBlack:hover {
+    color: rgb(60, 60, 60);
+}
+
 
 
 
