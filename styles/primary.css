@@ -167,6 +167,17 @@ For all the things at the bottom of the page; log in/out, 'my account', etc.
 }
 
 
+/* Link styling */
+
+.plainLinkBlue {
+    text-decoration: none;
+    color: blue;
+}
+
+.plainLinkBlue:hover {
+    color: rgb(30, 90, 255);;
+}
+
 
 
 

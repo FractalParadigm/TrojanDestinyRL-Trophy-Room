@@ -135,9 +135,9 @@ try {  // Try opening the SQL database connection
                 </div>
                 <p class="newLine"></p>
                 <div class="optionsArea">
-                    <p>If this game was part of a tournament, enter the name of it below</p>
+                    <p class="newLine">If this game was part of a tournament, select it below</p>
                     <input type="text" name="tourneyName" id="tourneyName" maxlength="150" tabindex="4">
-                    <p>If you have uploaded a replay of this game to <a href="https://ballchasing.com">ballchasing.com</a>, enter the ID code below.</p>
+                    <p class="newLine">If you have uploaded a replay of this game to <a href="#" onclick="redirect('ballchasing', 'https://ballchasing.com')" class="plainLinkBlue">ballchasing.com</a>, enter the ID code below.</p>
                     <input type="text" name="ballchasingID" id="ballchasingID" maxlength="50" tabindex="4">
                     <p class="newLine"></p>
                     <p>If you have any notes about the game, leave them below</p>

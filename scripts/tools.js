@@ -33,9 +33,8 @@ function redirect(location, address) {
         case "discord":
             var link = "https://discordapp.com/users/" + address;
         break;
-        case "youtube":
+        default:
             var link = address;
-        break;
     }
         
     window.open(link).focus();
