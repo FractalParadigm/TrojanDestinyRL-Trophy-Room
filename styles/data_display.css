@@ -1,7 +1,173 @@
+.textBold {
+    font-weight: bold;
+}
+
+.tableSpacer {
+    width: 100%;
+}
+
+.tableLine {
+    border: 1px solid black;
+    width: 100%;
+}
+
+.tableLineLight {
+    border: 1px solid rgba(0, 0, 0, .25);
+    width: 40%;
+    margin: auto 60%
+}
+
+.tableLineLightCentre {
+    border: 1px solid rgba(0, 0, 0, .25);
+    width: 40%;
+    margin: auto;
+}
+
 #resultsDisplayBody {
-    width:800px;
+    display: flex;
+    flex-direction: row;
+    width:850px;
+    overflow: hidden;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#resultsDisplayBody h2 {
+    text-align: center;
 }
 
 #generalResultsDisplayPanel {
-    width: 400px;
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-right: 1%;
+}
+
+#generalResultsTable {
+    margin: auto;
+}
+
+.generalResultsTableLeft {
+    text-align: left;
+    width: 100%;
+    line-height: 0.5;
+}
+
+.generalResultsTableRight {
+    text-align: right;
+    width: 100%;
+    line-height: 0.3;
+}
+
+#divisionDisplayPanel {
+    width: 44%;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin-left: 1%;
+}
+
+.divisionNavPanel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.divisionNavPanel label, .divisionNavPanel input {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.divisionNavPanel label {
+    border: 1px solid black;
+    border-radius: 3px;
+    z-index: 90;
+    margin: 1%;
+}
+
+.divisionNavPanel input[type="radio"] {
+    display: none;
+}
+
+.divisionNavPanel input[type="radio"]:checked + label {
+    background-color: rgba(0, 40, 255, .4);
+}
+
+.divisionNavPanel label:hover {
+    background-color: rgba(255, 165, 0, .6);
+}
+
+.dateSelector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width:100%;
+}
+
+.dateSelector select {
+    border: 1px solid blue;
+    border-radius: 3px;
+    padding: 6px 20px;
+    margin-right: 1%;
+    margin-left: 1%;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.divisionPanel {
+    margin: auto;
+    text-align: center;
+}
+
+
+#divisionResultsFrame {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.divisionResultsTableLeft {
+    text-align: left;
+    width: 80%;
+}
+
+.divisionResultsTableRight {
+    text-align: right;
+    width: 14%;
+}
+
+.divisionResultsTable {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 300px;
+}
+
+.lineImage {
+    object-fit: contain;
+}
+
+
+.divisionFrame {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: auto;
+    padding: 0;
+    border: none;
+    max-width: 100%;
+}
+
+.noContent {
+    text-align: center;
+    font-style: italic;
+    color: rgba(0, 0, 0, .35);
 }

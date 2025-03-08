@@ -31,7 +31,7 @@ Modifies and defines the iFrame that's holding the content shown to the user
     border: 1px solid black;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, .2);
-    width:80%;
+    width:100%;
     max-width: 900px;
     min-height: 0px;
     padding-top: 20px;
@@ -96,7 +96,7 @@ For upper/primary controls
     margin: auto;
     padding: 0;
     border: none;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 

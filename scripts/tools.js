@@ -17,7 +17,6 @@ function verifyPageInFrame() {
     // Verify that the page was loaded in an iFrame
     // Otherwise back to the homepage they go!
     var mainURL = window.location.origin;
-    console.log(mainURL);
 
     if (window.self !== window.top) {
     } else {

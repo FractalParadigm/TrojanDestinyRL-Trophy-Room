@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 
@@ -12,6 +12,7 @@ session_start();
         <link rel="stylesheet" href="/styles/data.css" />
         <link rel="stylesheet" href="/styles/data_display.css" />
         <script src="/scripts/tools.js"></script>
+        <script src="/scripts/results.js"></script>
         <script>verifyPageInFrame()</script>
         <title>GENERAL DATA</title>
     </head>
@@ -21,8 +22,8 @@ session_start();
 
     try {  // Try opening the SQL database connection
         $conn = new PDO("mysql:host=$servername; dbname=$dbName", $dbUsername, $dbPassword);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Grab all our tourney and game results
         // Prepare SQL
@@ -47,6 +48,10 @@ session_start();
         $intermediateTourneyWinners = array();
         $mainTourneyWinners = array();
 
+        // Initialize array to get dates of tourneys
+        $tourneyYears = array();
+        $tourneyMonths = array();
+
         // Check the number of players for each entry
         // Then, grab that many winners
         foreach ($tourneyData as $data) {
@@ -63,6 +68,9 @@ session_start();
                     $mainTourneyWinners[] = $data[$winnerIndex];
                 }
             }
+            // Grab the year from our tourney date
+            $tourneyYears[] = date("Y", strtotime($data["tournamentDate"]));
+            $tourneyMonths[] = date("n", strtotime($data["tournamentDate"]));
         }
 
         // Make 'unique' arrays, so we have TOTAL # played vs. # won
@@ -70,6 +78,15 @@ session_start();
         $openUniqueTourneyWinners = array_unique($openTourneyWinners);
         $intermediateUniqueTourneyWinners = array_unique($intermediateTourneyWinners);
         $mainUniqueTourneyWinners = array_unique($mainTourneyWinners);
+
+        // Unique-array for tournament years
+        $years = array();
+        $tourneyYears = array_unique($tourneyYears);
+        foreach ($tourneyYears as $year) {
+            $years[] = $year;
+        }
+        sort($years); // Sort the years to put them in order of earliest to latest
+        
 
 
         // Get counts of rows
@@ -90,6 +107,8 @@ session_start();
         $mostRecentUser = $userData[$userIndex][0];
 
 
+
+
     } catch (PDOException $e) { // failed connection
     echo "Connection failed: " . $e->getMessage();
     }
@@ -97,23 +116,122 @@ session_start();
     ?>
 
     <body id="resultsDisplayBody">
-        <h2>General Information</h2>
         <div id="generalResultsDisplayPanel"> 
-            <?php
-            echo "<p>Total registered users: $numUsers</p>";
-            echo "<p>Most recent user: $mostRecentUser</p>";
-            echo "<p>Number of Official Tournaments: $numTourneys</p>";
-            echo "<p>Number of game results uploaded: $numGames</p>";
-            echo "<p>Total # of titles won: $numTotalTourneyWinners</p>";
-            echo "<p># of winners: $numUniqueTotalTourneyWinners</p>";
-            echo "<p>Total 'Open' titles won: $numOpenTourneyWinners</p>";
-            echo "<p># of winners: $numUniqueOpenTourneyWinners</p>";
-            echo "<p>Total 'Intermediate' titles won: $numIntermediateTourneyWinners</p>";
-            echo "<p># of winners: $numUniqueIntermediateTourneyWinners</p>";
-            echo "<p>Total 'Main' of titles won: $numMainTourneyWinners</p>";
-            echo "<p># of winners: $numUniqueMainTourneyWinners</p>";
-            ?>
+            <h2>General Information</h2>
+            <hr class="tableLine">
+            <p>&nbsp;</p>
+            <div id="generalResultsTable">
+                <p class="generalResultsTableLeft">Number of registered users:</p>
+                <p class="generalResultsTableRight textBold"><?php echo $numUsers; ?></p>
+                <hr class="tableLine">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft">Most recently registered user:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight"><?php echo $mostRecentUser; ?></p>
+                <hr class="tableLine">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft">Number of game results uploaded:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight textBold"><?php echo $numGames; ?></p>
+                <hr class="tableLine">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft textBold">Number of Official Tournaments:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight textBold"><?php echo $numTourneys; ?></p>
+                <hr class="tableLineLight">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft">Total # of titles won:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight"><?php echo $numTotalTourneyWinners; ?></p>
+                <hr class="tableLineLight">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft">Unique winners:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight"><?php echo $numUniqueTotalTourneyWinners; ?></p>
+                <hr class="tableLine">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft textBold">Total 'Open' titles won:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight textBold"><?php echo $numOpenTourneyWinners; ?></p>
+                <hr class="tableLineLight">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft">Unique winners:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight"><?php echo $numUniqueOpenTourneyWinners; ?></p>
+                <hr class="tableLine">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft textBold">Total 'Intermediate' titles won:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight textBold"><?php echo $numIntermediateTourneyWinners; ?></p>
+                <hr class="tableLineLight">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft">Unique winners:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight"><?php echo $numUniqueIntermediateTourneyWinners; ?></p>
+                <hr class="tableLine">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft textBold">Total 'Main' titles won:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight textBold"><?php echo $numMainTourneyWinners; ?></p>
+                <hr class="tableLineLight">
+                <!-- Next line!  -->
+                <p class="generalResultsTableLeft">Unique winners:</p>
+                <p class="tableSpacer"></p>
+                <p class="generalResultsTableRight"><?php echo $numUniqueMainTourneyWinners; ?></p>
+                <hr class="tableLine">
+            </div>
+            <p>&nbsp;</p>
         </div>
+
+        <div id="divisionDisplayPanel">
+            <h2>Per-Division Results</h2>
+            <div class="divisionNavPanel">
+                <input type="radio" id="openButton" name="division" checked="checked" value="open" onclick="refreshDisplay();">
+                <label for="openButton" id="openButton">Open</label>
+                <input type="radio" id="intermediateButton" name="division" value="intermediate" onclick="refreshDisplay();">
+                <label for="intermediateButton" id="intermediateButton">Intermediate</label>
+                <input type="radio" id="mainButton" name="division" value="main" onclick="refreshDisplay();">
+                <label for="mainButton" id="mainButton">Main</label>
+            </div>
+            <div class="dateSelector">
+                <select size="1" name="month" id="month" onchange="refreshDisplay()">
+                    <option value="all">All</option>
+                    <?php
+                    // Automatically write the months using a script
+                    // Also automatically selects the current month
+                        for ($i = 1; $i <= 12; $i++) {
+                            if (date('m', time()) == $i) {
+                                $dateObject = DateTime::createFromFormat("!m", $i);
+                                echo "<option selected value=\"" . $i . "\">" . $dateObject->format('F') . " </option>";
+                            } else {
+                                $dateObject = DateTime::createFromFormat("!m", $i);
+                                echo "<option value=\"" . $i . "\">" . $dateObject->format('F') . " </option>";
+                            }
+                        }
+                    ?>
+                </select>
+                <select size="1" name="year" id="year" onchange="refreshDisplay()">
+                    <?php
+                    // This uses the years we grabbed earlier and ensures we're only showing
+                    // the years we have entries for
+                        for ($i = 0; $i < count($years); $i++) {
+                            if ($i == (count($years) - 1)) {
+                                echo "<option selected value=\"" . $years[$i] . "\"> " . $years[$i] . "</option>";
+                            } else {
+                                echo "<option value=\"" . $years[$i] . "\"> " . $years[$i] . "</option>";
+                            }
+                        }
+                    ?>
+                </select>
+            </div>
+            <p> </p>
+            <hr class="tableLine">
+            <p> </p>
+            <div id="divisionDisplay">
+
+            </div>
+        </div>
+        <script>refreshDisplay(); // Initial division to load</script>
     </body>
 
     
