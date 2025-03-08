@@ -1,3 +1,6 @@
+/* "BUNGEE" font used for header */
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+
 /* Line break for flex layout */
 .newLine {
     width: 100%;
@@ -52,13 +55,151 @@ Modifies and defines the iFrame that's holding the content shown to the user
 
 #contentFrame h1 {
     margin: auto;
-    padding-bottom: 20px;
 }
 
 #contentFrame h2,h3 {
     margin: auto;
     padding-bottom: 30px;
 }
+
+
+/*
+HEADER
+*/
+
+.header {
+    width:100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: auto;
+    font-size: 1.5em;
+}
+
+#headerLeft {
+    height: 100%;
+    width: 20%;
+}
+#headerLeft img {
+    border-radius: 50%;
+}
+
+#headerImage {
+    height: 100%;
+    width: 75%;
+}
+
+#headerRight {
+    height: 100%;
+    width: 20%;
+    text-align: right;
+}
+#headerRight img {
+    border-radius: 50%;
+}
+
+#headerText {
+    font-family: "Bungee Inline", sans-serif;
+    color: rgb(40, 80, 255);
+    width: 100%;
+    text-align: center;
+    padding-right: 5%;
+    padding-left: 5%;
+    font-weight: 500;
+}
+
+#headerCentre {
+    width:60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+#socialsPanel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#twitchImage {
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    height: 60px;
+    width: 100px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#twitchImage img {
+    object-fit: contain;
+}
+#twitchImage :hover {
+    opacity: 80%;
+    filter: blur(1px);
+    scale: 1.15;
+}
+#twitchImage :active {
+    opacity: 60%;
+    filter: blur(3px);
+    scale: 1.05;
+}
+
+#youtubeImage {
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    height: 60px;
+    width: 100px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#youtubeImage img{
+    object-fit: contain;
+    height: 125%;
+    translate: 0 -12%;
+}
+#youtubeImage :hover {
+    opacity: 80%;
+    filter: blur(1px);
+    scale: 1.1;
+}
+#youtubeImage :active {
+    opacity: 60%;
+    filter: blur(3px);
+    scale: 1.03;
+}
+
+#discordImage {
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    height: 60px;
+    width: 100px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#discordImage img {
+    object-fit: contain;
+    height: 90%;
+    translate: 0 5%;
+}
+#discordImage :hover {
+    opacity: 80%;
+    filter: blur(1px);
+    scale: 1.15;
+}
+#discordImage :active {
+    opacity: 60%;
+    filter: blur(3px);
+    scale: 1.05;
+}
+
 
 
 /*
