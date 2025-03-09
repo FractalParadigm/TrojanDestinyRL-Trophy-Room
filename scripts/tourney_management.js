@@ -8,12 +8,32 @@ function addPlayers(){
     playerDataTable.innerHTML = "";  // Clear table
       
     // Create the appropriate number of rows for players, based on the user input
-    for (var i = 1; i <= numberPlayers; i++) {
+    for (var i = 1; i <= 4; i++) {
         row = playerDataTable.insertRow(-1);
         var playerNum = row.insertCell(0);
         var playerName = row.insertCell(1);
         playerNum.innerHTML = i + " -";
-        playerName.innerHTML = "<input type=\"text\" name=\"winningPlayer" + i + "\" id=\"" + i + "\" class=\"playerInput\" maxlength=\"30\" tabindex=\"3\">";
+        playerName.innerHTML = "<input type=\"text\" name=\"winningPlayer" + i + "\" id=\"" + i + "\" class=\"playerInput\" maxlength=\"30\" tabindex=\"3\">";        
+        row.id = "row" + i;
+        row.classList.add("hidden");
+    }
+    for (var i = 1; i <= numberPlayers; i++) {
+        document.getElementById("row" + i).classList.remove("hidden");
+    }
+
+}
+
+function changePlayers() {
+    // Changes the number of players displayed
+
+    var numberPlayers = document.getElementById("numPlayers").value;
+
+    for (var i = 1; i <= 4; i++) {
+        document.getElementById("row" + i).classList.add("hidden");
+    }
+
+    for (var i = 1; i <= numberPlayers; i++) {
+        document.getElementById("row" + i).classList.remove("hidden");
     }
 
 }

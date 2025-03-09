@@ -104,7 +104,7 @@ try {  // Try opening the SQL database connection
                     </select>
                     <p class="newLine"></p>
                     <label for="numPlayers">Players:</label>
-                    <select id="numPlayers" name="numPlayers" tabindex="1" onchange="addPlayers()">
+                    <select id="numPlayers" name="numPlayers" tabindex="1" onchange="changePlayers()">
                         <option value="1">1v1</option>
                         <option value="2" selected="selected">2v2</option>
                         <option value="3">3v3</option>
