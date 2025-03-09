@@ -51,6 +51,7 @@ session_start();
                 } else {
                     echo "<a href=\"/login_page.php \" target=\"dataFrame\" class=\"subNavLink\">SIGN IN</a>";
                     echo "<a href=\"/create_account.php \" target=\"dataFrame\" class=\"subNavLink\">CREATE AN ACCOUNT</a>";
+                    echo "<a href=\"/ \" class=\"subNavLink\">HOME</a>";
                 }
                 ?>
             </div>
