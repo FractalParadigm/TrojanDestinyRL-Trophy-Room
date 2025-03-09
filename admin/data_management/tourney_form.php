@@ -92,7 +92,7 @@ try {  // Try opening the SQL database connection
                     <input type="text" id="tourneyName" name="tourneyName" maxlength="150" tabindex="1" required>
                     <p class="newLine"></p>
                     <label for="tourneyName">Tournament date</label>
-                    <input type="date" id="tourneyDate" name="tourneyDate"  max="<?php echo date("Y-m-d"); ?>" tabindex="1" required>
+                    <input type="date" id="tourneyDate" name="tourneyDate"  max="<?php echo date("Y-m-d"); ?>" value="<?php echo date("Y-m-d"); ?>" tabindex="1" required>
                     <p class="newLine"></p>
                 </div>
                 <div class="optionsArea">

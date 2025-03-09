@@ -100,8 +100,10 @@
 }
 
 .divisionNavPanel input[type="radio"]:checked + label {
-    background-color: rgba(0, 40, 255, .4);
+    background-color: rgba(0, 40, 255, .75);
     box-shadow: 0 0 2px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
 }
 
 .divisionNavPanel label:hover {
