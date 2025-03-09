@@ -86,6 +86,25 @@ function passwordConfirm() {
     } 
 }
 
+function passwordConfirmLite() {
+    // This is used when we don't have enough space for the "matches" text, i.e. the user page
+    // Check if the 'confirm' password matches the main one entered
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+
+    // If the field is empty we'll hide the results
+    if (confirmPassword == "") {
+        document.getElementById("confirmPassword").style.border = null;
+        return false;
+    } else if (password == confirmPassword) { // If they match
+        document.getElementById("confirmPassword").style.border = "1px solid green";
+        return true;
+    } else if (password != confirmPassword) {
+        document.getElementById("confirmPassword").style.border = "2px solid red";
+        return false;
+    } 
+}
+
 function usernameConfirm() {
     // Get the username entered and convert to lower case
     var username = document.getElementById("username").value.toLowerCase();
@@ -125,4 +144,29 @@ function checkPasswordRequirements() {
     } else {
         document.getElementById("password").style.border = "1px solid green";        
     }
+}
+
+function togglePWChange() {
+    var socialsDiv = document.getElementById("accountSocialsPanel");
+
+    var pwChangeDiv = document.getElementById("passwordChangePanel");
+
+    if (pwChangeDiv.style.display == "none") {
+        socialsDiv.style.display = "none";
+        socialsDiv.style.zIndex = "-1";
+        pwChangeDiv.style.display = "flex";
+        pwChangeDiv.style.zIndex = "1";
+    } else if (pwChangeDiv.style.display == "flex") {
+        socialsDiv.style.display = "flex";
+        socialsDiv.style.zIndex = "1";
+        pwChangeDiv.style.display = "none";
+        pwChangeDiv.style.zIndex = "-1";
+    } else { 
+        socialsDiv.style.display = "none";
+        socialsDiv.style.zIndex = "-1";
+        pwChangeDiv.style.display = "flex";
+        pwChangeDiv.style.zIndex = "1";
+    }
+
+
 }

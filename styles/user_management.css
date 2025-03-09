@@ -23,21 +23,6 @@
     margin-bottom: 20px;
 }
 
-
-#accountDetailsPanel {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 45%;
-    border: 1px solid black;
-    border-radius: 8px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-right: 2%;
-    padding: 5px;
-    padding-bottom: 25px;
-    margin: 0 auto;
-}
-
 #accountSocialsPanel {
     display: flex;
     flex-direction: row;
@@ -55,14 +40,54 @@
 #accountSocialsPanel p {
     height: 25px;
 }
+#accountSocialsPanel h3 {
+    text-align: center;
+}
+
+
+
+#passwordChangePanel {
+    z-index: -1;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 45%;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 2%;
+    padding: 5px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+}
+
+#passwordChangePanel p {
+    height: 25px;
+}
+#passwordChangePanel h3 {
+    text-align: center;
+}
+
+
+#accountDetailsPanel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 45%;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 2%;
+    padding: 5px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+}
+
 #accountDetailsPanel p {
     height: 25px;
 }
 
 #accountDetailsPanel h3 {
-    text-align: center;
-}
-#accountSocialsPanel h3 {
     text-align: center;
 }
 
@@ -91,6 +116,13 @@
 #editUserDetails input[type="text"]::placeholder {
     text-align: right;
 }
+
+#passwordChangePanel input[type="password"] {
+    text-align: right;
+    width: 100%;
+}
+
+
 
 #accountDetailsTitlePanel {
     text-align: center;
@@ -270,4 +302,8 @@
 
 .noUser {
     text-align: center;
+}
+
+#passwordChangeBody {
+    display: flex;
 }

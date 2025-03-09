@@ -94,13 +94,19 @@ session_start();
             <div class="subNav">
                 <?php
                 if (isset($_SESSION["privileges"]) && $_SESSION["privileges"] == 1) {
-                    echo "<a href=\"./\" class=\"subNavLink\" id=\"adminHomeButton\">ADMIN HOME</a>";
+                    echo "<a href=\"./\" class=\"subNavLink\" id=\"adminHomeButton\">ADMIN PANEL</a>";
                 }
                 ?>
-                <a href="../" class="subNavLink" id="mainHomeButton">MAIN HOME</a>
+                <?php 
+                if (isset($_SESSION["userID"])){
+                    echo "<a href=\"/user/" . $_SESSION["username"] . " \" class=\"subNavLink\">MY ACCOUNT</a>";
+                }
+                ?>
+                <a href="../" class="subNavLink" id="mainHomeButton">HOME</a>
                 <p class="newLine"></p>
                 <?php 
                 if (isset($_SESSION["userID"])){
+                    echo "<a href=\"/user/" . $_SESSION["username"] . " \" class=\"subNavLink\">ACCOUNT</a>";
                     echo "<a href=\"../logout.php?redirect=admin\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
                 }
                 ?>

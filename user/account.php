@@ -62,6 +62,7 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="/styles/user_management.css" />
         <link rel="stylesheet" href="/styles/db_management.css" />
         <script src="/scripts/tools.js"></script>
+        <script src="/scripts/user_management.js"></script>
         <script>verifyPageInFrame()</script>
         <title>User Account Management</title>
     </head>
@@ -118,8 +119,8 @@ try {  // Try opening the SQL database connection
                                 <p>Discord (name):</p>
                                 <p>Discord (UserID):</p>
                                 <p>&nbsp;</p>
-                                <p><a href=\"/admin/user_management/change_password.php\" id=\"changePasswordButton\" style=\"text-align:center;\" class=\"disabled\">Change Password</a></p>
-                                <p>(coming soon!)</p>
+                                <p><a id=\"changePasswordButton\" style=\"text-align:center;\" onclick=\"togglePWChange();\">Change Password</a></p>
+                                <p>&nbsp;</p>
                             </div>
                             <div class=\"accountDetailsRightSide\">
                                 <form id=\"editUserDetails\" action=\"/admin/user_management/edit_user.php\" method=\"post\">
@@ -131,6 +132,36 @@ try {  // Try opening the SQL database connection
                                     <p>&nbsp;</p>
                                     <div class=\"accountUpdateButton\">
                                         <input type=\"submit\" id=\"submitButton\" value=\"Update\">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        "/*                                    */ . "
+                        "/*           PASSWORD CHANGE          */ . "
+                        "/*                                    */ . "
+                        <div id=\"passwordChangePanel\">
+                            <h3>Change Password</h3>
+                            <p class=\"newLine\"></p>
+                            <div class=\"accountDetailsLeftSide\">
+                                <p>Old Password:</p>
+                                <p>&nbsp;</p>
+                                <p>New Password:</p>
+                                <p>Confirm:</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p><a id=\"changePasswordButton\" style=\"text-align:center;\" onclick=\"togglePWChange()\">Back</a></p>
+                                <p>&nbsp;</p>
+                            </div>
+                            <div class=\"accountDetailsRightSide\">
+                                <form id=\"passwordChangeForm\" action=\"/admin/user_management/change_password.php\" method=\"post\">
+                                    <p><input type=\"password\" id=\"oldPassword\" name=\"oldPassword\"></p>
+                                    <p>&nbsp;</p>
+                                    <p><input type=\"password\" id=\"password\" name=\"password\" oninput=\"checkPasswordRequirements();\"></p>
+                                    <p><input type=\"password\" id=\"confirmPassword\" name=\"confirmPassword\" oninput=\"passwordConfirmLite();\"></p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <div class=\"accountUpdateButton\">
+                                        <input type=\"submit\" id=\"passwordChangeButton\" value=\"Change\">
                                     </div>
                                 </form>
                             </div>
