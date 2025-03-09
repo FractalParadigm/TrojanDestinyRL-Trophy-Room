@@ -31,7 +31,7 @@ session_start();
     $password = $_POST["password"];
 
     // Get SQL data
-    $sqlGetData = $conn->prepare("SELECT userID,password,isAdmin FROM " . $userTableName . " WHERE username=\"" . $username . "\"");
+    $sqlGetData = $conn->prepare("SELECT userID,password,privileges FROM " . $userTableName . " WHERE username=\"" . $username . "\"");
 
     $sqlGetData->execute();
     
@@ -45,7 +45,7 @@ $result = $sqlGetData->fetch(PDO::FETCH_ASSOC);
   // Grab the hash from the fetched SQL data
 $passwordHash = $result["password"];
 $userID = $result["userID"];
-$isAdmin = $result["isAdmin"];
+$privileges = $result["privileges"];
 
 
 // Verify that the entered password matches the hashed one
@@ -53,7 +53,7 @@ if (password_verify($password, $passwordHash)) {
     echo "<p>Welcome $username, please wait while we redirect you...</p>";
     $_SESSION["userID"] = $userID;
     $_SESSION["username"] = $username;
-    $_SESSION["isAdmin"] = $isAdmin;
+    $_SESSION["privileges"] = $privileges;
 
     // Function from StackOverflow used to get the base URL, to which we append
     // the redirect (where the user came from)

@@ -45,8 +45,8 @@
                 <div id="extraOptions">
                     <h4>EXTRA OPTIONS</h4>
                     <p class="newLine">&nbsp;</p>
-                    <input type="checkbox" id="isAdmin" name="isAdmin" value="isAdmin" class="extraOptions" checked  onclick="return false;">
-                    <label for="isAdmin" class="extraOptions">Make administrator?</label>
+                    <input type="checkbox" id="privileges" name="privileges" value="privileges" class="extraOptions" checked  onclick="return false;">
+                    <label for="privileges" class="extraOptions">Make administrator?</label>
                     <p class="newLine">
                     This is a safe admin. This person will have all of the privileges of a normal administrator, 
                     in addition to surviving database deletes (ONLY THE USER ACCOUNT, any saved game or replay 

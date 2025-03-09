@@ -45,8 +45,8 @@
                 <div id="extraOptions">
                     <h4>EXTRA OPTIONS</h4>
                     <p class="newLine">&nbsp;</p>
-                    <input type="checkbox" id="isAdmin" name="isAdmin" class="extraOptions">
-                    <label for="isAdmin" class="extraOptions">Make administrator?</label>
+                    <input type="checkbox" id="privileges" name="privileges" class="extraOptions">
+                    <label for="privileges" class="extraOptions">Make administrator?</label>
                     <p class="newLine">An administrator will have FULL access to the administrator panel. In the hands of the wrong user, THIS COULD CAUSE SERIOUS DAMAGE AND IRREPARABLE HARM TO YOUR SERVER! Proceed with caution, and only with those you trust.</p>
                     <p class="newLine"></p>
                 </div>

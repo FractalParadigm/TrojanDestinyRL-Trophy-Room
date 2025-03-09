@@ -55,14 +55,14 @@
     $youtubeLink = $_POST["youtubeLink"];
 
     // Gotta check and make sure the user we're creating is an admin
-    $isAdmin = 0;
+    $privileges = 0;
 
-    if (filter_has_var(INPUT_POST, "isAdmin")) {
-      $isAdmin = 1;
+    if (filter_has_var(INPUT_POST, "privileges")) {
+      $privileges = 1;
     }
 
     // Prepare the query
-    $insert = $conn->prepare("INSERT INTO " . $adminUserTableName . " (username, password, discord, discordLink, twitch, youtube, youtubeLink, isAdmin) VALUES (:username, :password, :discord, :discordLink, :twitch, :youtube, :youtubeLink, :isAdmin)");
+    $insert = $conn->prepare("INSERT INTO " . $adminUserTableName . " (username, password, discord, discordLink, twitch, youtube, youtubeLink, privileges) VALUES (:username, :password, :discord, :discordLink, :twitch, :youtube, :youtubeLink, :privileges)");
 
     // Bind parameters to the query
     $insert->bindParam(":username", $username);
@@ -72,7 +72,7 @@
     $insert->bindParam(":twitch", $twitch);
     $insert->bindParam(":youtube", $youtube);
     $insert->bindParam(":youtubeLink", $youtubeLink);
-    $insert->bindParam(":isAdmin", $isAdmin);
+    $insert->bindParam(":privileges", $privileges);
 
     // Execute
     $insert->execute();
@@ -87,7 +87,7 @@
     
       // Now add them to the regular users table as well
       // Prepare the query
-      $insert = $conn->prepare("INSERT INTO " . $userTableName . " (username, password, discord, discordLink, twitch, youtube, youtubeLink, isAdmin) VALUES (:username, :password, :discord, :discordLink, :twitch, :youtube, :youtubeLink, :isAdmin)");
+      $insert = $conn->prepare("INSERT INTO " . $userTableName . " (username, password, discord, discordLink, twitch, youtube, youtubeLink, privileges) VALUES (:username, :password, :discord, :discordLink, :twitch, :youtube, :youtubeLink, :privileges)");
 
       // Bind parameters to the query
       $insert->bindParam(":username", $username);
@@ -97,7 +97,7 @@
       $insert->bindParam(":twitch", $twitch);
       $insert->bindParam(":youtube", $youtube);
       $insert->bindParam(":youtubeLink", $youtubeLink);
-      $insert->bindParam(":isAdmin", $isAdmin);
+      $insert->bindParam(":privileges", $privileges);
 
       // Execute
       $insert->execute();

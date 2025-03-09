@@ -54,13 +54,13 @@
     $youtube = $_POST["youtube"];
     $youtubeLink = $_POST["youtubeLink"];
 
-    $isAdmin = 0;
+    $privileges = 0;
 
-    if (filter_has_var(INPUT_POST, "isAdmin")) {
-      $isAdmin = 1;
+    if (filter_has_var(INPUT_POST, "privileges")) {
+      $privileges = 1;
     }
 
-    $insert = $conn->prepare("INSERT INTO " . $userTableName . " (username, password, discord, discordLink, twitch, youtube, youtubeLink, isAdmin) VALUES (:username, :password, :discord, :discordLink, :twitch, :youtube, :youtubeLink, :isAdmin)");
+    $insert = $conn->prepare("INSERT INTO " . $userTableName . " (username, password, discord, discordLink, twitch, youtube, youtubeLink, privileges) VALUES (:username, :password, :discord, :discordLink, :twitch, :youtube, :youtubeLink, :privileges)");
 
 
     $insert->bindParam(":username", $username);
@@ -71,10 +71,10 @@
     $insert->bindParam(":youtube", $youtube);
     $insert->bindParam(":youtubeLink", $youtubeLink);
 
-    $insert->bindParam(":isAdmin", $isAdmin);
+    $insert->bindParam(":privileges", $privileges);
 
     $insert->execute();
-    if ($isAdmin == 1) {
+    if ($privileges == 1) {
       echo "New admin user \"" . $username . "\" created successfully";
     } else {
       echo "<div class=userMessage>";

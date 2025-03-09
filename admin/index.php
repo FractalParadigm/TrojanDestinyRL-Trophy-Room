@@ -82,7 +82,7 @@ session_start();
             } else { // Otherwise we'll show the nav page
                 if (!isset($_SESSION["userID"])){
                     echo "<iframe src=\"../login_page.php?redirect=admin\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
-                } else if (isset($_SESSION["userID"]) && $_SESSION["isAdmin"] == 1) {
+                } else if (isset($_SESSION["userID"]) && $_SESSION["privileges"] == 1) {
                     echo "<iframe src=\"admin_nav.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
                 } else {
                     echo "<iframe src=\"not_admin.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
@@ -93,7 +93,7 @@ session_start();
             
             <div class="subNav">
                 <?php
-                if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                if (isset($_SESSION["privileges"]) && $_SESSION["privileges"] == 1) {
                     echo "<a href=\"./\" class=\"subNavLink\" id=\"adminHomeButton\">ADMIN HOME</a>";
                 }
                 ?>

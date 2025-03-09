@@ -80,7 +80,7 @@ try {  // Try opening the SQL database connection
                       
             <div class="subNav">
                 <?php
-                if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                if (isset($_SESSION["privileges"]) && $_SESSION["privileges"] == 1) {
                     echo "<a href=\"/admin/\" class=\"subNavLink\" id=\"adminHomeButton\">ADMIN PANEL</a>";
                 }
                 ?>
