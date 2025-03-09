@@ -65,11 +65,13 @@ function passwordConfirm() {
     if (confirmPassword == "") {
         document.getElementById("matchingPasswords").style.visibility = "hidden";
         document.getElementById("matchingPasswordsText").style.visibility = "hidden";
+        document.getElementById("confirmPassword").style.border = null;
         return false;
     } else if (password == confirmPassword) { // If they match, show them green and return true
         document.getElementById("matchingPasswords").style.visibility = "visible";
         document.getElementById("matchingPasswords").style.color = "green" ;
         document.getElementById("matchingPasswords").innerHTML = "&#10003;&nbsp;";
+        document.getElementById("confirmPassword").style.border = "1px solid green";
         document.getElementById("matchingPasswordsText").style.visibility = "visible";
         document.getElementById("matchingPasswordsText").innerHTML = "Match!";
         return true;
@@ -77,6 +79,7 @@ function passwordConfirm() {
         document.getElementById("matchingPasswords").style.visibility = "visible";
         document.getElementById("matchingPasswords").style.color = "red";
         document.getElementById("matchingPasswords").innerHTML = "&#935;&nbsp;";
+        document.getElementById("confirmPassword").style.border = "2px solid red";
         document.getElementById("matchingPasswordsText").style.visibility = "visible";
         document.getElementById("matchingPasswordsText").innerHTML = "Not a match!";
         return false;
@@ -84,24 +87,42 @@ function passwordConfirm() {
 }
 
 function usernameConfirm() {
-    // Get the username entered
-    var username = document.getElementById("username").value;
+    // Get the username entered and convert to lower case
+    var username = document.getElementById("username").value.toLowerCase();
+    // Temporarily convert the userlist to lower case. This will allow us to compare input vs. saved
+    var listOfUsers = userList.map(e => e.toLowerCase());
 
     // If the username is blank, clear the notice
     // Otherwise, we'll check the userlist created by PHP which was converted for JS
     // If the name is there, return false
     if (username == "") {
         document.getElementById("confirmUsername").style.visibility = "hidden";
+        document.getElementById("username").style.border = null;
         return false; 
-    } else if (userList.includes(username)) {
+    } else if (listOfUsers.includes(username)) {
         document.getElementById("confirmUsername").style.visibility = "visible";
         document.getElementById("confirmUsername").style.color = "red";
         document.getElementById("confirmUsername").innerHTML = "Name Taken";
+        document.getElementById("username").style.border = "2px solid red";
         return false; // we return false for a match - a match is not what we want!
-    } else if (!userList.includes(username)) {
+    } else if (!listOfUsers.includes(username)) {
         document.getElementById("confirmUsername").style.visibility = "visible";
         document.getElementById("confirmUsername").style.color = "green";
         document.getElementById("confirmUsername").innerHTML = "Name Available!";
+        document.getElementById("username").style.border = "1px solid green";
         return true; // this means the user does not already exist and is good to go
+    }
+}
+
+function checkPasswordRequirements() {
+    var password = document.getElementById("password").value;
+    console.log(password);
+
+    if (password == "") {
+        document.getElementById("password").style.border = null;
+    } else if (password.length < 6) {
+        document.getElementById("password").style.border = "2px solid red";
+    } else {
+        document.getElementById("password").style.border = "1px solid green";        
     }
 }

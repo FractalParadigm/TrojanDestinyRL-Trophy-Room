@@ -58,10 +58,10 @@ try {  // Try opening the SQL database connection
                 <!-- THIS DIV IS FOR INPUT -->
                 <div id="textInputArea">
                     <label for="username" class="inputLabel">Username:</label>
-                    <input type="text" id="username" name="username" class="newLine" maxlength="30" onchange="usernameConfirm()" tabindex="1" pattern="[a-zA-Z0-9]*" required>
+                    <input type="text" id="username" name="username" class="newLine" maxlength="30" oninput="usernameConfirm()" tabindex="1" pattern="[a-zA-Z0-9]*" required>
                     <p id="confirmUsername"></p>
                     <label for="password" class="inputLabel">Password:</label>
-                    <input type="password" id="password" name="password" required tabindex="1">
+                    <input type="password" id="password" name="password" required oninput="checkPasswordRequirements()" tabindex="1">
                     <input type="checkbox" id="showPassword" name="showPassword" class="passwordOptions" onclick="displayPassword()"  tabindex="-1">
                     <label for="showPassword" class="passwordOptions" id="displayPassword" class="newLine">(show)</label>
                     <label for="confirmPassword" class="inputLabel">Confirm password:</label>
