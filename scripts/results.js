@@ -29,7 +29,7 @@ function refreshDisplay() {
     if (currentDivision == "open") {
         image = "/assets/trophy_open.png";
         html += "<h2><img src=" + image + " class=\"lineImage\" alt=\"" + currentDivision + " division trophy\" style=\"float:left;\">Open<img src=" + image + " class=\"lineImage\" alt=\"" + currentDivision + " division trophy\" style=\"float:right;\"></h2>";
-        html += "<p class=\"smallerText\">Max Rank: SSL</p>"
+        html += "<p class=\"smallerText\">Max Rank: Plat 3</p>"
     } else if (currentDivision == "intermediate") {
         image = "/assets/trophy_intermediate.png";
         html += "<h2><img src=" + image + " class=\"lineImage\" alt=\"" + currentDivision + " division trophy\" style=\"float:left;\">Intermediate<img src=" + image + " class=\"lineImage\" alt=\"" + currentDivision + " division trophy\" style=\"float:right;\"></h2>";
@@ -37,7 +37,7 @@ function refreshDisplay() {
     } else if (currentDivision == "main") {
         image = "/assets/trophy_main.png";
         html += "<h2><img src=" + image + " class=\"lineImage\" alt=\"" + currentDivision + " division trophy\" style=\"float:left;\">Main<img src=" + image + " class=\"lineImage\" alt=\"" + currentDivision + " division trophy\" style=\"float:right;\"></h2>";
-        html += "<p class=\"smallerText\">Max Rank: Plat 3</p>"
+        html += "<p class=\"smallerText\">Max Rank: SSL</p>"
     }
     html += "<p>Top 10 Winners</p>"
     html += "<hr class=\"tableLineLightCentre\">";

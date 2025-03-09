@@ -186,7 +186,7 @@ session_start();
         <div id="divisionDisplayPanel">
             <h2>Per-Division Results</h2>
             <div class="divisionNavPanel">
-                <input type="radio" id="openButton" name="division" checked="checked" value="open" onclick="refreshDisplay();">
+                <input type="radio" id="openButton" name="division" value="open" onclick="refreshDisplay();" checked="checked">
                 <label for="openButton" id="openButton">Open</label>
                 <input type="radio" id="intermediateButton" name="division" value="intermediate" onclick="refreshDisplay();">
                 <label for="intermediateButton" id="intermediateButton">Intermediate</label>
