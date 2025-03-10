@@ -11,6 +11,12 @@ session_start();
         <link rel="stylesheet" href="/styles/primary.css" />
         <link rel="stylesheet" href="/styles/admin.css" />
         <script src="/scripts/tools.js"></script>
+        <script>
+            // When the device is rotated, automatically refresh the frame
+            screen.orientation.addEventListener("change", (event) => {
+                document.getElementById("dataFrame").contentWindow.location.reload();
+            });
+        </script>
         <title>ADMIN PANEL - Trojan's Trophy Room</title>
     </head>
 

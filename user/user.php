@@ -43,6 +43,12 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="/styles/primary.css" />
         <link rel="stylesheet" href="/styles/user_management.css" />
         <script src="/scripts/tools.js"></script>
+        <script>
+            // When the device is rotated, automatically refresh the frame
+            screen.orientation.addEventListener("change", (event) => {
+                document.getElementById("dataFrame").contentWindow.location.reload();
+            });
+        </script>
         <title>My Account - Trojan's Trophy Room</title>
     </head>
 

@@ -10,6 +10,12 @@ session_start();
         <link rel="stylesheet" href="/styles/primary.css" />
         <script src="/scripts/tools.js"></script>
         <title>Trojan's Trophy Room</title>
+        <script>
+            // When the device is rotated, automatically refresh the frame
+            screen.orientation.addEventListener("change", (event) => {
+                document.getElementById("dataFrame").contentWindow.location.reload();
+            });
+        </script>
     </head>
 
     <body id="body">
