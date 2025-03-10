@@ -33,7 +33,7 @@
 .sqlOutput {
     border: 1px solid black;
     border-radius: 5px;
-    width: 400px;
+    max-width: 400px;
     padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -51,12 +51,3 @@
     margin: 10px !important;
 }
 
-
-@media only screen and (min-width: 360px) and (max-width: 1024px) {
-
-    .sqlOutput {
-        width: 275px;
-        border: none;
-    }
-
-}

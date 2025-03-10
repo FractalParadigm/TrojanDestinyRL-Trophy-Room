@@ -29,3 +29,19 @@
     height: 0;
     width: 0;
 }
+
+#accountDetailsBody {
+    width: auto;
+    flex-direction: column;
+}
+
+#accountDetailsPanel {
+    width:94%;
+    margin-bottom: 3%;
+}
+#accountSocialsPanel {
+    width:94%;
+}
+#passwordChangePanel {
+    width:94%;
+}

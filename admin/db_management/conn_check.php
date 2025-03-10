@@ -17,7 +17,7 @@
   include("../dev_db_config.php"); // Include credentials
   
   try {  // Try opening the SQL database connection
-    $conn = new PDO("mysql:host=$servername;dbname=$dbName", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=$dbName", $dbUsername, $dbPassword);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "<p>Database connection successful!</p>";

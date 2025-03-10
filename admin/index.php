@@ -103,11 +103,6 @@ session_start();
                     echo "<a href=\"./\" class=\"subNavLink\" id=\"adminHomeButton\">ADMIN PANEL</a>";
                 }
                 ?>
-                <?php 
-                if (isset($_SESSION["userID"])){
-                    echo "<a href=\"/user/" . $_SESSION["username"] . " \" class=\"subNavLink\">MY ACCOUNT</a>";
-                }
-                ?>
                 <a href="../" class="subNavLink" id="mainHomeButton">HOME</a>
                 <p class="newLine"></p>
                 <?php 
