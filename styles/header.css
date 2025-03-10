@@ -134,3 +134,39 @@
     scale: 1.05;
 }
 
+
+/*  MOBILE  */
+
+@media only screen and (max-width: 480px) {
+
+    #headerLeft {
+        display:none;
+    }
+
+    #headerRight {
+        display:none;
+    }
+
+    #headerCentre {
+        width:100%;
+    }
+
+    .header {
+        font-size: 100%;
+    }
+
+    #discordImage {
+        height: 40px;
+        margin-top: 10px;
+    }
+
+    #twitchImage { 
+        height: 40px;
+        margin-top: 10px;
+    }
+
+    #youtubeImage {
+        height: 40px;
+        margin-top: 10px;
+    }
+}

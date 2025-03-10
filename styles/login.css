@@ -1,6 +1,6 @@
 #loginBody {
     width: 275px;
-    margin: 0;
+    margin: auto;
     overflow: hidden;
 }
 
@@ -20,7 +20,6 @@
     padding: 10%;
     padding-top: 8%;
     padding-bottom: 12%;
-    width:100%;
 }
 
 #inputArea {
@@ -86,7 +85,7 @@
 #submitButton {
     display: flex;
     justify-content: center;
-    margin:auto;
+    margin: auto;
     align-items: center;
     
 }

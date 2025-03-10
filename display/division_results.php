@@ -93,29 +93,33 @@ try {  // Try opening the SQL database connection
     <title>GENERAL DATA</title>
 </head>
 
-<body id="divisionResultsFrame">
-    <div class="divisionResultsTable">
-        <?php
-        // This latch variable will trigger if we have any data to display
-        // If we have nothing to display, we'll tell them that
-        $contentLatch = 0;
-        for ($i = 0; $i < 10; $i++) {
-            // Check if we have any data
-            if (isset($names[$i])) {
-                $name = $names[$i];
-                $numWins = $wins[$i];
-                echo "<p class=\"divisionResultsTableLeft\"><a href=\"/user/" . $name . "\" onclick=\"redirect('this', '/user/" . $name . "')\" class=\"plainLinkBlack\">$name</a></p>";
-                echo "<p class=\"divisionResultsTableRight\">$numWins</p>";
-                $contentLatch = 1;
-            }
+    <?php   
+    // This latch variable will trigger if we have any data to display
+    // If we have nothing to display, we'll tell them that
+    $contentLatch = 0;
+    for ($i = 0; $i < 10; $i++) {
+        // Check if we have any data
+        if (isset($names[$i])) {
+            $name = $names[$i];
+            $numWins = $wins[$i];
+            echo "<body id=\"divisionResultsFrame\">";
+            echo "<div class=\"divisionResultsTable\">";
+            echo "<p class=\"divisionResultsTableLeft\"><a href=\"/user/" . $name . "\" onclick=\"redirect('this', '/user/" . $name . "')\" class=\"plainLinkBlack\">$name</a></p>";
+            echo "<p class=\"divisionResultsTableRight\">$numWins</p>";
+            echo "</div>";
+            echo "</html>";
+            $contentLatch = 1;
         }
-        if ($contentLatch == 0) {
-            echo "<p class=\"noContent\">Nothing yet! Check back later!</p>";
-        }
-        
-        
+    }
+
+    
+    if ($contentLatch == 0) {
+        echo "<body id=\"divisionResultsFrame\" style=\"margin:auto;\">";
+        echo "<div class=\"divisionResultsTable\">";
+        echo "<p class=\"noContent\">Nothing yet! Check back later!</p>";
+        echo "</div>";
+        echo "</html>";
+    }
         ?>
-    </div>
-</body>
 
 </html>

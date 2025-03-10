@@ -48,7 +48,7 @@ try {  // Try opening the SQL database connection
         <script>var userList = <?php echo json_encode($userList); ?>; // Convert array from PHP to JS</script>
     </head>
 
-    <body id="generalBody">
+    <body id="createAccountBody">
         <div id="createAccountPanel">
             <h2>Create An Account!</h2>
             <p>Get started on your trophy-winning journey with your very own TrojanDestinyRL account!</p>

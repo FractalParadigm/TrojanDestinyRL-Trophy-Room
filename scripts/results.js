@@ -42,8 +42,10 @@ function refreshDisplay() {
     html += "<p>Top 10 Winners</p>"
     html += "<hr class=\"tableLineLightCentre\">";
 
+    
+    
 
-    html += "<iframe src=\"/display/division_results.php?division=" + currentDivision + "&month=" + document.getElementById("month").value + "&year=" + document.getElementById("year").value + "\" name=\"divisionFrame\" class=\"divisionFrame\" id=\"divisionFrame\" onload=\"resizeIframe(this);\"></iframe>";
+    html += "<iframe src=\"/display/division_results.php?division=" + currentDivision + "&month=" + document.getElementById("month").value + "&year=" + document.getElementById("year").value + "\" name=\"divisionFrame\" class=\"divisionFrame\" id=\"divisionFrame\" onload=\"resizeIframe(this);var obj=parent.document.getElementById('dataFrame');resizeIframe(obj);\"></iframe>";
 
     html += "</div>";
     // TODO;
@@ -52,4 +54,5 @@ function refreshDisplay() {
 
     
     document.getElementById("divisionDisplay").innerHTML = html;
+    
 }

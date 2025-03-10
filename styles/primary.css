@@ -235,3 +235,63 @@ TEMPORARY
     color:orange;
     -webkit-text-stroke: 1px black;
 }
+
+
+
+
+/*  MOBILE  */
+
+@media only screen and (max-width: 480px) {
+    html,body {
+        overflow-x: hidden;
+    }
+    #body {
+        width: 370px;
+        margin: auto;
+    }
+
+    #contentFrame {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        border: 1px solid black;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, .2);
+        width: 98%;
+        max-width: 370px;
+        min-height: 0px;
+        padding-top: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 40px;
+        box-shadow: 0px 0px 2px;
+    }
+
+    #contentFrame h1,
+    h2,
+    h3,
+    h4 {
+        text-align: center;
+    }
+
+    .subNavLink {
+        margin-top: 4%;
+        padding: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .backgroundImage {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        top: 15%;
+        text-align: center;
+        z-index: -1;
+        opacity: 0.05;
+        max-width: 96%;
+        }
+
+}

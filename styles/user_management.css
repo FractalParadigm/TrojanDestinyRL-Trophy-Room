@@ -5,11 +5,9 @@
 #userFormPanel {
     margin: auto;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#createAccountPanel {
-    width: 375px;
-}
 
 #createAccountPanel {
     margin: auto;
@@ -306,4 +304,36 @@
 
 #passwordChangeBody {
     display: flex;
+}
+
+#createAccountBody {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 350px;
+    margin: auto;
+}
+
+
+@media only screen and (max-width: 480px) {
+
+    #createAccountPanel {
+        width: 275px;
+    }
+    
+    #createAccountBody {
+        width: 275px;
+    }
+
+    #userForm input[type="password"] {
+        margin: 2% 2%;
+        width: 170px;
+    }
+    #userForm input[type="text"] {
+        margin: 2% 2%;
+        width: 170px;
+    }
+
+    #displayPassword {
+        padding: 0 0 0 5px;
+    }
+
 }
