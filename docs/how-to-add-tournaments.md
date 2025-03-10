@@ -27,7 +27,7 @@ The form should be pretty self-explanitory! But in case you decide to be an idio
 
 **Team name:** OPTIONAL, you can enter the name of the winning team here
 
-**Roster:** Enter the names of the players here. **If** the person has been entered here before, **or** they have an account with us, they *should* show up in the auto-fill list. Pick the name on the list, it'll help keep people proper associated with tournaments.
+**Roster:** Enter the names of the players here. **If** the person has been entered here before, **or** they have an account with us, they *should* show up in the auto-fill list. Pick the name on the list, it'll help keep people proper associated with tournaments. **IF THE PERSON IS NOT ON THE LIST** try to type it in as close to Rocket League as possible - their name will autofill for future entries, and will probably auto-associate to an account if one is created with the same name.
 
 **Notes:** If you have any notes about the tournament, anything that might be out of the ordinary or unexpected, put them down here. Fairly soon I'll have pages setup to not only view, but edit the tournaments, I was originally thinking the notes could be a public-facing thing, but we can either keep it private or setup a second field for that
 
@@ -36,5 +36,7 @@ The form should be pretty self-explanitory! But in case you decide to be an idio
 - Fill out what you can *before* the tournament starts - when it's over, it'll be quicker to fill in the winners and file it off, getting ready for the next one.
 
 - Take your time, filling in usernames will pop-up an autocomplete box, but might take a second. You're better to choose the auto-filled name so that stats are guaranteed associated to a user.
+  
+- I can edit the database by hand, and will be working on pages for the admin panel that will allow us to change the details on existing tourneys and such. If you don't get things entered 100% correctly, just let me know where you might have erred and we can fix whatever is necessary!
 
 - If you have any problems, reach out to the devs and we'll try to help.
