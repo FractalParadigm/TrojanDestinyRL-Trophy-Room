@@ -1,14 +1,15 @@
 #gameFormPanel {
     width: 500px;
     min-height: 1000px;
-}
-
-#gameFormPanel {
     margin: auto;
     text-align: center;
 }
 
-
+#gameFormBody {
+    width: 800px;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 #textInputArea {
     padding-left: 10px;
     display: flex;

@@ -70,6 +70,12 @@ try {  // Try opening the SQL database connection
         <script src="/scripts/game_management.js"></script>
         <script src="/scripts/tools.js"></script>
         <script>verifyPageInFrame()</script>
+        <script>
+            if (parent.window.screen.width >= 360 && window.screen.width <= 1024) {
+                // If mobile, get the mobile version
+                window.location.replace("/admin/data_management/game_form_mobile.php");
+            }
+        </script>
         <title>GAME ADDING FORM</title>
         <script>
         $( function() {
@@ -97,7 +103,7 @@ try {  // Try opening the SQL database connection
         </script>
     </head>
 
-    <body id="generalBody">
+    <body id="gameFormBody">
         <div id="gameFormPanel">
             <form id="userForm" action="add_game.php" method="POST" autocomplete="off">
             <h2>ADD GAME RESULTS</h2>

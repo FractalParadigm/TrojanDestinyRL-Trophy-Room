@@ -1,4 +1,3 @@
-
 #tourneyFormPanel {
     width: 300px;
     margin: auto;
@@ -11,4 +10,14 @@
 
 #playerDataInputArea {
     width: 98%;
+}
+
+#gameFormPanel {
+    width: 340px;
+    margin: auto;
+}
+
+#gameFormBody {
+    width: 340px;
+    margin: auto;
 }

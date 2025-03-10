@@ -11,7 +11,7 @@ try {  // Try opening the SQL database connection
   // Grab the list of users from the user list
   // We will also grab all the people that have been registered/won before
   $sqlGetUserData = $conn->prepare("SELECT username FROM " . $userTableName . "");
-  $sqlGetTourneyData = $conn->prepare("SELECT winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . "");
+  $sqlGetTourneyData = $conn->prepare("SELECT tournamentName,winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . "");
 
   // Execute SQL query
   $sqlGetUserData->execute();
@@ -20,14 +20,14 @@ try {  // Try opening the SQL database connection
   // Get results from the USERS table
   $results = $sqlGetUserData->fetchAll(PDO::FETCH_ASSOC);
 
-  // Create array to store values
+  // Create new arrays to store values
   $userList = array();
+  $tourneyList = array();
   
   // Move results to their own array, easier to convert for Javascript
   foreach ($results as $result) {
     $userList[] = $result["username"];
   }
-
 
   // Get results from the TOURNEY table
   $results = $sqlGetTourneyData->fetchAll(PDO::FETCH_ASSOC);
@@ -38,18 +38,22 @@ try {  // Try opening the SQL database connection
     $userList[] = $result["winner2"];
     $userList[] = $result["winner3"];
     $userList[] = $result["winner4"];
+    $tourneyList[] = $result["tournamentName"];
   }
 
-  // Make sure we only have each name once
+  // Remove duplicate entries
   $userList = array_unique($userList);
+
   // Sort the array to alphabetical order
   sort($userList);
+
 
 } catch (PDOException $e) { // failed connection
   echo "Connection failed: " . $e->getMessage();
 }
 
 ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -59,56 +63,65 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="/styles/primary.css" />
         <link rel="stylesheet" href="/styles/admin.css" />
         <link rel="stylesheet" href="/styles/admin_nav.css" />
-        <link rel="stylesheet" href="/styles/tourney_management.css" />
+        <link rel="stylesheet" href="/styles/game_management.css" />
+        <link rel="stylesheet" href="/styles/mobile_forms.css" />
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
-        <script src="/scripts/tourney_management.js"></script>
-        <script src="/scripts/tools.js"></script>
-        <script>verifyPageInFrame()</script>
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+        <script src="/scripts/game_management.js"></script>
+        <script src="/scripts/tools.js"></script>
+        <script>verifyPageInFrame()</script>
         <script>
-            if (parent.window.screen.width >= 360 && window.screen.width <= 1024) {
-                // If mobile, get the mobile version
-                window.location.replace("/admin/data_management/tourney_form_mobile.php");
+            if (parent.window.screen.width > 1024) {
+                // If not mobile, get the desktop version
+                window.location.replace("/admin/data_management/game_form.php");
             }
         </script>
-        <title>TOURNAMENT ADDING FORM</title>
+        <title>GAME ADDING FORM</title>
         <script>
         $( function() {
             var userList = <?php echo json_encode($userList); ?>;
-
             $(".playerInput").autocomplete({
                 source: userList,
+            });
+        } );
+        $( function() {
+            var tournamentList = <?php echo json_encode($tourneyList); ?>;
+            $("#tourneyName").autocomplete({
+                source: tournamentList,
+                // Change the direction of the autoselector if it's gonna hit the bottom
+                position: {
+                    collision: "flip"
+                },
+                // This only allows listed items to be chosen
+                change: function (event, ui) {
+                    if(!ui.item) {
+                        $("#tourneyName").val("");
+                    }
+                }
             });
         } );
         </script>
     </head>
 
-    <body id="tourneyFormBody">
-        <div id="tourneyFormPanel">
-            <form id="userForm" action="add_tourney.php" method="POST" autocomplete="off">
-            <h2>ADD NEW TOURNAMENT</h2>
-            <p>Add a recently-played tournament and record the victors.</p>
-            <p>Users will be able to add their own replays and information to the tournaments (later).</p>
-            <p>This is also how trophies will be tracked!</p>
+    <body id="gameFormBody">
+        <div id="gameFormPanel">
+            <form id="userForm" action="add_game.php" method="POST" autocomplete="off">
+            <h2>ADD GAME RESULTS</h2>
+            <p>Add a recently-played game and save the results!</p>
             <hr>
             <p></p>
                 <div id="textInputArea">
-                    <label for="tourneyName">Tournament name</label>
-                    <input type="text" id="tourneyName" name="tourneyName" maxlength="150" tabindex="1" required>
+                    <label for="gameName" class="newLine">Game name</label>
+                    <input type="text" id="gameName" name="gameName" maxlength="100" tabindex="1" required>
+                    <p></p>
                     <p class="newLine"></p>
-                    <label for="tourneyName">Tournament date</label>
-                    <input type="date" id="tourneyDate" name="tourneyDate"  max="<?php echo date("Y-m-d"); ?>" value="<?php echo date("Y-m-d"); ?>" tabindex="1" required>
+                    <label for="gameName" class="newLine">Game date</label>
+                    <input type="date" id="gameDate" name="gameDate"  max="<?php echo date("Y-m-d"); ?>" tabindex="1" required>
+                    <p></p>
                     <p class="newLine"></p>
                 </div>
                 <div class="optionsArea">
-                    <label for="division">Division:</label>
-                    <select id="division" name="division" tabindex="1">
-                        <option value="main">Main</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="open">Open</option>
-                    </select>
-                    <p class="newLine"></p>
                     <label for="numPlayers">Players:</label>
                     <select id="numPlayers" name="numPlayers" tabindex="1" onchange="changePlayers()">
                         <option value="1">1v1</option>
@@ -116,19 +129,14 @@ try {  // Try opening the SQL database connection
                         <option value="3">3v3</option>
                         <option value="4">4v4</option>
                     </select>
-                    <label for="bestOf">Best of:</label>
-                    <select id="bestOf" name="bestOf" tabindex="1">
-                        <option value="1">1</option>
-                        <option value="3" selected="selected">3</option>
-                        <option value="5">5</option>
-                        <option value="7">7</option>
+                    <label for="winners" class="showTeamSelector">Winning team:</label>
+                    <select id="winners" name="winners" class="showTeamSelector" tabindex="1">
+                        <option value="blue">Blue</option>
+                        <option value="orange">Orange</option>
                     </select>
                 </div>
                 <p class="newLine"></p>
-                <div id="playerDataInputArea"> 
-                    <p id="teamNameHeader">WINNING TEAM NAME:</p>
-                    <input type="text" name="winningTeamName" class="teamInput" maxlength="35" tabindex="1">
-                    <h4>Roster</h4>
+                <div id="playerDataInputArea">
                     <table id="playerData">
                     </table>
                     <script>addPlayers();</script>
@@ -136,11 +144,13 @@ try {  // Try opening the SQL database connection
                 </div>
                 <p class="newLine"></p>
                 <div class="optionsArea">
+                    <p class="newLine">If this game was part of a tournament, select it below</p>
+                    <input type="text" name="tourneyName" id="tourneyName" maxlength="150" tabindex="4">
+                    <p class="newLine">If you have uploaded a replay of this game to <a href="#" onclick="redirect('ballchasing', 'https://ballchasing.com')" class="plainLinkBlue">ballchasing.com</a>, enter the ID code below.</p>
+                    <input type="text" name="ballchasingID" id="ballchasingID" maxlength="100" tabindex="4">
                     <p class="newLine"></p>
-                    <p>If you have any notes about the tournament, leave them below</p>
+                    <p>If you have any notes about the game, leave them below</p>
                     <textarea name="notes" id="notes" tabindex="4"></textarea>
-                    <p class="newLine"></p>
-                    <p>Once the tournament is created, users will be able to attribute their games to it through the game creation/editing screen.</p>
                 </div>
 
                 <p class="newLine"></p>

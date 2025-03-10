@@ -67,6 +67,12 @@ try {  // Try opening the SQL database connection
         <script>verifyPageInFrame()</script>
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+        <script>
+            if (parent.window.screen.width > 1024) {
+                // If not mobile, get the desktop version
+                window.location.replace("/admin/data_management/tourney_form.php");
+            }
+        </script>
         <title>TOURNAMENT ADDING FORM</title>
         <script>
         $( function() {
