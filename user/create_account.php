@@ -1,5 +1,5 @@
 <?php 
-include("admin/db_config.php"); // Include database
+include("../admin/db_config.php"); // Include database
 
 // This grabs the list of users to check and make sure we aren't creating duplicates
 
