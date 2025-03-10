@@ -311,4 +311,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 350px;
     margin: auto;
+    overflow: hidden;
 }
+
