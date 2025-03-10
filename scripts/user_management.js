@@ -1,7 +1,6 @@
 function randomPassword() {
-    // Grab the length of password the user wants
-    var passwordLength = document.getElementById("passwordLength").value;
     var password = "";
+    var passwordLength = 8;
 
     // The character set of the password. Modify this at your discretion
     var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -12,7 +11,10 @@ function randomPassword() {
     }
 
     // Set the password field to what we've generated
-    document.getElementById("password").value = password;
+    //document.getElementById("password").value = password;
+    //document.getElementById("confirmPassword").value = password;
+    console.log(password);
+    return password;
 }
 
 function verifyInput() {
@@ -65,13 +67,13 @@ function passwordConfirm() {
     if (confirmPassword == "") {
         document.getElementById("matchingPasswords").style.visibility = "hidden";
         document.getElementById("matchingPasswordsText").style.visibility = "hidden";
-        document.getElementById("confirmPassword").style.border = null;
+        document.getElementById("confirmPassword").style.outline = null;
         return false;
     } else if (password == confirmPassword) { // If they match, show them green and return true
         document.getElementById("matchingPasswords").style.visibility = "visible";
         document.getElementById("matchingPasswords").style.color = "green" ;
         document.getElementById("matchingPasswords").innerHTML = "&#10003;&nbsp;";
-        document.getElementById("confirmPassword").style.border = "1px solid green";
+        document.getElementById("confirmPassword").style.outline = "1px solid green";
         document.getElementById("matchingPasswordsText").style.visibility = "visible";
         document.getElementById("matchingPasswordsText").innerHTML = "Match!";
         return true;
@@ -79,7 +81,7 @@ function passwordConfirm() {
         document.getElementById("matchingPasswords").style.visibility = "visible";
         document.getElementById("matchingPasswords").style.color = "red";
         document.getElementById("matchingPasswords").innerHTML = "&#935;&nbsp;";
-        document.getElementById("confirmPassword").style.border = "2px solid red";
+        document.getElementById("confirmPassword").style.outline = "2px solid red";
         document.getElementById("matchingPasswordsText").style.visibility = "visible";
         document.getElementById("matchingPasswordsText").innerHTML = "Not a match!";
         return false;
@@ -94,13 +96,13 @@ function passwordConfirmLite() {
 
     // If the field is empty we'll hide the results
     if (confirmPassword == "") {
-        document.getElementById("confirmPassword").style.border = null;
+        document.getElementById("confirmPassword").style.outline = null;
         return false;
     } else if (password == confirmPassword) { // If they match
-        document.getElementById("confirmPassword").style.border = "1px solid green";
+        document.getElementById("confirmPassword").style.outline = "1px solid green";
         return true;
     } else if (password != confirmPassword) {
-        document.getElementById("confirmPassword").style.border = "2px solid red";
+        document.getElementById("confirmPassword").style.outline = "2px solid red";
         return false;
     } 
 }
@@ -116,19 +118,19 @@ function usernameConfirm() {
     // If the name is there, return false
     if (username == "") {
         document.getElementById("confirmUsername").style.visibility = "hidden";
-        document.getElementById("username").style.border = null;
+        document.getElementById("username").style.outline = null;
         return false; 
     } else if (listOfUsers.includes(username)) {
         document.getElementById("confirmUsername").style.visibility = "visible";
         document.getElementById("confirmUsername").style.color = "red";
         document.getElementById("confirmUsername").innerHTML = "Taken";
-        document.getElementById("username").style.border = "2px solid red";
+        document.getElementById("username").style.outline = "2px solid red";
         return false; // we return false for a match - a match is not what we want!
     } else if (!listOfUsers.includes(username)) {
         document.getElementById("confirmUsername").style.visibility = "visible";
         document.getElementById("confirmUsername").style.color = "green";
         document.getElementById("confirmUsername").innerHTML = "";
-        document.getElementById("username").style.border = "1px solid green";
+        document.getElementById("username").style.outline = "1px solid green";
         return true; // this means the user does not already exist and is good to go
     }
 }
@@ -138,15 +140,16 @@ function checkPasswordRequirements() {
     console.log(password);
 
     if (password == "") {
-        document.getElementById("password").style.border = null;
+        document.getElementById("password").style.outline = null;
     } else if (password.length < 6) {
-        document.getElementById("password").style.border = "2px solid red";
+        document.getElementById("password").style.outline = "2px solid red";
     } else {
-        document.getElementById("password").style.border = "1px solid green";        
+        document.getElementById("password").style.outline = "1px solid green";        
     }
 }
 
 function togglePWChange() {
+    // This function handles the switch between showing the socials edit panel and the password change panel
     var socialsDiv = document.getElementById("accountSocialsPanel");
 
     var pwChangeDiv = document.getElementById("passwordChangePanel");
@@ -167,6 +170,32 @@ function togglePWChange() {
         pwChangeDiv.style.display = "flex";
         pwChangeDiv.style.zIndex = "1";
     }
+}
 
+function editUser() {
+    console.log("YAASSS");
+    var div = document.getElementById("userEditFrameDiv");
+    username = document.getElementById("user").value;
+    var html = "";
 
+    
+    html += "<iframe src=\"/admin/user_management/user_edit_form.php?username=" + username + "\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);var obj=parent.document.getElementById('dataFrame');resizeIframe(obj);\"></iframe>";
+
+    div.innerHTML = html;
+
+    console.log(html);
+}
+
+function setPrivilegeLevel(privileges) {
+    switch (privileges){
+    case 0:
+        document.getElementById("regular").checked = true;
+        break;
+    case 1:
+        document.getElementById("administrator").checked = true;
+        break;
+    case 2:
+        document.getElementById("moderator").checked = true;
+        break;
+    }
 }

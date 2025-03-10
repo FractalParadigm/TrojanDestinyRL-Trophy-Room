@@ -25,8 +25,14 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-    // Grab session username to make sure we're updating the person logged in
-    $username = $_SESSION["username"];
+    // Grab username to make sure we're updating the person logged in
+    if (isset ($_POST["username"])) {
+      // If there was a username sent via POST i.e. we're editing a user
+      $username = $_POST["username"];
+    } else {
+      // otherwise use the person logged in
+      $username = $_SESSION["username"];
+    }
 
 
     // Grab the existing data, so we can only update the things that got updated
@@ -79,9 +85,20 @@
     echo "<p></p>";
 
 
+    if ($_POST["administrator"] != $userInfo["privileges"]) {
+      $privileges = 1;
+    } else {
+      $privileges = $userInfo["privileges"];
+    }
+    if ($_POST["moderator"] != $userInfo["privileges"]) {
+      $privileges = 2;
+    } else {
+      $privileges = $userInfo["privileges"];
+    }
 
    // Prepare the command
     $update = $conn->prepare("UPDATE " . $userTableName . " SET 
+    privileges = :privileges,
     twitch = :twitch, 
     youtube = :youtube, 
     youtubeLink = :youtubeLink,
@@ -92,6 +109,7 @@
 
     // Bind parameters to query
     $update->bindParam(":username", $username);
+    $update->bindParam(":privileges", $privileges);
     $update->bindParam(":twitch", $twitch);
     $update->bindParam(":youtube", $youtube);
     $update->bindParam(":youtubeLink", $youtubeLink);

@@ -23,6 +23,17 @@
     line-height: 0.25em;
 }
 
+.underlined {
+    text-decoration-line: underline;
+}
+
+.bolded {
+    font-weight: bold;
+}
+
+.larger {
+    font-size: 1.25em;
+}
 
 .backgroundImage {
     position: absolute;

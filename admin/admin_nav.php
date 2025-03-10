@@ -27,7 +27,8 @@
         <div id="informationContentPanel">
             <h3>USER MANAGEMENT</h3>
             <div class="navPanel" id="userManagementPanel">
-                <a href="user_management/user_form.php" target="dataFrame" class="navLink">CREATE USER</a>
+            <a href="user_management/user_form.php" target="dataFrame" class="navLink">CREATE USER</a>
+            <a href="user_management/user_edit_frame.php" target="dataFrame" class="navLink">EDIT USER</a>
                 <!-- <a href="user_management/create_safe_admin.php" target="dataFrame" class="navLink">CREATE PERMA-ADMIN</a> -->
             </div>
             <p>&nbsp;</p>

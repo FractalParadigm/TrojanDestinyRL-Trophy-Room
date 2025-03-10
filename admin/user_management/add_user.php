@@ -56,9 +56,17 @@
 
     $privileges = 0;
 
-    if (filter_has_var(INPUT_POST, "privileges")) {
+    if ($_POST["administrator"] != $userInfo["privileges"]) {
       $privileges = 1;
+    } else {
+      $privileges = $userInfo["privileges"];
     }
+    if ($_POST["moderator"] != $userInfo["privileges"]) {
+      $privileges = 2;
+    } else {
+      $privileges = $userInfo["privileges"];
+    }
+
 
     $insert = $conn->prepare("INSERT INTO " . $userTableName . " (username, password, discord, discordLink, twitch, youtube, youtubeLink, privileges) VALUES (:username, :password, :discord, :discordLink, :twitch, :youtube, :youtubeLink, :privileges)");
 
@@ -80,7 +88,7 @@
       echo "<div class=userMessage>";
       echo "<p>Account created! You may sign in now.</p>";
       echo "<p>&nbsp;</p>";
-      echo "<a href=\"/\" class=\"subNavLink\">HOME</a>";
+      echo "<a href=\"/\" class=\"subNavLink\" onclick=\"redirect('this', '/')\">HOME</a>";
       echo "<a href=\"/user/login_page.php\" target=\"dataFrame\" class=\"subNavLink\">SIGN IN</a>";
       echo "<p>&nbsp;</p>";
       echo "</div>";

@@ -91,8 +91,8 @@ try {  // Try opening the SQL database connection
         <p>&nbsp;</p>
         <div id="accountDetailsBody">
             <div id="accountDetailsPanel">
-                <h3>Info</h3>
-                <p class="newLine"></p>
+                <h3 class="newLine">Info</h3>
+                <p></p>
                 <div class="accountDetailsLeftSide">
                     <p class="detailsBold">Username:</p>
                     <p class="detailsBold">Date Joined:</p>
@@ -119,8 +119,8 @@ try {  // Try opening the SQL database connection
                 if (mb_strtolower($username) == mb_strtolower($_SESSION["username"])) {
                     echo ("
                         <div id=\"accountSocialsPanel\">
-                            <h3>Edit</h3>
-                            <p class=\"newLine\"></p>
+                            <h3 class=\"newLine\">Edit</h3>
+                            <p></p>
                             <div class=\"accountDetailsLeftSide\">
                                 <p>Twitch (name):</p>
                                 <p>YouTube (name):</p>
@@ -149,8 +149,8 @@ try {  // Try opening the SQL database connection
                         "/*           PASSWORD CHANGE          */ . "
                         "/*                                    */ . "
                         <div id=\"passwordChangePanel\">
-                            <h3>Change Password</h3>
-                            <p class=\"newLine\"></p>
+                            <h3 class=\"newLine\">Change Password</h3>
+                            <p></p>
                             <div class=\"accountDetailsLeftSide\">
                                 <p>Old Password:</p>
                                 <p>&nbsp;</p>
