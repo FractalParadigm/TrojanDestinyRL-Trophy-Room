@@ -64,6 +64,15 @@ try {  // Try opening the SQL database connection
         <script src="/scripts/tools.js"></script>
         <script src="/scripts/user_management.js"></script>
         <script>verifyPageInFrame()</script>
+        <script>
+            var head = document.getElementsByTagName('HEAD')[0];
+            var link = document.createElement('link');
+            link.rel = "stylesheet";
+            if (parent.window.screen.width >= 360 && window.screen.width <= 1024) {
+                link.href = "/styles/user_management_mobile.css";
+            }
+            head.appendChild(link);
+        </script>
         <title>User Account Management</title>
     </head>
 

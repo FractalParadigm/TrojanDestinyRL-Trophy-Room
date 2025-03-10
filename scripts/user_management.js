@@ -121,13 +121,13 @@ function usernameConfirm() {
     } else if (listOfUsers.includes(username)) {
         document.getElementById("confirmUsername").style.visibility = "visible";
         document.getElementById("confirmUsername").style.color = "red";
-        document.getElementById("confirmUsername").innerHTML = "Name Taken";
+        document.getElementById("confirmUsername").innerHTML = "Taken";
         document.getElementById("username").style.border = "2px solid red";
         return false; // we return false for a match - a match is not what we want!
     } else if (!listOfUsers.includes(username)) {
         document.getElementById("confirmUsername").style.visibility = "visible";
         document.getElementById("confirmUsername").style.color = "green";
-        document.getElementById("confirmUsername").innerHTML = "Name Available!";
+        document.getElementById("confirmUsername").innerHTML = "";
         document.getElementById("username").style.border = "1px solid green";
         return true; // this means the user does not already exist and is good to go
     }

@@ -311,29 +311,3 @@
     width: 350px;
     margin: auto;
 }
-
-
-@media only screen and (min-width: 360px) and (max-width: 1024px) {
-
-    #createAccountPanel {
-        width: 275px;
-    }
-    
-    #createAccountBody {
-        width: 275px;
-    }
-
-    #userForm input[type="password"] {
-        margin: 2% 2%;
-        width: 170px;
-    }
-    #userForm input[type="text"] {
-        margin: 2% 2%;
-        width: 170px;
-    }
-
-    #displayPassword {
-        padding: 0 0 0 5px;
-    }
-
-}
