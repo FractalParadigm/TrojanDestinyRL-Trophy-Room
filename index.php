@@ -48,7 +48,7 @@ session_start();
                     echo "<a href=\"/user/" . $_SESSION["username"] . " \" class=\"subNavLink\">ACCOUNT</a>";
                     echo "<a href=\"/ \" class=\"subNavLink\">HOME</a>";
                     echo "<a href=\"/user/logout.php \" class=\"subNavLink\">LOGOUT</a>";
-                    echo "<a href=\"/admin/data_management/game_form.php \" target=\"dataFrame\" class=\"subNavLink\">ADD GAME DETAILS</a>";
+                    echo "<a href=\"/admin/data_management/game_form.php \" target=\"dataFrame\" class=\"subNavLink disabled\">ADD GAME DETAILS</a>";
                     // Anything we need to show to logged in admins will be below
                     if (isset($_SESSION["privileges"]) && $_SESSION["privileges"] == 1){
                         echo "<a href=\"/admin/data_management/tourney_form.php \" target=\"dataFrame\" class=\"subNavLink\">ADD A TOURNEY</a>";

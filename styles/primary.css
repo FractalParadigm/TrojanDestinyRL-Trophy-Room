@@ -156,6 +156,10 @@ For all the things at the bottom of the page; log in/out, 'my account', etc.
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;
+    text-align: center;
+    align-content: center;
+    width: 80px;
+    height: 45px;
 }
 
 .subNav a {
