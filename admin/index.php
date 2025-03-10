@@ -87,7 +87,7 @@ session_start();
                 echo "<iframe src=\"user_management/create_safe_admin.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
             } else { // Otherwise we'll show the nav page
                 if (!isset($_SESSION["userID"])){
-                    echo "<iframe src=\"../login_page.php?redirect=admin\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
+                    echo "<iframe src=\"../user/login_page.php?redirect=admin\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
                 } else if (isset($_SESSION["userID"]) && $_SESSION["privileges"] == 1) {
                     echo "<iframe src=\"admin_nav.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
                 } else {
@@ -108,7 +108,7 @@ session_start();
                 <?php 
                 if (isset($_SESSION["userID"])){
                     echo "<a href=\"/user/" . $_SESSION["username"] . " \" class=\"subNavLink\">ACCOUNT</a>";
-                    echo "<a href=\"../logout.php?redirect=admin\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
+                    echo "<a href=\"../user/logout.php?redirect=admin\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
                 }
                 ?>
             </div>

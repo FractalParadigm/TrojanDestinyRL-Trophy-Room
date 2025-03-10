@@ -42,7 +42,7 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="/styles/user_management.css" />
         <script src="/scripts/tools.js"></script>
         <script>verifyPageInFrame()</script>
-        <?php include ("admin/db_config.php");?> <!-- Our password-length variable is stored here -->
+        <?php include ("../admin/db_config.php");?> <!-- Our password-length variable is stored here -->
         <script src="/scripts/user_management.js"></script>
         <script>
             var head = document.getElementsByTagName('HEAD')[0];

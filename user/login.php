@@ -19,7 +19,7 @@ session_start();
 <body class="sqlOutput">
   <?php
   // USER-DEFINED VARIABLES
-  include("admin/db_config.php"); // Include database stuff
+  include("../admin/db_config.php"); // Include database stuff
 
   try {  // Try opening the SQL database connection
     $conn = new PDO("mysql:host=$servername; dbname=$dbName", $dbUsername, $dbPassword);

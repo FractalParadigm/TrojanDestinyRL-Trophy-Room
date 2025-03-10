@@ -103,9 +103,9 @@ try {  // Try opening the SQL database connection
                 <?php 
                 // If someone is logged in, give them the opportunity to log out
                 if (isset($_SESSION["userID"])){
-                    echo "<a href=\"../logout.php?redirect=\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
+                    echo "<a href=\"../user/logout.php?redirect=\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
                 } else {
-                    echo "<a href=\"/login_page.php \" target=\"dataFrame\" class=\"subNavLink\">SIGN IN</a>";
+                    echo "<a href=\"/user/login_page.php \" target=\"dataFrame\" class=\"subNavLink\">SIGN IN</a>";
                     echo "<a href=\"/create_account.php \" target=\"dataFrame\" class=\"subNavLink\">CREATE AN ACCOUNT</a>";
                     echo "<a href=\"/ \" class=\"subNavLink\">HOME</a>";
                 }
