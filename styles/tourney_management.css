@@ -1,13 +1,15 @@
 #tourneyFormPanel {
     width: 500px;
     min-height: 1000px;
-}
-
-#tourneyFormPanel {
     margin: auto;
     text-align: center;
 }
 
+#tourneyFormBody {
+    width: 800px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 #textInputArea {
     padding-left: 10px;

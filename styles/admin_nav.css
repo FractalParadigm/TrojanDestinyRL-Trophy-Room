@@ -20,11 +20,3 @@
 #dbManagementPanel {
     gap: 2%;
 }
-
-
-@media only screen and (min-width: 360px) and (max-width: 1024px) {
-    #generalBody {
-        width: 300px;
-    }
-
-}

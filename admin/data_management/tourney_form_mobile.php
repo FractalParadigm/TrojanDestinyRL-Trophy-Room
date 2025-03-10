@@ -60,22 +60,13 @@ try {  // Try opening the SQL database connection
         <link rel="stylesheet" href="/styles/admin.css" />
         <link rel="stylesheet" href="/styles/admin_nav.css" />
         <link rel="stylesheet" href="/styles/tourney_management.css" />
+        <link rel="stylesheet" href="/styles/mobile_forms.css" />
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="/scripts/tourney_management.js"></script>
         <script src="/scripts/tools.js"></script>
         <script>verifyPageInFrame()</script>
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
-        <script>
-            if (parent.window.screen.width >= 360 && window.screen.width <= 1024) {
-                //var head = document.getElementsByTagName('HEAD')[0];
-                //var link = document.createElement('link');
-                //link.rel = "stylesheet";
-                //link.href = "/styles/mobile_forms.css";
-                //head.appendChild(link);
-                window.location.replace("/admin/data_management/tourney_form_mobile.php");
-            }
-        </script>
         <title>TOURNAMENT ADDING FORM</title>
         <script>
         $( function() {
@@ -98,10 +89,12 @@ try {  // Try opening the SQL database connection
             <hr>
             <p></p>
                 <div id="textInputArea">
-                    <label for="tourneyName">Tournament name</label>
+                    <label for="tourneyName" class="newLine">Tournament name</label>
+                    <p></p>
                     <input type="text" id="tourneyName" name="tourneyName" maxlength="150" tabindex="1" required>
                     <p class="newLine"></p>
-                    <label for="tourneyName">Tournament date</label>
+                    <label for="tourneyName" class="newLine">Tournament date</label>
+                    <p></p>
                     <input type="date" id="tourneyDate" name="tourneyDate"  max="<?php echo date("Y-m-d"); ?>" value="<?php echo date("Y-m-d"); ?>" tabindex="1" required>
                     <p class="newLine"></p>
                 </div>
