@@ -176,9 +176,59 @@ try {  // Try opening the SQL database connection
                             </div>
                         </div>
                     ");
-                } 
+                }  else {
+                    echo ("
+                        <script>console.log('test');</script>
+                        <div id=\"accountSocialsPanel\">
+                            <h3>Socials</h3>
+                            <p class=\"newLine\"></p>
+                            <div class=\"accountDetailsLeftSide\">
+                                <p>Twitch:</p>
+                                <p>YouTube:</p>
+                                <p>Discord:</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                            </div>
+                            <div class=\"accountDetailsRightSide\">
+                    ");
+                    if (isset($userDetails["twitch"]) && $userDetails["twitch"] != "") {
+                        echo ("<p><a href=\"#\" id=\"twitchURL\" onclick=\"redirect('twitch', '" . $userDetails["twitch"] . "')\" class=\"plainLinkBlue\">" . $userDetails["twitch"] . "</a></p>");
+                    } else {
+                        echo ("<p>none</p>");
+                    }
+    
+                    if (isset($userDetails["youtube"]) && $userDetails["youtube"] != "") {
+                        if (isset($userDetails["youtubeLink"]) && $userDetails["youtubeLink"] != "") {
+                            echo ("<p><a href=\"#\" id=\"youtubeURL\" onclick=\"redirect('youtube', '" . $userDetails["youtubeLink"] . "')\" class=\"plainLinkBlue\">" . $userDetails["youtube"] . "</a></p>");
+                        } else {
+                            echo ("<p>" . $userDetails["youtube"] . "</a></p>");
+                        }
+                    } else {
+                        echo ("<p>none</p>");
+                    }
+    
+                    if (isset($userDetails["discord"]) && $userDetails["discord"] != "") {
+                        if (isset($userDetails["discordLink"]) && $userDetails["discordLink"] != "") {
+                            echo ("<a href=\"#\" id=\"discordURL\" onclick=\"redirect('discord', '" . $userDetails["discordLink"] . "')\" class=\"plainLinkBlue\"> " . $userDetails["discord"] . "</a></p>");
+                        } else {
+                            echo ("<p>" . $userDetails["discord"] . "</a></p>");
+                        }
+                    } else {
+                        echo ("<p>none</p>");
+                    }
+                    
+    
+                    echo ("
+                            </div>
+                        </div>
+                    ");
+                }
             } else {
                 echo ("
+                    <script>console.log('test');</script>
                     <div id=\"accountSocialsPanel\">
                         <h3>Socials</h3>
                         <p class=\"newLine\"></p>
