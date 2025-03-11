@@ -31,7 +31,7 @@ session_start();
     $password = $_POST["password"];
 
     // Get SQL data
-    $sqlGetData = $conn->prepare("SELECT userID,password,privileges FROM " . $userTableName . " WHERE username=\"" . $username . "\"");
+    $sqlGetData = $conn->prepare("SELECT username,userID,password,privileges FROM " . $userTableName . " WHERE username=\"" . $username . "\"");
 
     $sqlGetData->execute();
     
@@ -43,6 +43,7 @@ session_start();
 $result = $sqlGetData->fetch(PDO::FETCH_ASSOC);
 
   // Grab the hash from the fetched SQL data
+$username = $result["username"];
 $passwordHash = $result["password"];
 $userID = $result["userID"];
 $privileges = $result["privileges"];
