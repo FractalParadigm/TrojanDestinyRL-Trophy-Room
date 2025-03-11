@@ -51,6 +51,28 @@
 }
 
 
+#accountSocialsPanelEdit {
+    z-index: -1;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 45%;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-right: 2%;
+    padding: 5px;
+    padding-bottom: 25px;
+    margin: 0 auto;
+}
+
+#accountSocialsPanelEdit p {
+    height: 25px;
+}
+#accountSocialsPanelEdit h3 {
+    text-align: center;
+}
+
+
 
 #passwordChangePanel {
     z-index: -1;
@@ -177,6 +199,30 @@
 }
 
 #changePasswordButton:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
+}
+
+#editAccountButton {
+    margin: auto;
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 75%;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 3px;
+    border: 1px solid rgb(0, 0, 255);
+    box-shadow: 0px 2px 4px;
+    color: black;
+}
+
+#editAccountButton:hover {
+    color: black;
+    background-color: rgba(255, 165, 0, .6);
+}
+
+#editAccountButton:active {
     box-shadow: 0px 0px 2px;
     transform: translateY(2px);
 }

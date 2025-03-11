@@ -57,7 +57,7 @@ try {  // Try opening the SQL database connection
                     <label for="discord" class="newLine">Discord:</label>
                     <input type="text" placeholder="<?php echo $userData["discord"] ?>" id="discord" name="discord" class="newLine" style="width:100%" maxlength="50"/>
                     <label for="discord" class="newLine">Discord Link:</label>
-                    <input type="text" placeholder="<?php echo $userData["discordLink"] ?>" id="discordLink" name="discordLink" class="newLine" style="width:100%" maxlength="50"/>
+                    <input type="text" placeholder="<?php echo $userData["discordLink"] ?>" id="discordLink" name="discordLink" class="newLine" style="width:100%" pattern="[0-9]*" maxlength="50"/>
                     <label for="twitch" class="newLine">Twitch:</label>
                     <input type="text" placeholder="<?php echo $userData["twitch"] ?>" id="twitch" name="twitch" class="newLine" style="width:100%" maxlength="50" />
                     <label for="youtube" class="newLine">Youtube:</label>

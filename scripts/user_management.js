@@ -172,6 +172,30 @@ function togglePWChange() {
     }
 }
 
+function toggleAccountEdit() {
+    // This function handles the switch between showing the regular socials display, and the edit panel
+    var socialsDiv = document.getElementById("accountSocialsPanel");
+
+    var socialsEdit = document.getElementById("accountSocialsPanelEdit");
+
+    if (socialsEdit.style.display == "none") {
+        socialsDiv.style.display = "none";
+        socialsDiv.style.zIndex = "-1";
+        socialsEdit.style.display = "flex";
+        socialsEdit.style.zIndex = "1";
+    } else if (socialsEdit.style.display == "flex") {
+        socialsDiv.style.display = "flex";
+        socialsDiv.style.zIndex = "1";
+        socialsEdit.style.display = "none";
+        socialsEdit.style.zIndex = "-1";
+    } else { 
+        socialsDiv.style.display = "none";
+        socialsDiv.style.zIndex = "-1";
+        socialsEdit.style.display = "flex";
+        socialsEdit.style.zIndex = "1";
+    }
+}
+
 function editUser() {
     console.log("YAASSS");
     var div = document.getElementById("userEditFrameDiv");
@@ -179,7 +203,7 @@ function editUser() {
     var html = "";
 
     
-    html += "<iframe src=\"/admin/user_management/user_edit_form.php?username=" + username + "\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);var obj=parent.document.getElementById('dataFrame');resizeIframe(obj);\"></iframe>";
+    html += "<iframe src=\"/admin/user_management/user_edit_form.php?username=" + username + "\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);resizeIframe(parent.document.getElementById('dataFrame'));\"></iframe>";
 
     div.innerHTML = html;
 

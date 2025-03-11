@@ -118,26 +118,26 @@ try {  // Try opening the SQL database connection
             if (isset($_SESSION["userID"])) {
                 if (mb_strtolower($username) == mb_strtolower($_SESSION["username"])) {
                     echo ("
-                        <div id=\"accountSocialsPanel\">
+                        <div id=\"accountSocialsPanelEdit\">
                             <h3 class=\"newLine\">Edit</h3>
                             <p></p>
                             <div class=\"accountDetailsLeftSide\">
-                                <p>Twitch (name):</p>
-                                <p>YouTube (name):</p>
-                                <p>YouTube (link):</p>
-                                <p>Discord (name):</p>
-                                <p>Discord (UserID):</p>
+                                <p class=\"tooltip\">Twitch (name):<span class=\"tooltipText\">Your Twitch username</span></p>
+                                <p class=\"tooltip\">YouTube (name):<span class=\"tooltipText\">Your YouTube username</span></p>
+                                <p class=\"tooltip\">YouTube (link):<span class=\"tooltipText\">Link to your YouTube channel</span></p>
+                                <p class=\"tooltip\">Discord (name):<span class=\"tooltipText\">You Discord name (how it's displayed)</span></p>
+                                <p class=\"tooltip\">Discord (UserID):<span class=\"tooltipText\">This is the numerical User ID from Discord. Right-click your profile name to copy your ID</span></p>
                                 <p>&nbsp;</p>
-                                <p><a id=\"changePasswordButton\" style=\"text-align:center;\" onclick=\"togglePWChange();\">Change Password</a></p>
+                                <p><a id=\"editAccountButton\" style=\"text-align:center;\" onclick=\"toggleAccountEdit();resizeIframe(parent.document.getElementById('dataFrame'));\">Back</a></p>
                                 <p>&nbsp;</p>
                             </div>
                             <div class=\"accountDetailsRightSide\">
                                 <form id=\"editUserDetails\" action=\"/admin/user_management/edit_user.php\" method=\"post\">
-                                    <p><input type=\"text\" placeholder=\"" . $userDetails["twitch"] . "\" id=\"twitch\" name=\"twitch\"></p>
-                                    <p><input type=\"text\" placeholder=\"" . $userDetails["youtube"] . "\" id=\"youtube\" name=\"youtube\"></p>
-                                    <p><input type=\"text\" placeholder=\"" . $userDetails["youtubeLink"] . "\" id=\"youtubeLink\" name=\"youtubeLink\"></p>
-                                    <p><input type=\"text\" placeholder=\"" . $userDetails["discord"] . "\" id=\"discord\" name=\"discord\"></p>
-                                    <p><input type=\"text\" placeholder=\"" . $userDetails["discordLink"] . "\" id=\"discordLink\" name=\"discordLink\"></p>
+                                    <p class=\"tooltip\"><input type=\"text\" placeholder=\"" . $userDetails["twitch"] . "\" id=\"twitch\" name=\"twitch\"></p>
+                                    <p class=\"tooltip\"><input type=\"text\" placeholder=\"" . $userDetails["youtube"] . "\" id=\"youtube\" name=\"youtube\"></p>
+                                    <p class=\"tooltip\"><input type=\"text\" placeholder=\"" . $userDetails["youtubeLink"] . "\" id=\"youtubeLink\" name=\"youtubeLink\"></p>
+                                    <p class=\"tooltip\"><input type=\"text\" placeholder=\"" . $userDetails["discord"] . "\" id=\"discord\" name=\"discord\"></p>
+                                    <p class=\"tooltip\"><input type=\"text\" placeholder=\"" . $userDetails["discordLink"] . "\" id=\"discordLink\" name=\"discordLink\" pattern=\"[0-9]*\"></p>
                                     <p>&nbsp;</p>
                                     <div class=\"accountUpdateButton\">
                                         <input type=\"submit\" id=\"submitButton\" value=\"Update\">
@@ -175,13 +175,64 @@ try {  // Try opening the SQL database connection
                                 </form>
                             </div>
                         </div>
-                    ");
-                }  else {
-                    echo ("
-                        <script>console.log('test');</script>
+                        "/*                                    */ . "
+                        "/*            PLAIN DISPLAY           */ . "
+                        "/*                                    */ . "
                         <div id=\"accountSocialsPanel\">
-                            <h3>Socials</h3>
-                            <p class=\"newLine\"></p>
+                            <h3 class=\"newLine\">Socials</h3>
+                            <p></p>
+                            <div class=\"accountDetailsLeftSide\">
+                                <p>Twitch:</p>
+                                <p>YouTube:</p>
+                                <p>Discord:</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p><a id=\"changePasswordButton\" style=\"text-align:center;\" onclick=\"togglePWChange();\">Change Password</a></p>
+                                <p>&nbsp;</p>
+                            </div>
+                            <div class=\"accountDetailsRightSide\">
+                    ");
+                    if (isset($userDetails["twitch"]) && $userDetails["twitch"] != "") {
+                        echo ("<p><a href=\"#\" id=\"twitchURL\" onclick=\"redirect('twitch', '" . $userDetails["twitch"] . "')\" class=\"plainLinkBlue\">" . $userDetails["twitch"] . "</a></p>");
+                    } else {
+                        echo ("<p>none</p>");
+                    }
+    
+                    if (isset($userDetails["youtube"]) && $userDetails["youtube"] != "") {
+                        if (isset($userDetails["youtubeLink"]) && $userDetails["youtubeLink"] != "") {
+                            echo ("<p><a href=\"#\" id=\"youtubeURL\" onclick=\"redirect('youtube', '" . $userDetails["youtubeLink"] . "')\" class=\"plainLinkBlue\">" . $userDetails["youtube"] . "</a></p>");
+                        } else {
+                            echo ("<p>" . $userDetails["youtube"] . "</a></p>");
+                        }
+                    } else {
+                        echo ("<p>none</p>");
+                    }
+    
+                    if (isset($userDetails["discord"]) && $userDetails["discord"] != "") {
+                        if (isset($userDetails["discordLink"]) && $userDetails["discordLink"] != "") {
+                            echo ("<a href=\"#\" id=\"discordURL\" onclick=\"redirect('discord', '" . $userDetails["discordLink"] . "')\" class=\"plainLinkBlue\"> " . $userDetails["discord"] . "</a></p>");
+                        } else {
+                            echo ("<p>" . $userDetails["discord"] . "</a></p>");
+                        }
+                    } else {
+                        echo ("<p>none</p>");
+                    }
+                    
+    
+                    echo ("
+                                <p>&nbsp;</p>
+                                <p>&nbsp;</p>
+                                <p><a id=\"editAccountButton\" style=\"text-align:center;\" onclick=\"toggleAccountEdit();resizeIframe(parent.document.getElementById('dataFrame'));\">Edit Socials</a></p>
+                                <p>&nbsp;</p>
+                            </div>
+                        </div>
+                    ");
+                } else {
+                    echo ("
+                        <div id=\"accountSocialsPanel\">
+                            <h3 class=\"newLine\">Socials</h3>
+                            <p></p>
                             <div class=\"accountDetailsLeftSide\">
                                 <p>Twitch:</p>
                                 <p>YouTube:</p>
@@ -228,7 +279,6 @@ try {  // Try opening the SQL database connection
                 }
             } else {
                 echo ("
-                    <script>console.log('test');</script>
                     <div id=\"accountSocialsPanel\">
                         <h3>Socials</h3>
                         <p class=\"newLine\"></p>
