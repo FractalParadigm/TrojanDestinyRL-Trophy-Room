@@ -107,7 +107,7 @@ function usernameConfirm() {
     // Temporarily convert the userlist to lower case. This will allow us to compare input vs. saved
     var listOfUsers = userList.map(e => e.toLowerCase());
 
-    var confirmRegEx = new RegExp("^[a-zA-Z0-9]+([._-]?[a-zA-Z0-9])+([._-]?)$");
+    var confirmRegEx = new RegExp("^[a-zA-Z0-9]+([_-]?[a-zA-Z0-9])+([_-]?)$");
 
     // If the username is blank, clear the notice
     // Otherwise, we'll check the userlist created by PHP which was converted for JS

@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteRule ^/?user/([a-zA-Z0-9\-\_]+)$ /user/user.php?username=$1 [L,NC]
+
+RewriteRule ^/?tournament/([0-9]+)$ /tournament/tourney.php?tourneyID=$1 [L,NC]

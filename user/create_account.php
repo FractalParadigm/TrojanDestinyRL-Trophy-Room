@@ -67,7 +67,7 @@ try {  // Try opening the SQL database connection
                 <!-- THIS DIV IS FOR INPUT -->
                 <div id="textInputArea">
                     <label for="username" class="inputLabel" id="usernameLabel">Username:&nbsp;&nbsp;<span id="confirmUsername"></span></label>
-                    <input type="text" id="username" name="username" class="newLine" maxlength="30" oninput="usernameConfirm()" tabindex="1" pattern="^[a-zA-Z0-9]+([._\-]?[a-zA-Z0-9])+([._\-]?)$" required>
+                    <input type="text" id="username" name="username" class="newLine" maxlength="30" oninput="usernameConfirm()" tabindex="1" pattern="^[a-zA-Z0-9]+([_\-]?[a-zA-Z0-9])+([_\-]?)$" required>
                     <label for="password" class="inputLabel">Password:</label>
                     <input type="password" id="password" name="password" required oninput="checkPasswordRequirements()" tabindex="1">
                     <p class="newLine"></p>
