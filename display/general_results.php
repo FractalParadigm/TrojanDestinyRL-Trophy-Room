@@ -127,7 +127,7 @@ session_start();
                 <!-- Next line!  -->
                 <p class="generalResultsTableLeft">Most recently registered user:</p>
                 <p class="tableSpacer"></p>
-                <p class="generalResultsTableRight"><?php echo $mostRecentUser; ?></p>
+                <p class="generalResultsTableRight"><a href="/user/<?php echo $mostRecentUser; ?>" class="plainLinkBlack" onclick="redirect('this', '/user/<?php echo $mostRecentUser; ?>')"><?php echo $mostRecentUser; ?></a></p>
                 <hr class="tableLine">
                 <!-- Next line!  -->
                 <p class="generalResultsTableLeft">Number of game results uploaded:</p>
