@@ -211,7 +211,7 @@ try {  // Try opening the SQL database connection
     
                     if (isset($userDetails["discord"]) && $userDetails["discord"] != "") {
                         if (isset($userDetails["discordLink"]) && $userDetails["discordLink"] != "") {
-                            echo ("<a href=\"#\" id=\"discordURL\" onclick=\"redirect('discord', '" . $userDetails["discordLink"] . "')\" class=\"plainLinkBlue\"> " . $userDetails["discord"] . "</a></p>");
+                            echo ("<p><a href=\"#\" id=\"discordURL\" onclick=\"redirect('discord', '" . $userDetails["discordLink"] . "')\" class=\"plainLinkBlue\"> " . $userDetails["discord"] . "</a></p>");
                         } else {
                             echo ("<p>" . $userDetails["discord"] . "</a></p>");
                         }
@@ -221,6 +221,7 @@ try {  // Try opening the SQL database connection
                     
     
                     echo ("
+                                <p>&nbsp;</p>
                                 <p>&nbsp;</p>
                                 <p>&nbsp;</p>
                                 <p><a id=\"editAccountButton\" style=\"text-align:center;\" onclick=\"toggleAccountEdit();resizeIframe(parent.document.getElementById('dataFrame'));\">Edit Socials</a></p>
