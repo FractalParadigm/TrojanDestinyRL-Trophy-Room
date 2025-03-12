@@ -126,7 +126,7 @@ try {  // Try opening the SQL database connection
                                 <p class=\"tooltip\">YouTube (name):<span class=\"tooltipText\">Your YouTube username</span></p>
                                 <p class=\"tooltip\">YouTube (link):<span class=\"tooltipText\">Link to your YouTube channel</span></p>
                                 <p class=\"tooltip\">Discord (name):<span class=\"tooltipText\">You Discord name (how it's displayed)</span></p>
-                                <p class=\"tooltip\">Discord (UserID):<span class=\"tooltipText\">This is the numerical User ID from Discord. Right-click your profile name to copy your ID</span></p>
+                                <p class=\"tooltip\">Discord (User ID):<span class=\"tooltipText\">This is the numerical User ID from Discord. Right-click your profile name to copy your ID</span></p>
                                 <p>&nbsp;</p>
                                 <p><a id=\"editAccountButton\" style=\"text-align:center;\" onclick=\"toggleAccountEdit();resizeIframe(parent.document.getElementById('dataFrame'));\">Back</a></p>
                                 <p>&nbsp;</p>

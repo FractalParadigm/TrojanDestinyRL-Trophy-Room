@@ -67,7 +67,7 @@ try {  // Try opening the SQL database connection
                     <label for="showPassword" class="passwordOptions" id="displayPassword" class="newLine">(show)</label>
                     <label for="discord" class="newLine">Discord:</label>
                     <input type="text" id="discord" name="discord" class="newLine"  maxlength="50"/>
-                    <label for="discord" class="newLine">Discord Link:</label>
+                    <label for="discord" class="newLine">Discord User ID:</label>
                     <input type="text" id="discordLink" name="discordLink" class="newLine"  maxlength="50"/>
                     <label for="twitch" class="newLine">Twitch:</label>
                     <input type="text" id="twitch" name="twitch" class="newLine" maxlength="50" />
