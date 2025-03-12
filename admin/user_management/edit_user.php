@@ -84,17 +84,14 @@
     echo $discordLink;
     echo "<p></p>";
 
-
-    if ($_POST["administrator"] != $userInfo["privileges"]) {
+    if ($_POST["privileges"] == "administrator") {
       $privileges = 1;
-    } else {
-      $privileges = $userInfo["privileges"];
-    }
-    if ($_POST["moderator"] != $userInfo["privileges"]) {
+    } else if ($_POST["privileges"] == "moderator") {
       $privileges = 2;
     } else {
-      $privileges = $userInfo["privileges"];
+      $privileges = 0;
     }
+
 
    // Prepare the command
     $update = $conn->prepare("UPDATE " . $userTableName . " SET 
@@ -118,7 +115,7 @@
 
     $update->execute(); // Execute query
 
-    
+    if ($username == $_SESSION["username"]) {
     // Function from StackOverflow used to get the base URL, to which we append
     // the redirect (where the user came from)
     function url(){
@@ -135,10 +132,25 @@
     // Redirect user back to their page
     echo "<script>window.top.location.href = \"" . $address . "\";</script>";
 
-    echo "<p>Account successfully updated</p>";
     echo "<p>You should have been redirected to your account. Here's a link:</p>";
-    echo "<p><a href=\"/user/" . $_SESSION["username"] . " \">My Account</a></p>";
+    echo "<p><a href=\"/user/" . $_SESSION["username"] . " \" onclick=\"redirect('this', '/user/" . $_SESSION["username"] . "')\">My Account</a></p>";
+    } else {
+      function url(){
+          return sprintf(
+            "%s://%s/user/%s",
+            isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+            $_SERVER['SERVER_NAME'],
+            $_SESSION["username"]
+          );
+        }
+  
+        $address = url();
 
+    echo "<p>Account successfully updated</p>";
+    echo "<p><a href=\"/user/" . $username . " \" onclick=\"redirect('this', '/user/" . $username . "')\">Back</a></p>";
+
+    }
+    
 
   } catch (PDOException $e) { // failed connection
     echo "Connection failed: " . $e->getMessage();

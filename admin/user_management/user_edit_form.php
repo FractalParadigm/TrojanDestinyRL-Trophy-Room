@@ -83,6 +83,7 @@ try {  // Try opening the SQL database connection
                 </div>
                 <p>&nbsp;</p>
                 <input type="submit" value="EDIT" />
+                <input type="hidden" id="username" name="username" value="<?php echo $username; ?>" >
             </form>
             <script>setPrivilegeLevel(<?php echo $userData["privileges"]; ?>)</script>
 
