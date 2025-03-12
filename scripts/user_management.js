@@ -13,7 +13,6 @@ function randomPassword() {
     // Set the password field to what we've generated
     //document.getElementById("password").value = password;
     //document.getElementById("confirmPassword").value = password;
-    console.log(password);
     return password;
 }
 
@@ -137,7 +136,6 @@ function usernameConfirm() {
 
 function checkPasswordRequirements() {
     var password = document.getElementById("password").value;
-    console.log(password);
 
     if (password == "") {
         document.getElementById("password").style.outline = null;
@@ -197,7 +195,6 @@ function toggleAccountEdit() {
 }
 
 function editUser() {
-    console.log("YAASSS");
     var div = document.getElementById("userEditFrameDiv");
     username = document.getElementById("user").value;
     var html = "";
@@ -206,8 +203,6 @@ function editUser() {
     html += "<iframe src=\"/admin/user_management/user_edit_form.php?username=" + username + "\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);resizeIframe(parent.document.getElementById('dataFrame'));\"></iframe>";
 
     div.innerHTML = html;
-
-    console.log(html);
 }
 
 function setPrivilegeLevel(privileges) {
