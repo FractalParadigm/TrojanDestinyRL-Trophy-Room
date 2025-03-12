@@ -414,17 +414,11 @@
     visibility: hidden;
     height: 0px;
 }
-
-#matchingPasswordsText  {
-    visibility: hidden;
-    height: 0px;
-    font-size: 90%;
-}
-
 #confirmUsername {
     visibility: hidden;
     height: 0px;
     font-size: 90%;
+    font-weight: normal;
 }
 
 .noUser {

@@ -66,17 +66,15 @@ try {  // Try opening the SQL database connection
             <form id="userForm" action="/admin/user_management/add_user.php" onsubmit="return verifyInput()" method="POST" target="dataFrame" >
                 <!-- THIS DIV IS FOR INPUT -->
                 <div id="textInputArea">
-                    <label for="username" class="inputLabel">Username:</label>
-                    <input type="text" id="username" name="username" class="newLine" maxlength="30" oninput="usernameConfirm()" tabindex="1" pattern="[a-zA-Z0-9-_\|.]*" required>
-                    <p id="confirmUsername"></p>
+                    <label for="username" class="inputLabel" id="usernameLabel">Username:&nbsp;&nbsp;<span id="confirmUsername"></span></label>
+                    <input type="text" id="username" name="username" class="newLine" maxlength="30" oninput="usernameConfirm()" tabindex="1" pattern="^[a-zA-Z0-9]+([._\-]?[a-zA-Z0-9])+([._\-]?)$" required>
                     <label for="password" class="inputLabel">Password:</label>
                     <input type="password" id="password" name="password" required oninput="checkPasswordRequirements()" tabindex="1">
-                    <input type="checkbox" id="showPassword" name="showPassword" class="passwordOptions" onclick="displayPassword()"  tabindex="-1">
-                    <label for="showPassword" class="passwordOptions" id="displayPassword" class="newLine">(show)</label>
+                    <p class="newLine"></p>
+                    <label for="showPassword" class="passwordOptions" id="displayPassword" class="newLine">Show Password</label>
+                    <input type="checkbox" id="showPassword" name="showPassword" class="passwordOptions newLine" onclick="displayPassword()"  tabindex="-1">
                     <label for="confirmPassword" class="inputLabel">Confirm password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" oninput="passwordConfirm()" required  tabindex="1">
-                    <p id="matchingPasswords"></p>
-                    <p id="matchingPasswordsText"></p>
+                    <input type="password" id="confirmPassword" name="confirmPassword" oninput="passwordConfirmLite()" required  tabindex="1">
                 </div>
                 <p>&nbsp;</p>
                 <input type="submit" value="CREATE" tabindex="1">
