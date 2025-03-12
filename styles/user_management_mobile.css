@@ -30,12 +30,15 @@
 }
 
 #accountDetailsPanel {
-    width:94%;
+    width: 94%;
     margin-bottom: 3%;
 }
 #accountSocialsPanel {
-    width:94%;
+    width: 94%;
+}
+#accountSocialsPanelEdit {
+    width: 94%;
 }
 #passwordChangePanel {
-    width:94%;
+    width: 94%;
 }
