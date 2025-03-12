@@ -54,17 +54,13 @@
     $youtube = $_POST["youtube"];
     $youtubeLink = $_POST["youtubeLink"];
 
-    $privileges = 0;
 
-    if ($_POST["administrator"] != $userInfo["privileges"]) {
+    if ($_POST["privileges"] == "administrator") {
       $privileges = 1;
-    } else {
-      $privileges = $userInfo["privileges"];
-    }
-    if ($_POST["moderator"] != $userInfo["privileges"]) {
+    } else if ($_POST["privileges"] == "moderator") {
       $privileges = 2;
     } else {
-      $privileges = $userInfo["privileges"];
+      $privileges = 0;
     }
 
 
