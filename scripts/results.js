@@ -56,3 +56,17 @@ function refreshDisplay() {
     document.getElementById("divisionDisplay").innerHTML = html;
     
 }
+
+function toggleInformationDisplay() {
+    console.log("echo");
+    var infoDiv = document.getElementById("generalResultsDisplayPanel");
+    var tourneyDiv = document.getElementById("tourneyResultsDisplayPanel");
+
+    if (infoDiv.style.display == "block") {
+        infoDiv.style.display = "none";
+        tourneyDiv.style.display = "block";
+    } else if (infoDiv.style.display == "none") {
+        infoDiv.style.display = "block";
+        tourneyDiv.style.display = "none";
+    }
+}
