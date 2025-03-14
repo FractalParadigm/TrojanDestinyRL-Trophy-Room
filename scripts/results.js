@@ -42,23 +42,17 @@ function refreshDisplay() {
     html += "<p>Top 10 Winners</p>"
     html += "<hr class=\"tableLineLightCentre\">";
 
-    
-    
 
     html += "<iframe src=\"/display/division_results.php?division=" + currentDivision + "&month=" + document.getElementById("month").value + "&year=" + document.getElementById("year").value + "\" name=\"divisionFrame\" class=\"divisionFrame\" id=\"divisionFrame\" onload=\"resizeIframe(this);var obj=parent.document.getElementById('dataFrame');resizeIframe(obj);\"></iframe>";
 
     html += "</div>";
-    // TODO;
-
-    // CREATE OUTPUT DISPLAY
-
     
     document.getElementById("divisionDisplay").innerHTML = html;
     
 }
 
 function toggleInformationDisplay() {
-    console.log("echo");
+    // Used to swap between 'general information' and 'recent tourney results' on the home page
     var infoDiv = document.getElementById("generalResultsDisplayPanel");
     var tourneyDiv = document.getElementById("tourneyResultsDisplayPanel");
 
@@ -69,4 +63,25 @@ function toggleInformationDisplay() {
         infoDiv.style.display = "block";
         tourneyDiv.style.display = "none";
     }
+}
+
+function refreshTourneyDisplay() {
+    // Used to refresh the data in the iframe on the main page, under the 'recent tourney results'
+    // Grab the division buttons by their name
+    var divisionButtons = document.getElementsByName("resultsDivision");
+    var currentDivision = "";
+
+    
+    // Loop through the division buttons and see which one is checked
+    // Set the current division to that option
+    for (var i = 0; i < divisionButtons.length; i++) {
+        if (divisionButtons[i].checked) {
+            currentDivision = divisionButtons[i].value;
+        }
+    }
+
+    // Create variable for easier readability
+    var html = "<iframe src=\"/tournament/recent_results.php?division=" + currentDivision + "\" name=\"recentTourneyFrame\" class=\"recentTourneyFrame\" id=\"recentTourneyFrame\" onload=\"resizeIframe(this);var obj=parent.document.getElementById('dataFrame');resizeIframe(obj);\"></iframe>";
+
+    document.getElementById("recentTourneyDisplay").innerHTML = html;
 }

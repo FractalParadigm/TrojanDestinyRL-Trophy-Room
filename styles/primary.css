@@ -9,6 +9,11 @@
     width: 100%;
 }
 
+.newLineThin {
+    width: 100%;
+    margin: 0 !important;
+}
+
 .disabled {
     pointer-events: none;
     cursor: default;

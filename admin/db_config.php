@@ -7,14 +7,20 @@ $dbUsername = "USERNAME";
 $dbPassword = "PASSWORD";
 $dbName = "DBNAME";
 
-
 /*////// USER-CONFIGURABLE VARIABLES HERE /////////
  
+
+/*///// MISC VARIABLES ///////
+////////////////////////////*/
+
+// The maximum number of tourneys we show on the home page
+$tourneyCardLimit = 6;
+
+
+/*/////////////////////////////////////////////////
    I don't recommend you change these, but if you 
    know what you're doing, have at 'er
-
 /////////////////////////////////////////////////*/
-
 
 $userTableName = "users";  // name of the table containing user data
 $gameDataTableName = "games"; // table containing replay data

@@ -10,6 +10,7 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="/styles/primary.css" />
         <link rel="stylesheet" href="/styles/data_display.css" />
+        <link rel="stylesheet" href="/styles/tourney_results.css" />
         <script src="/scripts/tools.js"></script>
         <script src="/scripts/results.js"></script>
         <script>verifyPageInFrame()</script>
@@ -117,7 +118,7 @@ session_start();
     <body id="resultsDisplayBody">
         <div id="generalResultsDisplayPanel" style="display:block;"> 
             <h2>General Information</h2>
-            <div id="infoNav"><p class="infoLink" onclick="toggleInformationDisplay();resizeIframe(parent.document.getElementById('dataFrame'));">Recent Tourney Results</p></div>
+            <div id="infoNav"><p class="infoLink" onclick="toggleInformationDisplay();refreshTourneyDisplay();resizeIframe(parent.document.getElementById('dataFrame'));">Recent Tourney Results</p></div>
             <p class="newLine">&nbsp;</p>
             <hr class="tableLine newLine">
             <div id="generalResultsTable">
@@ -185,24 +186,24 @@ session_start();
 
         <div id="tourneyResultsDisplayPanel" style="display:none;">
             <h2>Recent Tourney Results</h2>
-            <div id="infoNav"><p class="infoLink" onclick="toggleInformationDisplay();resizeIframe(parent.document.getElementById('dataFrame'));">General Information</p></div>
+            <div id="infoNav"><p class="infoLink" onclick="toggleInformationDisplay();refreshTourneyDisplay();resizeIframe(parent.document.getElementById('dataFrame'));">General Information</p></div>
             <p class="newLine"></p>
             <div class="resultsNavPanelAllButton">
-                <input type="radio" id="allButton" name="resultsDivision" value="all" onclick="" checked="checked">
+                <input type="radio" id="allButton" name="resultsDivision" value="all" onclick="refreshTourneyDisplay();" checked="checked">
                 <label for="allButton" id="allButton">All</label>
             </div>
             <p class="newLine"></p>
             <div class="resultsNavPanel">
-                <input type="radio" id="openButton" name="resultsDivision" value="open" onclick="">
+                <input type="radio" id="openButton" name="resultsDivision" value="open" onclick="refreshTourneyDisplay();">
                 <label for="openButton" id="openButton">Open</label>
-                <input type="radio" id="intermediateButton" name="resultsDivision" value="intermediate" onclick="">
+                <input type="radio" id="intermediateButton" name="resultsDivision" value="intermediate" onclick="refreshTourneyDisplay();">
                 <label for="intermediateButton" id="intermediateButton">Intermediate</label>
-                <input type="radio" id="mainButton" name="resultsDivision" value="main" onclick="">
+                <input type="radio" id="mainButton" name="resultsDivision" value="main" onclick="refreshTourneyDisplay();">
                 <label for="mainButton" id="mainButton">Main</label>
             </div>
             <hr class="tableLine newLine">
             <p> </p>
-            <div id="divisionDisplay">
+            <div id="recentTourneyDisplay">
 
             </div>
         </div>

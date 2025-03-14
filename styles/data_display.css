@@ -321,6 +321,16 @@
         margin-top: 5%;
     }
 
+    #tourneyResultsDisplayPanel {
+        order: 2;
+        width: 92%;
+        margin-right: 0;
+        padding-left: 2%;
+        padding-right: 2%;
+        margin-top: 5%;
+    }
+    
+
     #divisionDisplayPanel {
         order: 1;
         width: 94%;
