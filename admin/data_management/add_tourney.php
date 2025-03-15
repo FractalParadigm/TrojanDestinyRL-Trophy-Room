@@ -54,8 +54,12 @@
     $winningTeamName = $_POST["winningTeamName"];
     $notes = $_POST["notes"];
 
+    // Create a unique ID for the tournament
+    $tourneyUID = uniqid(rand());
+
     echo "<p>$tourneyName</p>";
     echo "<p>$tourneyDate</p>";
+    echo "<p>$tourneyUID</p>";
     echo "<p>$division</p>";
     echo "<p>$numPlayers</p>";
     echo "<p>$bestOf</p>";
@@ -68,6 +72,7 @@
 
 
   $insert = $conn->prepare("INSERT INTO " . $tournamentDataTableName . " (
+  tournamentUID,
   tournamentName,
   tournamentDate,
   tournamentDivision,
@@ -80,6 +85,7 @@
   winner4,
   notes
   ) VALUES (
+  :tournamentUID,
   :tournamentName,
   :tournamentDate,
   :tournamentDivision,
@@ -94,6 +100,7 @@
  )");
 
 
+  $insert->bindValue(":tournamentUID", $tourneyUID);
   $insert->bindValue(":tournamentName", $tourneyName);
   $insert->bindValue(":tournamentDate", $tourneyDate);
   $insert->bindValue(":tournamentDivision", $division);

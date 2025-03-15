@@ -78,6 +78,7 @@ userUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 $sqlCreateDataTable = "
 CREATE TABLE " . $gameDataTableName . " (
 gameID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+gameUID VARCHAR(40),
 gameName VARCHAR(100),
 gameDate DATE,
 uploadedBy VARCHAR(30),
@@ -108,6 +109,7 @@ updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 $sqlCreateTournamentTable = "
 CREATE TABLE " . $tournamentDataTableName . " (
 tournamentID INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+tournamentUID VARCHAR(40),
 tournamentName VARCHAR(150),
 tournamentDate DATE,
 tournamentDivision VARCHAR(20),

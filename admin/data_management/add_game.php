@@ -102,10 +102,12 @@
         list($urlPathBlank, $replaysPath, $ballchasingID) = explode("/", $ballchasingPath);
     }
 
-
+    // Create a unique ID for the game
+    $gameUID = uniqid(rand());
 
     // SQL Query to insert data
   $insert = $conn->prepare("INSERT INTO " . $gameDataTableName . " (
+  gameUID,
   gameName, 
   gameDate, 
   uploadedBy, 
@@ -128,6 +130,7 @@
   ballchasingID, 
   notes
   ) VALUES (
+  :gameUID,
   :gameName, 
   :gameDate, 
   :uploadedBy, 
@@ -153,6 +156,7 @@
 
 
  // Assign variables to SQL command/preparation
+  $insert->bindValue(":gameUID", $gameUID);
   $insert->bindValue(":gameName", $gameName);
   $insert->bindValue(":gameDate", $gameDate);
   $insert->bindValue(":uploadedBy", $uploadedBy);
