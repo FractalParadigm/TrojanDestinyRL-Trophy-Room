@@ -81,7 +81,7 @@ function refreshTourneyDisplay() {
     }
 
     // Create variable for easier readability
-    var html = "<iframe src=\"/tournament/recent_results.php?division=" + currentDivision + "\" name=\"recentTourneyFrame\" class=\"recentTourneyFrame\" id=\"recentTourneyFrame\" onload=\"resizeIframe(this);var obj=parent.document.getElementById('dataFrame');resizeIframe(obj);\"></iframe>";
+    var html = "<iframe src=\"/tournament/tourney_cards.php?division=" + currentDivision + "\" name=\"recentTourneyFrame\" class=\"recentTourneyFrame\" id=\"recentTourneyFrame\" onload=\"resizeIframe(this);var obj=parent.document.getElementById('dataFrame');resizeIframe(obj);\"></iframe>";
 
     document.getElementById("recentTourneyDisplay").innerHTML = html;
 }
