@@ -43,3 +43,8 @@ function redirect(location, address) {
             window.open(address).focus();
     }
 }
+
+function selectElement(id, valueToSelect) {    
+    let element = document.getElementById(id);
+    element.value = valueToSelect;
+}

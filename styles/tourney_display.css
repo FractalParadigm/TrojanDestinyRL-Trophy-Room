@@ -14,7 +14,6 @@
     flex-shrink: 1;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-    padding-bottom: 2%;
     margin-bottom: 2%;
 }
 
@@ -38,6 +37,45 @@
 
 .noTourney {
     text-align: center;
+}
+
+#notes {
+    padding-bottom: 2%;
+}
+
+.editButton {
+    margin-top: 2% !important;
+    margin-bottom: 2% !important;
+    margin: auto;
+    padding: 7px 15px;
+    font-size: 100%;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: black;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 6px;
+    border: 1px solid rgb(0, 0, 255);
+    box-shadow: 0px 2px 4px;
+    width: 50px;
+}
+
+.editButton:hover {
+    color: black;
+    background-color: rgba(255, 165, 0, .6);
+}
+
+.editButton:active {
+    box-shadow: 0px 0px 2px;
+    transform: translateY(2px);
+}
+
+.editButton a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: black;
+    margin-top: 1%;
+    margin-bottom: 2%;
 }
 
 /*// MOBILE  ////

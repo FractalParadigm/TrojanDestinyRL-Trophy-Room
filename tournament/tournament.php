@@ -44,29 +44,17 @@ if (isset($tourneyResults)) {
 </head>
 
 <body id="body">
-    <script>getURL();</script>
         <div id="contentFrame">
         <img src="/assets/rl_logo_background.svg" alt="Rocket League logo for background" class="backgroundImage">
-            <div class="header">
-                <div id="headerLeft">
-                    <img src="/assets/trojan_image_1.png" alt="Trojan Destiny logo" id="headerImage">
-                </div>
-                <div id="headerCentre">
-                <h1 id="headerText"><a href="/" class="plainLinkBlue">TrojanDestinyRL</a></h1>
-                    <div id="youtubeImage" onclick="redirect('this', 'https://www.youtube.com/@TrojanDestinyRL')"><img src="/assets/youtube.svg" alt="youtube logo"></div>
-                    <div id="twitchImage" onclick="redirect('this', 'https://www.twitch.tv/trojandestinyrl')"><img src="/assets/twitch.svg" alt="twitch logo"></div>
-                    <div id="discordImage" onclick="redirect('this', 'https://discord.gg/bzU5fVxCZJ')"><img src="/assets/discord.svg" alt="discord logo"></div>
-                </div>
-                <div id="headerRight">
-                <img src="/assets/trojan_image_2.png" alt="Trojan Destiny logo" id="headerImage">
-                </div>
-            </div>
-            <p></p>
+        <?php include_once('../display/header.html'); ?>
             <h1>Tournament Information</h1>
             <p class="newLine"></p>
             <div id="tournamentDisplayPanel">
                 <?php
                 if ($tourneyExists) {
+                    // TOURNEY PANEL - LEFT PANEL
+                    // Set variables from SQL data
+                    $tourneyID = $tourneyResults["tournamentID"];
                     $tourneyName = $tourneyResults["tournamentName"];
                     $tourneyDate = $tourneyResults["tournamentDate"];
                     $division = ucfirst($tourneyResults["tournamentDivision"]);
@@ -81,6 +69,8 @@ if (isset($tourneyResults)) {
                     // Format date
                     $tourneyDate = DateTime::createFromFormat('Y-m-d', $tourneyDate);
                     $tourneyDate = $tourneyDate->format('M j, Y');
+
+                    // Print page
                     echo "<div class=\"tournamentDisplay\">";
                     echo "<h3>Details</h2>";
                     echo "<hr class=\"regularLine\">";
@@ -109,8 +99,14 @@ if (isset($tourneyResults)) {
                         echo "<h4>Notes:</h4>";
                         echo "<p style=\"width:70%;\">$notes</p>";
                     }
+
+                    if ($_SESSION["privileges"] == 1) {
+                        echo "<p class=\"editButton\"><a href=\"/tournament/edit.php?tournamentID=" . $tourneyID . "\" onclick=\"redirect('this', '/admin/data_management/edit_tourney.php?tourneyID=" . $tourneyID . "');\">Edit</a></p>";
+                    }
                     echo "</div>";
 
+
+                    // GAME DISPLAY - RIGHT PANEL
                     echo "<div class=\"gameDisplay\">";
                     echo "<h3>Games</h3>";
                     echo "<hr class=\"regularLine\">";
@@ -118,6 +114,7 @@ if (isset($tourneyResults)) {
 
 
                 } else {
+                    // TOURNAMENT NOT FOUND
                     echo "<div class=\"noTourney\">";
                     echo "<hr class=\"regularLine\">";
                     echo "<h1>TOURNAMENT NOT FOUND</h1>";
