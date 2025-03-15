@@ -13,9 +13,9 @@ try {  // Try opening the SQL database connection
 
     // If we want all the data, we don't need to select a division in the SQL query
     if ($division == "all") {
-        $sqlGetTourneyInfo = $conn->prepare("SELECT tournamentID,tournamentName,tournamentDate,tournamentDivision,numPlayers,winningTeamName,winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " ORDER BY tournamentDate DESC LIMIT $tourneyCardLimit");
+        $sqlGetTourneyInfo = $conn->prepare("SELECT tournamentUID,tournamentName,tournamentDate,tournamentDivision,numPlayers,winningTeamName,winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " ORDER BY tournamentDate DESC LIMIT $tourneyCardLimit");
     } else {
-        $sqlGetTourneyInfo = $conn->prepare("SELECT tournamentID,tournamentName,tournamentDate,tournamentDivision,numPlayers,winningTeamName,winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " WHERE tournamentDivision='" . $division . "' ORDER BY tournamentDate DESC LIMIT $tourneyCardLimit");
+        $sqlGetTourneyInfo = $conn->prepare("SELECT tournamentUID,tournamentName,tournamentDate,tournamentDivision,numPlayers,winningTeamName,winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " WHERE tournamentDivision='" . $division . "' ORDER BY tournamentDate DESC LIMIT $tourneyCardLimit");
     }
 
     $sqlGetTourneyInfo->execute();
@@ -47,6 +47,7 @@ $tourneyResults = $sqlGetTourneyInfo->fetchAll(PDO::FETCH_ASSOC);
             foreach ($tourneyResults as $result) {
                 $tourneyName = $result["tournamentName"];
                 $tourneyDate = $result["tournamentDate"];
+                $tourneyUID = $result["tournamentUID"];
                 $division = ucfirst($result["tournamentDivision"]);
                 $numPlayers = $result["numPlayers"];
                 $winningTeamName = $result["winningTeamName"];
@@ -59,7 +60,7 @@ $tourneyResults = $sqlGetTourneyInfo->fetchAll(PDO::FETCH_ASSOC);
                 $tourneyDate = $tourneyDate->format('M j, Y');
                 echo ("
                 <div class=\"tourneyCard\">
-                    <p class=\"tourneyCardHeader\">$tourneyName</p>
+                    <p class=\"tourneyCardHeader\"><a href=\"/tournament/$tourneyUID\" class=\"plainLinkBlack\" onclick=\"redirect('this', '/tournament/$tourneyUID');\">$tourneyName</a></p>
                     <p class=\"newLineThin\"></p>
                     <p class=\"tourneyCardLeft\">$tourneyDate</p>
                     <p class=\"tourneyCardRight underlined\">$winningTeamName</p>
