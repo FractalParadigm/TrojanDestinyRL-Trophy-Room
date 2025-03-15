@@ -239,13 +239,17 @@
 
 .divisionResultsTableLeft {
     text-align: left;
-    width: 80%;
+    width: 70%;
     cursor: pointer;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .divisionResultsTableRight {
     text-align: right;
     width: 14%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .divisionResultsTable {

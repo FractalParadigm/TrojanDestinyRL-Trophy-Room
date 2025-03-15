@@ -187,19 +187,29 @@
     font-weight: bold;
 }
 
+/* EDITING PAGE  */
+
 .tourneyListPanel {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 98%;
+    width: 99%;
     justify-content: center;
     margin: auto;
     border-collapse: collapse;
 }
 
 .tournamentIDCol {
-    width: 2.25em;
+    width: 2.5em;
+    text-align: center;
+    outline: 1px solid black;
+    margin: auto;
+    margin-left: 1px;
+    margin-top: 1px;
+}
+.tournamentDateCol {
+    width: 6em;
     text-align: center;
     outline: 1px solid black;
     margin: auto;

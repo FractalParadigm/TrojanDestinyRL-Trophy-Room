@@ -11,6 +11,7 @@ session_start();
         <link rel="stylesheet" href="/styles/primary.css" />
         <link rel="stylesheet" href="/styles/data_display.css" />
         <link rel="stylesheet" href="/styles/tourney_results.css" />
+        <link rel="stylesheet" href="/styles/tourney_cards.css" />
         <script src="/scripts/tools.js"></script>
         <script src="/scripts/results.js"></script>
         <script>verifyPageInFrame()</script>

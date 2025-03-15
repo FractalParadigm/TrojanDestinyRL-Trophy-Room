@@ -182,18 +182,3 @@
     visibility: hidden;
 }
 
-/*
-    This section affects the auto-complete menu for player names
-*/
-.ui-menu {
-    background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid black;
-    border-radius: 2px;
-}
-
-.ui-autocomplete { 
-    max-height: 200px; 
-    overflow-y: scroll; 
-    overflow-x: hidden;
-    width: 120px;
-}

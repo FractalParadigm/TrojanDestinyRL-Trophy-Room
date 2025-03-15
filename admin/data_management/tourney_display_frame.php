@@ -33,11 +33,12 @@ function getIDfromName($name) {
         <div id="tourneyEditPanel">
             <h2>TOURNEY EDITING</h2>
             <p>Edit tournaments here</p>
-            <hr>
+            <hr class="regularLine">
             <p></p>
 
             <div class="tourneyListPanel">
                 <p class="tournamentIDCol"><b>ID</b></p>
+                <p class="tournamentDateCol"><b><span style="font-size: 0.78em;">YYYY-MM-DD</span></b></p>
                 <p class="tournamentNameCol"><b>Name</b></p>
                 <p class="editTournamentCol">&nbsp;</p>
                 <p class="deleteTournamentCol">&nbsp;</p>
@@ -51,7 +52,7 @@ function getIDfromName($name) {
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 // Grab the list of users from the user list
-                $sqlGetUserData = $conn->prepare("SELECT tournamentID,tournamentUID,tournamentName FROM " . $tournamentDataTableName . " ORDER BY tournamentID DESC");
+                $sqlGetUserData = $conn->prepare("SELECT tournamentID,tournamentUID,tournamentName,tournamentDate FROM " . $tournamentDataTableName . " ORDER BY tournamentID DESC");
                 
 
                 // Execute SQL query
@@ -70,8 +71,10 @@ function getIDfromName($name) {
                     $tournamentID = $result["tournamentID"];
                     $tournamentUID = $result["tournamentUID"];
                     $tournamentName = $result["tournamentName"];
+                    $tournamentDate = $result["tournamentDate"];
 
                     echo "<p class=\"tournamentIDCol\">$tournamentID</p>";
+                    echo "<p class=\"tournamentDateCol\">$tournamentDate</p>";
                     echo "<p class=\"tournamentNameCol\"><a href=\"/tournament/$tournamentUID\" class=\"plainLinkBlack\" onclick=\"redirect('this', '/tournament/$tournamentUID')\">$tournamentName</a></p>";
                     echo "<p class=\"editTournamentCol\"><a href=\"/tournament/edit?tournamentID=$tournamentID\" class=\"plainLinkBlack\" onclick=\"redirect('this', '/tournament/edit.php?tournamentID=$tournamentID')\">EDIT</a></p>";
                     echo "<p class=\"deleteTournamentCol\">DELETE</p>";
