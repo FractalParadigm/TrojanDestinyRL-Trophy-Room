@@ -119,6 +119,23 @@
 
   echo "Successfully uploaded new tournament record";
 
+  
+    // Function from StackOverflow used to get the base URL, to which we append
+    // the redirect (where the user came from)
+    function url(){
+      return sprintf(
+        "%s://%s/tournament",
+        isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+        $_SERVER['SERVER_NAME']
+      );
+    }
+
+    $address = url();
+    echo "<p>Redirecting to <a href=\"$address/$tourneyUID\">$address/$tourneyUID</a>...</p>";
+  
+    echo "<script>window.top.location.href = \"" . $address . "/" . $tourneyUID . "\";</script>";
+    
+
   } catch (PDOException $e) { // failed connection
     echo "Connection failed: " . $e->getMessage();
   }

@@ -127,7 +127,7 @@ try {  // Try opening the SQL database connection
                 <p class="newLine"></p>
                 <div id="playerDataInputArea"> 
                     <p id="teamNameHeader">WINNING TEAM NAME:</p>
-                    <input type="text" name="winningTeamName" class="teamInput" maxlength="35" tabindex="1">
+                    <input type="text" name="winningTeamName" class="teamInput" maxlength="30" tabindex="1">
                     <h4>Roster</h4>
                     <table id="playerData">
                     </table>
