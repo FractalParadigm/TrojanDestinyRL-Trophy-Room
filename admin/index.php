@@ -75,9 +75,9 @@ session_start();
                 if (!isset($_SESSION["userID"])){
                     echo "<iframe src=\"../user/login_page.php?redirect=admin\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
                 } else if (isset($_SESSION["userID"]) && $_SESSION["privileges"] == 1) {
-                    echo "<iframe src=\"admin_nav.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
+                    echo "<iframe src=\"admin_nav.html\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
                 } else {
-                    echo "<iframe src=\"not_admin.php\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
+                    echo "<iframe src=\"not_admin.html\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>";
                 }
             }
             ?>

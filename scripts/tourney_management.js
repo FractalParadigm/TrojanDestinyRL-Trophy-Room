@@ -64,3 +64,14 @@ function checkIfScoreTied() {
         }
     }
 }
+
+function editTourney(id) {
+    var div = document.getElementById("tourneyEditFrameDiv");
+    var tournamentID = document.getElementById("tournament").value;
+    var html = "";
+
+    
+    html += "<iframe src=\"/admin/data_management/tourney_edit_form.php?tournamentID=" + tournamentID + "\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);resizeIframe(parent.document.getElementById('dataFrame'));\"></iframe>";
+
+    div.innerHTML = html;
+}

@@ -20,6 +20,15 @@
     text-align: center;
 }
 
+#tourneyEditPanel {
+    width: 95%;
+    min-height: 400px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
 .optionsArea {
     display: flex;
     flex-wrap: wrap;
@@ -177,6 +186,58 @@
 #teamNameHeader {
     font-weight: bold;
 }
+
+.tourneyListPanel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 98%;
+    justify-content: center;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.tournamentIDCol {
+    width: 2.25em;
+    text-align: center;
+    outline: 1px solid black;
+    margin: auto;
+    margin-left: 1px;
+    margin-top: 1px;
+}
+.tournamentNameCol {
+    width: 0;
+    text-align: left;
+    outline: 1px solid black;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin: auto;
+    margin-left: 1px;
+    margin-top: 1px;
+}
+.editTournamentCol {
+    width: 3em;
+    outline: 1px solid black;
+    margin: auto;
+    margin-left: 1px;
+    margin-top: 1px;
+}
+.deleteTournamentCol {
+    width: 4.5em;
+    outline: 1px solid black;
+    margin: auto;
+    margin-left: 1px;
+    margin-top: 1px;
+}
+
+
+
+
 
 /*
     This section affects the auto-complete menu for player names
