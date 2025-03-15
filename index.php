@@ -25,8 +25,6 @@ session_start();
             <h1>Trojan's Trophy Room</h1>
             <h4 style="font-size:150%;margin:auto;"><a href="/giveaway" id="giveawayLink">Giveaway Disclaimer</a></h4>
             <iframe src="/display/general_results.php" name="dataFrame" class="dataFrame" id="dataFrame" onload="resizeIframe(this);"></iframe>
-            <p class="newLine"></p>
-            <p class="newLine"></p>
             <?php include_once('./display/subnav.php'); ?>
         </div>
     </body>
