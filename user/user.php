@@ -18,13 +18,12 @@ try {  // Try opening the SQL database connection
   // Get results from the USERS table
   $results = $sqlGetUserList->fetch();
 
+  $userExists = false;
   // Check if user exists
   if (isset($results)) {
-    if (mb_strtolower($_GET["username"]) != mb_strtolower($results["username"])) {
-        $userExists = false;
-    } else {
+    if (mb_strtolower($_GET["username"]) == mb_strtolower($results["username"])) {
         $userExists = true;
-  }
+    }
   }
 
 
