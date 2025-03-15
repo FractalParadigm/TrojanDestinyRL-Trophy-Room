@@ -54,22 +54,8 @@ try {  // Try opening the SQL database connection
     <body id="body">
     <script>getURL();</script>
         <div id="contentFrame">
-        <img src="/assets/rl_logo_background.svg" alt="Rocket League logo for background" class="backgroundImage">
-            <div class="header">
-                <div id="headerLeft">
-                    <img src="/assets/trojan_image_1.png" alt="Trojan Destiny logo" id="headerImage">
-                </div>
-                <div id="headerCentre">
-                <h1 id="headerText"><a href="/" class="plainLinkBlue">TrojanDestinyRL</a></h1>
-                    <div id="youtubeImage" onclick="redirect('this', 'https://www.youtube.com/@TrojanDestinyRL')"><img src="/assets/youtube.svg" alt="youtube logo"></div>
-                    <div id="twitchImage" onclick="redirect('this', 'https://www.twitch.tv/trojandestinyrl')"><img src="/assets/twitch.svg" alt="twitch logo"></div>
-                    <div id="discordImage" onclick="redirect('this', 'https://discord.gg/bzU5fVxCZJ')"><img src="/assets/discord.svg" alt="discord logo"></div>
-                </div>
-                <div id="headerRight">
-                <img src="/assets/trojan_image_2.png" alt="Trojan Destiny logo" id="headerImage">
-                </div>
-            </div>
-            <p></p>
+            <img src="/assets/rl_logo_background.svg" alt="Rocket League logo for background" class="backgroundImage">
+            <?php include_once('../display/header.html'); ?>
             <?php
             if ($userExists) {
                 echo ("<iframe src=\"/user/account.php?username=" . $_GET["username"] . "\" name=\"dataFrame\" class=\"dataFrame\" id=\"dataFrame\" onload=\"resizeIframe(this);\"></iframe>");
@@ -81,35 +67,8 @@ try {  // Try opening the SQL database connection
                 echo "<p>&nbsp;</p>";
                 echo "</div>";
             }
-            ?>
-                      
-            <div class="subNav">
-                <?php
-                if (isset($_SESSION["privileges"]) && $_SESSION["privileges"] == 1) {
-                    echo "<a href=\"/admin/\" class=\"subNavLink\" id=\"adminHomeButton\">ADMIN PANEL</a>";
-                }
-                ?>
-                <a href="../" class="subNavLink" id="mainHomeButton">HOME</a>
-
-                <?php
-                // If we're showing someone other than who's logged in, offer a link to their own page
-                if (isset($_SESSION["userID"]) && $_SESSION["username"] != $_GET["username"]){
-                echo "<a href=\"/user/" . $_SESSION["username"] . " \" class=\"subNavLink\">MY ACCOUNT</a>";
-                }
-                ?>
-
-                <p class="newLine"></p>
-                <?php 
-                // If someone is logged in, give them the opportunity to log out
-                if (isset($_SESSION["userID"])){
-                    echo "<a href=\"../user/logout.php?redirect=\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
-                } else {
-                    echo "<a href=\"/user/login_page.php \" target=\"dataFrame\" class=\"subNavLink\">SIGN IN</a>";
-                    echo "<a href=\"/create_account.php \" target=\"dataFrame\" class=\"subNavLink\">CREATE AN ACCOUNT</a>";
-                    echo "<a href=\"/ \" class=\"subNavLink\">HOME</a>";
-                }
-                ?>
-            </div>
+            ?>  
+            <?php include_once('../display/subnav.php'); ?>
         </div>
     </body>
 </html>

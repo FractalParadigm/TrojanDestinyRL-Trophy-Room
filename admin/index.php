@@ -23,22 +23,8 @@ session_start();
     <body id="body">
     <script>getURL();</script>
         <div id="contentFrame">
-        <img src="/assets/rl_logo_background.svg" alt="Rocket League logo for background" class="backgroundImage">
-            <div class="header">
-                <div id="headerLeft">
-                    <img src="/assets/trojan_image_1.png" alt="Trojan Destiny logo" id="headerImage">
-                </div>
-                <div id="headerCentre">
-                <h1 id="headerText"><a href="/" class="plainLinkBlue">TrojanDestinyRL</a></h1>
-                    <div id="youtubeImage" onclick="redirect('mainpage', 'https://www.youtube.com/@TrojanDestinyRL')"><img src="/assets/youtube.svg" alt="youtube logo"></div>
-                    <div id="twitchImage" onclick="redirect('mainpage', 'https://www.twitch.tv/trojandestinyrl')"><img src="/assets/twitch.svg" alt="twitch logo"></div>
-                    <div id="discordImage" onclick="redirect('mainpage', 'https://discord.gg/bzU5fVxCZJ')"><img src="/assets/discord.svg" alt="discord logo"></div>
-                </div>
-                <div id="headerRight">
-                <img src="/assets/trojan_image_2.png" alt="Trojan Destiny logo" id="headerImage">
-                </div>
-            </div>
-            <p></p>
+            <img src="/assets/rl_logo_background.svg" alt="Rocket League logo for background" class="backgroundImage">
+            <?php include_once('../display/header.html'); ?>
             <h2 id="adminHeader">ADMIN PANEL</h2>
 
             <?php
@@ -97,21 +83,7 @@ session_start();
             ?>
 
             
-            <div class="subNav">
-                <?php
-                if (isset($_SESSION["privileges"]) && $_SESSION["privileges"] == 1) {
-                    echo "<a href=\"./\" class=\"subNavLink\" id=\"adminHomeButton\">ADMIN PANEL</a>";
-                }
-                ?>
-                <a href="../" class="subNavLink" id="mainHomeButton">HOME</a>
-                <p class="newLine"></p>
-                <?php 
-                if (isset($_SESSION["userID"])){
-                    echo "<a href=\"/user/" . $_SESSION["username"] . " \" class=\"subNavLink\">ACCOUNT</a>";
-                    echo "<a href=\"../user/logout.php?redirect=admin\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
-                }
-                ?>
-            </div>
+            <?php include_once('../display/subnav.php'); ?>
         </div>
     </body>
 </html>

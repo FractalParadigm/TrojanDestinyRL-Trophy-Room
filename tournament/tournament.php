@@ -127,33 +127,7 @@ if (isset($tourneyResults)) {
             </div>
             </div>
             <p class="newLine"></p>
-            <div class="subNav">
-                <?php
-                if (isset($_SESSION["privileges"]) && $_SESSION["privileges"] == 1) {
-                    echo "<a href=\"/admin/\" class=\"subNavLink\" id=\"adminHomeButton\">ADMIN PANEL</a>";
-                }
-                ?>
-                <a href="../" class="subNavLink" id="mainHomeButton">HOME</a>
-
-                <?php
-                // If we're showing someone other than who's logged in, offer a link to their own page
-                if (isset($_SESSION["userID"])){
-                echo "<a href=\"/user/" . $_SESSION["username"] . " \" class=\"subNavLink\">MY ACCOUNT</a>";
-                }
-                ?>
-
-                <p class="newLine"></p>
-                <?php 
-                // If someone is logged in, give them the opportunity to log out
-                if (isset($_SESSION["userID"])){
-                    echo "<a href=\"../user/logout.php?redirect=\" class=\"subNavLink\" id=\"loginButton\">LOGOUT</a>";
-                } else {
-                    echo "<a href=\"/user/login_page.php \" target=\"dataFrame\" class=\"subNavLink\">SIGN IN</a>";
-                    echo "<a href=\"/create_account.php \" target=\"dataFrame\" class=\"subNavLink\">CREATE AN ACCOUNT</a>";
-                    echo "<a href=\"/ \" class=\"subNavLink\">HOME</a>";
-                }
-                ?>
-            </div>
+            <?php include_once('../display/subnav.php'); ?>
         </div>
 </body>
 
