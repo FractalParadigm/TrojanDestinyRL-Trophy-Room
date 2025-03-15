@@ -273,16 +273,13 @@ margin-left: -90px;
 /*
 TEMPORARY
 */
-#contentFrame h4 {
-    margin: auto;
-    padding-bottom: 15px;
-    font-size: 250%;
-}
 
 #giveawayLink {
     text-decoration:none;
     color:rgb(0, 0, 255);
     -webkit-text-stroke: 1px white;
+    font-size: 250%;
+    padding-bottom: 15px;
 }
 #giveawayLink:hover {
     color:orange;
