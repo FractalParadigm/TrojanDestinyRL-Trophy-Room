@@ -119,8 +119,7 @@ session_start();
         <div id="generalResultsDisplayPanel" style="display:block;"> 
             <h2>General Information</h2>
             <div id="infoNav"><p class="infoLink" onclick="toggleInformationDisplay();refreshTourneyDisplay();resizeIframe(parent.document.getElementById('dataFrame'));">Recent Tourney Results</p></div>
-            <p class="newLine">&nbsp;</p>
-            <hr class="tableLine newLine">
+            <hr class="tableLine">
             <div id="generalResultsTable">
                 <p class="generalResultsTableLeft">Number of registered users:</p>
                 <p class="generalResultsTableRight textBold"><?php echo $numUsers; ?></p>

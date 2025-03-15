@@ -13,9 +13,9 @@ try {  // Try opening the SQL database connection
 
     // If we want all the data, we don't need to select a division in the SQL query
     if ($division == "all") {
-        $sqlGetTourneyInfo = $conn->prepare("SELECT tournamentName,tournamentDate,tournamentDivision,numPlayers,winningTeamName,winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " ORDER BY tournamentDate DESC LIMIT $tourneyCardLimit");
+        $sqlGetTourneyInfo = $conn->prepare("SELECT tournamentID,tournamentName,tournamentDate,tournamentDivision,numPlayers,winningTeamName,winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " ORDER BY tournamentDate DESC LIMIT $tourneyCardLimit");
     } else {
-        $sqlGetTourneyInfo = $conn->prepare("SELECT tournamentName,tournamentDate,tournamentDivision,numPlayers,winningTeamName,winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " WHERE tournamentDivision='" . $division . "' ORDER BY tournamentDate DESC LIMIT $tourneyCardLimit");
+        $sqlGetTourneyInfo = $conn->prepare("SELECT tournamentID,tournamentName,tournamentDate,tournamentDivision,numPlayers,winningTeamName,winner1,winner2,winner3,winner4 FROM " . $tournamentDataTableName . " WHERE tournamentDivision='" . $division . "' ORDER BY tournamentDate DESC LIMIT $tourneyCardLimit");
     }
 
     $sqlGetTourneyInfo->execute();
@@ -47,7 +47,7 @@ $tourneyResults = $sqlGetTourneyInfo->fetchAll(PDO::FETCH_ASSOC);
             foreach ($tourneyResults as $result) {
                 $tourneyName = $result["tournamentName"];
                 $tourneyDate = $result["tournamentDate"];
-                $division = $result["tournamentDivision"];
+                $division = ucfirst($result["tournamentDivision"]);
                 $numPlayers = $result["numPlayers"];
                 $winningTeamName = $result["winningTeamName"];
                 $winner1 = $result["winner1"];
