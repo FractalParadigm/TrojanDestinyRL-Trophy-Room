@@ -1,12 +1,43 @@
-#tournamentDisplay {
+#contentFrame h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 0 !important;
+    margin: auto;
+}
+
+#tournamentDisplayPanel {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    border: 1px solid black;
-    border-radius: 7px;
-    width: 80%;
+    width: 90%;
     margin: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding-bottom: 2%;
+    margin-bottom: 2%;
+}
+
+.tournamentDisplay {
+    width: 62%;
+    padding: 1%;
+    border-right: 1px solid black;
+
+}
+
+.tournamentDisplay p {
+    margin: auto;
+    text-align: center;
+}
+
+.gameDisplay {
+    width:33%;
+    padding: 1%;
+    border-left: 1px solid black;
+}
+
+.noTourney {
+    text-align: center;
 }
 
 /*// MOBILE  ////

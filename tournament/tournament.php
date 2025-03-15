@@ -62,34 +62,71 @@ if (isset($tourneyResults)) {
                 </div>
             </div>
             <p></p>
-            <div id="tournamentDisplay">
+            <h1>Tournament Information</h1>
+            <p class="newLine"></p>
+            <div id="tournamentDisplayPanel">
                 <?php
                 if ($tourneyExists) {
                     $tourneyName = $tourneyResults["tournamentName"];
                     $tourneyDate = $tourneyResults["tournamentDate"];
                     $division = ucfirst($tourneyResults["tournamentDivision"]);
                     $numPlayers = $tourneyResults["numPlayers"];
+                    $bestOf = $tourneyResults["bestOf"];
                     $winningTeamName = $tourneyResults["winningTeamName"];
                     $winner1 = $tourneyResults["winner1"];
                     $winner2 = $tourneyResults["winner2"];
                     $winner3 = $tourneyResults["winner3"];
                     $winner4 = $tourneyResults["winner4"];
+                    $notes = $tourneyResults["notes"];
                     // Format date
                     $tourneyDate = DateTime::createFromFormat('Y-m-d', $tourneyDate);
                     $tourneyDate = $tourneyDate->format('M j, Y');
-                    
-                    echo ("THIS TOURNAMENT EXISTS - DETAILS COMING");
-                } else {
-                    echo "<div class=\"noUser\">";
-                    echo "<h2>TOURNAMENT NOT FOUND!</h2>";
-                    echo "<p>Double-check your link.</p>";
-                    echo "<p>Sorry!</p>";
+                    echo "<div class=\"tournamentDisplay\">";
+                    echo "<h3>Details</h2>";
+                    echo "<hr class=\"regularLine\">";
+                    echo "<h2>$tourneyName</h2>";
                     echo "<p>&nbsp;</p>";
+                    echo "<h3>$division Division</h2>";
+                    echo "<h4>" . $numPlayers . "v" . $numPlayers . " &mdash; Best of <b>$bestOf</b></h4>";
+                    echo "<h4>$tourneyDate</h4>";
+                    echo "<hr class=\"halfLine\">";
+                    echo "<h3 class=\"underlined\">Winning Team</h3>";
+                    echo "<h4 class=\"largerText\">$winningTeamName</h4>";
+                    echo "<p>&nbsp;</p>";
+                    echo "<p class=\"largerText\"><a href=\"/user/$winner1\" class=\"plainLinkBlack\">$winner1</a></p>";
+                    if ($numPlayers >= 2) {
+                        echo "<p class=\"largerText\"><a href=\"/user/$winner2\" class=\"plainLinkBlack\">$winner2</a></p>";
+                    }
+                    if ($numPlayers >= 3) {
+                        echo "<p class=\"largerText\"><a href=\"/user/$winner3\" class=\"plainLinkBlack\">$winner3</a></p>";
+                    }
+                    if ($numPlayers == 4) {
+                        echo "<p class=\"largerText\"><a href=\"/user/$winner4\" class=\"plainLinkBlack\">$winner4</a></p>";
+                    }
+                    echo "<p>&nbsp;</p>";
+                    echo "<p>&nbsp;</p>";
+                    if ($notes != "" || $notes != NULL) {
+                        echo "<h4>Notes:</h4>";
+                        echo "<p style=\"width:70%;\">$notes</p>";
+                    }
+                    echo "</div>";
+
+                    echo "<div class=\"gameDisplay\">";
+                    echo "<h3>Games</h3>";
+                    echo "<hr class=\"regularLine\">";
+                    echo "<p style=\"text-align:center;font-style:italic;color:rgba(100, 100, 100, 0.9);\">Coming soon!</p>";
+
+
+                } else {
+                    echo "<div class=\"noTourney\">";
+                    echo "<hr class=\"regularLine\">";
+                    echo "<h1>TOURNAMENT NOT FOUND</h1>";
                     echo "</div>";
                 }
                 ?>
             </div>
-            <p></p>
+            </div>
+            <p class="newLine"></p>
             <div class="subNav">
                 <?php
                 if (isset($_SESSION["privileges"]) && $_SESSION["privileges"] == 1) {
